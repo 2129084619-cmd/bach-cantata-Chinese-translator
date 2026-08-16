@@ -1,12 +1,15 @@
 # 巴赫康塔塔歌词翻译 · Bach Cantata Chinese Translator
 
-> 一个把巴赫康塔塔（Bach Cantatas）德文歌词自动翻译为**简体中文**的完整管线——抓取德语原文、校验路德圣经经文、填充中文和合本（CUV）经文，最终生成德中逐行对照的 Word 文档（docx）。
+> 一个把巴赫康塔塔（Bach Cantatas）德文歌词自动翻译为**简体中文**的完整管线——抓取德语原文、校验路德圣经经文、填充中文和合本（CUV）经文，最终生成德中逐行对照的 Word 文档（docx），为本地agent制作。
 >
-> A complete pipeline that automatically translates the German libretti of J. S. Bach's cantatas into **Simplified Chinese** — fetching the original German text, cross-referencing Luther's Bible, filling in Chinese Union Version (CUV) scripture, and producing a line-by-line German–Chinese Word document (docx).
+> A complete pipeline created for local AI agent that automatically translates the German libretti of J. S. Bach's cantatas into **Simplified Chinese** — fetching the original German text, cross-referencing Luther's Bible, filling in Chinese Union Version (CUV) scripture, and producing a line-by-line German–Chinese Word document (docx).
 
-> ⚠️ **版本说明**：本项目当前仅提供**简体中文（简中）翻译版本**，暂不含繁体中文版本。若未来需要繁体，可在此译本基础上另行转换。
->
-> **Note**: This project currently provides a **Simplified Chinese** translation only. A Traditional Chinese version is not yet available.
+> ⚠️ **注意**：
+> 本项目当前仅提供**简体中文（简中）翻译版本**，暂不含繁体中文版本。若未来需要繁体，可在此译本基础上另行转换。
+> 由于完全基于agent工具进行开发，当前尚处于不太完整的状态，并可能存在一定的准确性问题，后续若有运行问题请在评论区留言
+> **Note**:
+> This project currently provides a **Simplified Chinese** translation only. A Traditional Chinese version is not yet available.
+> This project is currently more or less incomplete and may have issues in accuracy, since it is created by agent powered by AI. If there were further practical issues, please reply in the discussion sector.
 
 ---
 
@@ -184,6 +187,7 @@ python -m 巴赫康塔塔中的众赞歌.chorale_main --status
 - 部分站点抓取时需关闭 SSL 校验（`verify=False`），仅为规避证书问题，非安全风险。
 - 中文和合本经文需通过 WebFetch（JS 渲染页面）手动填充，未完全自动化。
 - 最终翻译由 AI 助手完成（以和合本为最高参照），可能存在偏差，建议人工校对。
+- 在对话康塔塔的翻译中仍然会出现把角色名误识别成歌词并翻译的情形
 - 部分众赞歌详情页 HTML 结构特殊，诗歌文本提取可能不完整。
 - 跨平台使用中文包名（`巴赫康塔塔中的众赞歌`）时需确保 UTF-8 环境。
 
