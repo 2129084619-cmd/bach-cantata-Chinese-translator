@@ -1,0 +1,245 @@
+{
+  "chorale_id": "Chorale053",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale053-Eng3.htm",
+  "scraped_at": "2026-08-04T01:08:49",
+  "title": "Es ist genug",
+  "ekg": "",
+  "author": "Franz Joachim Burmeister",
+  "author_year": "1662",
+  "melody": "",
+  "composer": "",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV60.htm",
+      "mvt_url": "../INS/BWV060-05.htm",
+      "year": "1723",
+      "br": "216",
+      "re_num": "91",
+      "ke": "216",
+      "di": "46",
+      "bc": "F60A161:5",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "5",
+      "bwv": "60",
+      "movement": "5"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Es ist genug!",
+        "So nimm, Herr, meinen Geist",
+        "zu Zions Geistern hin;",
+        "lös auf das Band, das allgemählich reißt;",
+        "befreie diesen Sinn,",
+        "der sich nach seinem Gotte sehnet,",
+        "der täglich klagt und nächtlich thränet:",
+        "Es ist genug!"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Es ist genug",
+        "des Jammers, der mich drückt!",
+        "Des Adams Apfelgier, das Sündengift,",
+        "hat kaum mich nicht erstickt;",
+        "nichts Gutes wohnt in mir.",
+        "Was kläglich mich von Gotte trennet,",
+        "was täglich mich beflecket nennet,",
+        "des ist genug."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Es ist genug",
+        "des Kreuzes, das mir fast",
+        "den Rücken wund gemacht;",
+        "wie schwer, o Gott, wie hart ist diese Last!",
+        "Ich schwemme manche Nacht",
+        "mein hartes Lager durch mit Thränen.",
+        "Wie lang, wie lange muß ich sehnen?",
+        "Wann ists genug?"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Es ist genug,",
+        "wenn nur mein Jesus will.",
+        "Er kennet ja mein Herz;",
+        "Ich harre sein und halt indessen still,",
+        "bis er mir allen Schmerz,",
+        "der meine sieche Brust abnaget,",
+        "zurücke legt und zu mir saget:",
+        "Es ist genug!"
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Es ist genug,",
+        "Herr, wenn es dir gefällt,",
+        "so spanne mich doch aus.",
+        "Mein Jesus kömmt!",
+        "Nun gute Nacht, o Welt!",
+        "Ich fahr ins Himmelshaus,",
+        "ich fahre sicher hin mit Frieden;",
+        "Mein feuchter Jammer bleibt darnieden.",
+        "Es ist genug"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "It is enough!",
+        "Therefore, Lord, take my spirit",
+        "from here to the spirits of Zion;",
+        "undo the ties , that gradually are tearing me apart;",
+        "set free this mind",
+        "that yearns for its God,",
+        "that daily laments and nightly weeps:",
+        "It is enough!"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "There is enough",
+        "of the misery that crushes me!",
+        "Adam’s greed for the apple, the poison of sin",
+        "have all but smothered me;",
+        "nothing good dwells in me.",
+        "What miserably separates me from God,",
+        "what each day marks me out as polluted",
+        "- of this there is enough."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "There is enough",
+        "of the cross that almost",
+        "breaks my back;",
+        "how heavy, o God, how hard is this burden!",
+        "Many nights I soak",
+        "my hard bed with my tears.",
+        "How long, how long must I yearn?",
+        "When is it enough?"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "It is enough",
+        "only when my Jesus wills.",
+        "He indeed knows my heart;",
+        "I wait for  him and meanwhile keep calm,",
+        "until by him all the sorrow",
+        "that gnaws away at my sickly breast",
+        "is put aside and he says to me:",
+        "It is enough!"
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "It is enough,",
+        "Lord, when it is pleasing to you,",
+        "then grant me release.",
+        "May my Jesus come!",
+        "Now good night, o world.",
+        "I am going to heaven’s house,",
+        "I go confidently from here with joy;",
+        "my dismal sorrow remains down below.",
+        "It is enough!"
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    5
+  ],
+  "translator": "AI (WorkBuddy)",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "已经够了！",
+        "主啊，就请收取我的灵",
+        "归于锡安的诸灵；",
+        "解开那渐渐断裂的绳索；",
+        "释放这颗",
+        "渴慕他神的心，",
+        "他日日哀叹、夜夜流泪：",
+        "已经够了！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-04T22:25:02.198383"
+    },
+    "2": {
+      "lines": [
+        "已经够了，",
+        "那压着我的苦难！",
+        "亚当贪果之欲，罪之毒，",
+        "几乎令我窒息；",
+        "我里面毫无良善。",
+        "那使我与神凄然分离的，",
+        "每日称我被玷污的，",
+        "这些已经够了。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-04T22:25:02.198545"
+    },
+    "3": {
+      "lines": [
+        "已经够了，",
+        "那几乎将我脊背",
+        "压伤的十字架；",
+        "神啊，这重担何其沉重、何其难当！",
+        "多少夜晚我以泪水",
+        "浸透我坚硬的床榻。",
+        "我还要渴慕多久、多久？",
+        "何时才算够了？"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-04T22:25:02.198548"
+    },
+    "4": {
+      "lines": [
+        "已经够了，",
+        "只要我的耶稣愿意。",
+        "祂深知我心；",
+        "我等候祂，其间静默无声，",
+        "直到祂将侵蚀我",
+        "病弱胸膛的一切苦痛放下，",
+        "并对我说：",
+        "已经够了！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-04T22:25:02.198549"
+    },
+    "5": {
+      "lines": [
+        "已经够了，",
+        "主啊，你若愿意，",
+        "就请解下我的轭。",
+        "我的耶稣来了！",
+        "世界啊，晚安了！",
+        "我往天上的居所去，",
+        "我安然前往，带着平安；",
+        "我泪湿的苦楚留在地上。",
+        "已经够了！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-04T22:25:02.198552"
+    }
+  },
+  "translated_at": "2026-08-04T01:09:37.469221"
+}

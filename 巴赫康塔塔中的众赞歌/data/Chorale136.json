@@ -1,0 +1,345 @@
+{
+  "chorale_id": "Chorale136",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale136-Eng3.htm",
+  "scraped_at": "2026-08-02T00:39:00",
+  "title": "Nun lob, mein' Seel', den Herren",
+  "ekg": "",
+  "author": "Johann Gramann (Poliander)",
+  "author_year": "1525",
+  "melody": "",
+  "composer": "Johann Kugelmann, derived from the secular song \"Weiß mir ein Blümlein blaue\" from 15th century.",
+  "composer_year": "1540",
+  "theme": "",
+  "description": "\"Nun lob, mein Seel, den Herren\" (Now praise, my soul, the Lord) is a Lutheran hymn written in German by the theologian and reformer Johann Gramann (Poliander) in 1525. It was published in 1540 and appears in 47 hymnals. A translation by Catherine Winkworth, \"My Soul, now Praise thy Maker!\", was published in 1863.",
+  "vocal_works": [
+    {
+      "bwv": "17",
+      "movement": "7",
+      "type": "Chorale",
+      "title": "Wie sich ein Vatr erbarmet ( Mvt. 7 ) from Cantata BWV 17 (verse 3) Ref: Riemenschneider 7; Breitkopf 6; Birnstiel 7; AmB 46II p.176; Levy�Mendelssohn",
+      "verse": "3",
+      "year": "1726"
+    },
+    {
+      "bwv": "29",
+      "movement": "8",
+      "type": "Chorale",
+      "title": "Sei Lob und Preis mit Ehren ( Mvt. 8 ) from Cantata BWV 29 (verse 5) Riemenschneider 116; Breitkopf 116; Birnstiel 121; Fasch p.94",
+      "verse": "5",
+      "year": "1731"
+    },
+    {
+      "bwv": "51",
+      "movement": "4",
+      "type": "Chorale for Soprano",
+      "title": "Sei Lob und Preis mit Ehren ( Mvt. 4 ) from Cantata BWV 51 (verse 5)",
+      "verse": "5",
+      "year": "1730"
+    },
+    {
+      "bwv": "167",
+      "movement": "4",
+      "type": "Recitative",
+      "title": "Des Weibes Samen kam ( Mvt. 4 ) from Cantata BWV 167 (paraphrase of verse 1)",
+      "verse": "1",
+      "year": "1723"
+    },
+    {
+      "bwv": "167",
+      "movement": "5",
+      "type": "Chorale",
+      "title": "Sei Lob und Preis mit Ehren ( Mvt. 5 ) from Cantata BWV 167 (verse 5)",
+      "verse": "5",
+      "year": "1723"
+    },
+    {
+      "bwv": "389",
+      "movement": "",
+      "type": "Chorale",
+      "title": "Nun lob', mein' Seel', den Herren",
+      "verse": "",
+      "year": "1725?"
+    },
+    {
+      "bwv": "390",
+      "movement": "",
+      "type": "Chorale",
+      "title": "Nun lob', mein' Seel', den Herren",
+      "verse": "",
+      "year": "1725?"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Nun lob, mein' Seel', den Herren,",
+        "Was in mir ist, den Namen sein!",
+        "Sein' Wohltat tut er mehren,",
+        "Vergiß es nicht, o Herze mein!",
+        "Hat dir dein' Sünd' vergeben",
+        "Und heilt dein' Schwachheit groß,",
+        "Errett't dein armes Leben,",
+        "Nimmt dich in seinen Schoß,",
+        "Mit rechtemTrost beschüttet,",
+        "Verjüngt dem Adler gleich.",
+        "Der Kön'g schafft Recht, behütet,",
+        "Die leiden in sein'm Reich."
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Er hat uns wissen lassen",
+        "Sein herrlich Recht und sein Gericht,",
+        "Dazu sein' Güt' ohn' Maßen,",
+        "Es mangelt an Erbarmung nicht.",
+        "Sein'n Zorn läßt er wohl fahren,",
+        "Straft nicht nach unsrer Schuld,",
+        "Die Gnad' tut er nicht sparen,",
+        "Den Blöden ist er hold.",
+        "Sein Güt' ist hoch erhaben",
+        "Ob den'n, die fürchten ihn.",
+        "So fern der Ost vom Abend,",
+        "Ist unsre Sünd' dahin."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Wie sich ein Mann erbarmet",
+        "Über sein' junge Kinderlein,",
+        "So tut der Herr uns Armen,",
+        "So wir ihn kindlich fürchten rein.",
+        "Er kennt das arm' Gemächte",
+        "Und weiß, wir sind nur Staub,",
+        "Gleichwie das Gras, von Rechen.",
+        "Ein' Blum' und fallend Laub,",
+        "Der Wind nur drüber wehet,",
+        "So ist es nimmer da:",
+        "Also der Mensch vergehet,",
+        "Sein End', das ist ihm na."
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "Die Gottesgnad' alleine",
+        "Bleibt stet und fest in Ewigkeit",
+        "Bei seiner lieben G'meine,",
+        "Die steht in seiner Furcht bereit,",
+        "Die seinen Bund behalten.",
+        "Der herrscht im Himmelreich.",
+        "Ihr starken Engel, waltet",
+        "Sein's Lobs und dient zugleich",
+        "Dem großen Herrn zu Ehren",
+        "Und treibt sein heil'ges Wort,",
+        "Mein' Seel' soll auch vermehren",
+        "Sein Lob an allem Ort."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Sei Lob und Preis mit Ehren",
+        "Gott Vater, Sohn und Heil'gem Geist!",
+        "Der woll' in uns vermehren,",
+        "Was er uns aus Genad' verheißt,",
+        "Daß wir ihm fest vertrauen,",
+        "Gänzlich uns laß'n auf ihn,",
+        "Von Herzen auf ihn bauen,",
+        "Daß uns'r Herz, Mut und Sinn",
+        "Ihm festiglich anhangen.",
+        "Drauf singen wir zur Stund:",
+        "Amen, wir werd'n's erlangen,",
+        "Glaub'n wir aus Herzengrund."
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Now praise, my soul, the Lord,",
+        "all that is in me praise his name!",
+        "He adds to  his acts of kindness,",
+        "do not forget this, oh my heart!",
+        "He has forgiven you your sins,",
+        "and healed your great weakness.",
+        "He rescues your poor life,",
+        "he takes you into his bosom,",
+        "pours down just consolation,",
+        "renews you like the eagle,",
+        "the king acts justly, protects",
+        "those who suffer in his kingdom."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "He has let us know",
+        "his marvelous justice and his court,",
+        "and also his boundless kindness,",
+        "nothing is lacking in his compassion,",
+        "he lets us off his anger,",
+        "he does not punish us according to our guilt,",
+        "he is unstinting in his mercy,",
+        "to the foolish he is graceful.",
+        "His kindness is valued highly",
+        "by those who fear him.",
+        "As far as the east is from the west,",
+        "our sins are from him."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "As a man feels compassion",
+        "for his little children,",
+        "so does the Lord for us poor people,",
+        "so we should revere him  simply as children.",
+        "He knows our poor strength",
+        "and is aware that we are only dust,",
+        "like the grass,swept away,",
+        "a flower and falling leaves,",
+        "the wind has only to blow over them,",
+        "then they are there no more:",
+        "so mankind passes on",
+        "His end is  is  near to him."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Only  God's mercy",
+        "remains fixed and firm for ever",
+        "for his dear congregation",
+        "who stand ready in reverence for  him,",
+        "who keep his covenant.",
+        "He rules in the kingdom of heaven.",
+        "You mighty angels, act",
+        "in his praise  and also by your service",
+        "honour the great Lord",
+        "and promote his holy word.",
+        "My soul also must increase",
+        "his praise everywhere."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "May there be praise and glory and honour",
+        "for God the Father, Son and Holy Spirit!",
+        "May it be his will to increase in us",
+        "what he promised us through his grace,",
+        "so that we firmly trust him,",
+        "surrender ourselves wholly to him,",
+        "build on him in our hearts,",
+        "so that our heart, spirit and mind",
+        "steadfastly depend on him.",
+        "For this reason we sing now:",
+        "Amen, we shall achieve this,",
+        "we believe from the bottom of our hearts."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    3,
+    5
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "我的心哪，你要赞美耶和华！",
+        "凡在我里面的，也要赞美他的圣名！",
+        "他广施恩惠，日益加增，",
+        "我的心哪，你不可忘记！",
+        "他赦免你的一切罪孽，",
+        "医治你的一切疾病，",
+        "他救赎你的命脱离死亡，",
+        "将你接入他的怀中，",
+        "以真实的安慰覆庇你，",
+        "使你如鹰返老还童。",
+        "君王施行公义，保护",
+        "那些在他国中受苦的人。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:41:50.221517"
+    },
+    "2": {
+      "lines": [
+        "他曾使我们知道",
+        "他荣耀的公义和典章，",
+        "并有他无限的慈爱，",
+        "他的怜悯从不短缺。",
+        "他不长久发怒，",
+        "不按我们的罪过刑罚我们，",
+        "他不吝惜恩典，",
+        "他怜爱软弱的人。",
+        "他的慈爱向敬畏他的人",
+        "是何等的高远超乎诸天。",
+        "东离西有多远，",
+        "他叫我们的过犯离我们也有多远。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:41:50.221545"
+    },
+    "3": {
+      "lines": [
+        "父亲怎样怜恤",
+        "他的幼小孩童：",
+        "耶和华也怎样怜恤我们这些困苦之人，",
+        "我们若以赤子之心敬畏他。",
+        "他知道我们不过是尘土所造，",
+        "我们，他确知，不过是灰尘；",
+        "如草被镰刀割下，",
+        "如花与落叶一般，",
+        "风只轻轻吹过其上，",
+        "它便不复存在：",
+        "世人也是如此逝去；",
+        "他的终局已近在眼前。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:41:50.221552"
+    },
+    "4": {
+      "lines": [
+        "惟有上帝的恩典，",
+        "永远坚立，存到永恒，",
+        "临到他亲爱的教会，",
+        "就是那些存敬畏之心等候他的，",
+        "那些持守他圣约的人。",
+        "他在天国掌权作王。",
+        "你们大能的天使啊，都要",
+        "赞美他，并一同侍奉",
+        "那至大的主，使他的荣耀得着称赞，",
+        "遵行他圣善的话语，",
+        "我的心哪，也要在一切地方",
+        "加增对他的赞美。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:41:50.221557"
+    },
+    "5": {
+      "lines": [
+        "愿颂赞、荣耀与尊贵",
+        "归于父、子、圣灵上帝！",
+        "愿他在我们里面加增",
+        "他凭恩典所应许我们的一切，",
+        "叫我们坚定信靠他，",
+        "全然将自己交托于他，",
+        "从心里倚靠他，",
+        "叫我们的心、勇气和意念",
+        "都紧紧连接于他。",
+        "为此我们此时歌唱：",
+        "阿们，我们必要得着，",
+        "只要我们从心底相信。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:41:50.221562"
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "chorale_id": "Chorale048",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale048-Eng3.htm",
+  "scraped_at": "2026-08-16T23:19:29",
+  "title": "Wach auf, mein Herz, und singe",
+  "ekg": "",
+  "author": "Paul Gerhardt",
+  "author_year": "1647",
+  "melody": "",
+  "composer": "",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV194.htm",
+      "mvt_url": "../INS/BWV194-12.htm",
+      "year": "1723",
+      "br": "93, 257",
+      "re_num": "268",
+      "ke": "257",
+      "di": "19",
+      "bc": "F152, A91:12, B31:12",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "9 &10",
+      "bwv": "194",
+      "movement": "12"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Wach auf, mein Herz, und singe",
+        "dem Schöpfer aller Dinge,",
+        "dem Geber aller Güter,",
+        "dem frommen Menschenhüter."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Heunt, als die dunklen Schatten",
+        "mich ganz umgeben hatten,",
+        "hat Satan mein begehret;",
+        "Gott aber hat's gewehret."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Ja, Vater, als er dächte,",
+        "daß er mir schaden möchte,",
+        "war ich in deinem Schoose,",
+        "dein Flügel mich umschlosse."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Du sprachst: »Mein Kind, nun liege,",
+        "trotz dem, der dich betrüge;",
+        "schlaf wohl, laß dir nicht grauen,",
+        "du sollst die Sonne schauen."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Dein Wort, das ist geschehen:",
+        "Ich kann das Licht noch sehen,",
+        "von Not bin ich befreiet,",
+        "dein Schutz hat mich erneuet."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Du willst ein Opfer haben,",
+        "hier bring ich meine Gaben:",
+        "mein Weihrauch und mein Widder",
+        "sind mein Gebet und Lieder."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "Die wirst du nicht verschmähen;",
+        "du kannst ins Herze sehen;",
+        "denn du weißt, daß zur Gabe",
+        "ich ja nichts Bessers habe."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "So wollst du nun vollenden",
+        "dein Werk an mir und senden,",
+        "der mich an diesem Tage",
+        "auf seinen Händen trage."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Sprich Ja zu meinen Taten,",
+        "hilf selbst das Beste raten;",
+        "den Anfang, Mitt und Ende,",
+        "ach Herr, zum besten wende"
+      ],
+      "bold": true
+    },
+    "10": {
+      "lines": [
+        "Mit Segen mich beschütte,",
+        "Mein Herz sei deine Hütte,",
+        "Dein Wort sei meine Speise,",
+        "Bis ich gen Himmel reise!"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Awake my heart and sing",
+        "to the creator of everything,",
+        "to the giver of all that is good,",
+        "to the righteous guardian of mankind."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "This night, when the dark shadows",
+        "had surrounded me completely,",
+        "Satan coveted what was mine",
+        "but God was my defence"
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Yes, Father, when he thought",
+        "that he could harm me,",
+        "I was in your lap,",
+        "your wings enclosed me."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "You said: “My child,  lie down,",
+        "despite the one who would deceive you;",
+        "sleep well, do not be frightened,",
+        "you will see the sun.”"
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Your word has come to pass:",
+        "I can still see the light,",
+        "I have been set free from my distress,",
+        "your protection has revived me."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "You wish to have an offering,",
+        "here I bring my gifts:",
+        "my incense and my ram",
+        "are my prayers and songs."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "You will not feel scorn;",
+        "you can see into my heart;",
+        "for you know that as a gift",
+        "I have indeed nothing better."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "May it now be your will to perfect",
+        "your work in me, and send",
+        "one who during this day",
+        "may bear me in his hands."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Say yes to my deeds,",
+        "help me to discern for myself  what is best;",
+        "the beginning, middle and end,",
+        "ah Lord, turn to the best."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Protect me with your blessing,",
+        "may my heart be your shelter,",
+        "may your word be my food",
+        "until I journey to heaven!"
+      ],
+      "bold": true
+    }
+  },
+  "bach_verses": [
+    9,
+    10
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "9": {
+      "lines": [
+        "对我所行的说声「是」吧，",
+        "亲自帮助我筹算最好的事；",
+        "我的起头、中间与结局，",
+        "主啊，求你转向最好。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T23:23:36.425797"
+    },
+    "10": {
+      "lines": [
+        "求你以祝福护佑我，",
+        "让我的心作你的居所，",
+        "让你的话作我的食粮，",
+        "直到我启程升入高天！"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T23:23:36.425802"
+    }
+  }
+}

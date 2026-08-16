@@ -1,0 +1,435 @@
+{
+  "chorale_id": "Chorale015",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale015-Eng3.htm",
+  "scraped_at": "2026-08-02T00:06:49",
+  "title": "Wie schön leuchtet der Morgenstern",
+  "ekg": "48",
+  "author": "Philipp Nicolai, based on Psalm 45",
+  "author_year": "1597",
+  "melody": "Wie schön leuchtet der Morgenstern (Zahn 8359)",
+  "composer": "Philipp Nicolai, after Straßburg 1538",
+  "composer_year": "1599",
+  "theme": "Epiphany; Pentecost",
+  "description": "\"Wie schön leuchtet der Morgenstern\" (How lovely shines the morning star) is a hymn by Philipp Nicolai , a German Lutheran Pastor, who is the author of two monumental hymns: Wachet auf, ruft uns die Stimme and this one. Supposedly he made this poem after a period of great torment, because of an epidemy of pestilence which had struck the village where he was pastor. P. Nicolai wrote the words in response to a pestilence in 1597. Hae first published it in 1599 in his book Frewdenspiegel deß ewigen Lebens (\"Mirror of Joy of the Life Everlasting\") in Frankfurt, together with \" Wachet auf, ruft uns die Stimme \". He introduced it: \"Ein Geistlich Brautlied der Gläubigen Seelen / von Jesu Christo irem himlischen Bräutgam: Gestellt ober den 45. Psalm deß Propheten Dauids\" (A spiritual wedding song of the faithful soul about Jesus Christ, her heavenly groom, made over the 45th psalm of the Prophet David). With this title the hymn is placed in a long tradition of a mystical spirituality, in which the allegorical interpretation of the Song of Songs is always present. The hymn is also a piece of craftmanship. The 7 verses of the hymn Wie schön leuchtet der Morgenstern are built on an acrostichon: W ilhelm E rnst G raf U nd H err Z u W aldeck, being a former student of Nicolai, who died 1598. Some people also see typographical art in it: When you align the text of the poem centered then the form of a cup appears, referring to the last supper. Si non e vero� The words are based on Psalms 45, a mystical wedding song. Jesus is identified with the morning star, according to Revelation 22:16, and with the bridegroom of the psalm. Nicolai This hymn is often referred to as \"The Queen of Chorales\".",
+  "vocal_works": [
+    {
+      "bwv": "1",
+      "movement": "1",
+      "type": "Chorus",
+      "title": "Wie schön leuchtet der Morgenstern ( Mvt. 1 ) from Cantata BWV 1 ( 1725 ) (verse 1)",
+      "verse": "1",
+      "year": "1725"
+    },
+    {
+      "bwv": "1",
+      "movement": "6",
+      "type": "Chorale",
+      "title": "Wie bin ich doch so herzlich froh ( Mvt. 6 ) from Cantata BWV 1 ( 1725 )  (verse 7),",
+      "verse": "7",
+      "year": "1725"
+    },
+    {
+      "bwv": "36",
+      "movement": "4",
+      "type": "Chorale",
+      "title": "Zwingt die Saiten in Cythara ( Mvt. 4 ) from Cantatas BWV 36 ( 1731 ) (verse 6) Ref: RE 86=195=305; Br 85=195=304; Birnstiel 91; Di 33; AmB 46II p.89 ",
+      "verse": "6",
+      "year": "1731"
+    },
+    {
+      "bwv": "37",
+      "movement": "3",
+      "type": "Chorale for Soprano & Alto",
+      "title": "Herr Gott Vater, mein starker Held! ( Mvt. 3 ) from Cantata BWV 37 ( 1724 ) (verse 5)",
+      "verse": "5",
+      "year": "1724"
+    },
+    {
+      "bwv": "49",
+      "movement": "6",
+      "type": "Aria for Bass with Chorale for Soprano",
+      "title": "Dich Hab� Ich Je Und Je Geliebet ( Mvt. 6 ) from Cantata BWV 49 ( 1726 ) (verse 7)",
+      "verse": "7",
+      "year": "1726"
+    },
+    {
+      "bwv": "61",
+      "movement": "6",
+      "type": "Chorale",
+      "title": "Amen, amen! Komm, du schöne Freudenkrone, bleib nicht lange! ( Mvt. 6 ) from Cantata BWV 61 ( 1714 ) (last 4 lines of verse 7)",
+      "verse": "7",
+      "year": "1714"
+    },
+    {
+      "bwv": "172",
+      "movement": "6",
+      "type": "Chorale",
+      "title": "Von Gott kömmt mir ein Freudenschein ( Mvt. 6 ) from Cantata BWV 172 ( 1714 ) (verse 4) Ref: RE 323; Br 322; AmB 46II p.73",
+      "verse": "4",
+      "year": "1714"
+    },
+    {
+      "bwv": "Anh 199",
+      "movement": "3",
+      "type": "Chorale",
+      "title": "Ey! meine Perle, du werthe Cron, wahr Gottes",
+      "verse": "2",
+      "year": "1724"
+    },
+    {
+      "bwv": "436",
+      "movement": "",
+      "type": "Chorale",
+      "title": "Wie schön leuchtet der Morgenstern",
+      "verse": "",
+      "year": ""
+    },
+    {
+      "bwv": "739",
+      "movement": "",
+      "type": "Organ-chorale",
+      "title": "",
+      "verse": "",
+      "year": ""
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Wie schön leuchtet der Morgenstern",
+        "Voll Gnad' und Wahrheit von dem Herrn,",
+        "Die süße Wurzel Jesse!",
+        "Du Sohn David zus Jakobs Stamm,",
+        "Mein König und mein Bräutigam,",
+        "Hast mir mein Herz besessen,",
+        "Lieblich, freundli,",
+        "Schön und herrlich, groß und ehrlich,",
+        "Reich von Gaben,",
+        "Hoch und sehr prächtig erhaben!"
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Ei meine Perl', du werte Kron',",
+        "Wahr'r Gottes- und Mariensohn,",
+        "Ein hochgeborner König!",
+        "Mein Herz heißt dich ein Lilium,",
+        "Dein süßes Evangelium",
+        "Ist lauter Milch und Honig.",
+        "Ei mein Blümlein,",
+        "Hosianna, himmlisch Manna,",
+        "Das wir essen,",
+        "Deiner kann ich nicht vergessen!"
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Geuss sehr tief in mein Herz hinein,",
+        "Du heller Jaspis und Rubin,",
+        "Die Flamme deiner Liebe",
+        "Und erfreu' mich, daß ich doch bleib'",
+        "An deinem auserwählten Leib",
+        "Ein' lebendige Rippe!",
+        "Nach dir ist mir,",
+        "Gratiosa coeli rosa,",
+        "Krank und glimmet",
+        "Mein Herz, durch Liebe verwundet."
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "Von Gott kommt mir ein Freudenschein,",
+        "Wenn du mit deinen Äugelein",
+        "Mich freundlich tust anblicken.",
+        "O Herr Jesu, mein trautes Gut,",
+        "Dein Wort, dein Geist, dein Leib und Blut",
+        "Mich innerlich erquicken!",
+        "Nimm mich freundlich",
+        "In dein' Arme, daß ich warme",
+        "Werd' von Gnaden!",
+        "Auf dein Wort komm' ich geladen."
+      ],
+      "bold": true
+    },
+    "5": {
+      "lines": [
+        "Herr Gott Vater, mein starker Held,",
+        "Du hast mich ewig vor der Welt",
+        "In deinem Sohn geliebet.",
+        "Dein Sohn hat mich ihm selbst vertraut,",
+        "Er ist mein Schatz, ich bin sein' Braut,",
+        "Sehr hoch in ihm erfreuet.",
+        "Eia, eia,",
+        "Himmlisch Leben wird er geben",
+        "Mir dort oben!",
+        "Ewig soll mein Herz ihn loben."
+      ],
+      "bold": true
+    },
+    "6": {
+      "lines": [
+        "Zwingt die Saiten in Zithara",
+        "Und laßt die süße Musika",
+        "Ganz freudenreich erschallen,",
+        "Daß ich möge mit Jesulein,",
+        "Dem wunderschönen Bräut'gam mein,",
+        "In steter Liebe wallen!",
+        "Singet, springet,",
+        "Jubilieret, triumphieret,",
+        "Dankt dem Herren!",
+        "Groß ist der König der Ehren!"
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Wie bin ich doch so herzlich froh,",
+        "Daß mein Schatz ist das A und O.",
+        "Der Anfang und das Ende!",
+        "Er wird mich doch zu seinem Preis",
+        "Aufnehmen in das Paradeis,",
+        "Des klopf' ich in die Hände.",
+        "Amen! Amen!",
+        "Komm, du schöne Freudenkrone,",
+        "Bleib nicht lange,",
+        "Deiner wart' ich mit Verlangen!"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "1.How beautifully shines the morning star",
+        "full of grace and truth from the Lord,",
+        "the sweet root of Jesse!",
+        "You son of David from the line of Jacob,",
+        "my king and my bridegroom,",
+        "have taken posession of my heart,",
+        "[you who are] lovely,friendly,",
+        "beautiful and glorious, great and honourable,",
+        "rich in gifts,",
+        "lofty and exalted in splendour!"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "2.Ah my pearl, my precious crown,",
+        "true son of God and Mary,",
+        "a king of most noble birth!",
+        "My heart calls you a lily,",
+        "your sweet gospel",
+        "is pure milk and honey.",
+        "Ah my dear flower,",
+        "hosanna, heavenly manna,",
+        "that we eat,",
+        "I cannot forget you!"
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "3.Pour most deeply within my heart,",
+        "you clear jasper and ruby,",
+        "the flames of your love,",
+        "and make me rejoice, so that I may remain",
+        "in your chosen body",
+        "a living rib!",
+        "Because of you,",
+        "gracious rose of heaven,",
+        "my heart is sick and smouldering,",
+        "wounded with love."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "4.A joyful light from God comes to me",
+        "when with your dear eyes",
+        "you look on me as a friend.",
+        "Oh Lord Jesus, my beloved good,",
+        "your word, your spirit, your body and blood",
+        "refresh me within.",
+        "Take melike a friend",
+        "in your arms, so that I may become warm",
+        "with your grace",
+        "To your word I come invited."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "5.Lord, God,Father, my mighty hero,",
+        "before the world you have",
+        "loved me in your son.",
+        "Your son has betrothed me to himself,",
+        "he is my treasure, I am his bride,",
+        "most greatly I rejoice in him.",
+        "Yes, yes.",
+        "Heavenly life he  will give me",
+        "in the the world above!",
+        "My  heart shall praise him for ever."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "6.Pluck the strings on the harp",
+        "and let the sweet music",
+        "resound full of joy,",
+        "so that with dear Jesus,",
+        "my most beautiful bridegroom,",
+        "in constant love I may make my pilgrimage!",
+        "Sing, leap,",
+        "rejoice, triumph,",
+        "thank the Lord!",
+        "Great is the king of honour!"
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "7.How full I am therefore of heartfelt joy",
+        "that my treasure is the alpha and the omega,",
+        "the beginning and the end;",
+        "To his reward he will",
+        "take me up to paradise,",
+        "and so I clap my hands",
+        "Amen! Amen!",
+        "Come, you sweet crown of joy,",
+        "do not long delay,",
+        "I wait for you with longing."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "何其美哉，晨星闪耀，",
+        "满有恩典和真理，从主而来，",
+        "耶西的甘甜之根！",
+        "大卫之子，雅各的后裔，",
+        "我的君王，我的新郎，",
+        "你已占据我心，",
+        "可爱的，友善的，",
+        "美丽辉煌、伟大尊贵，",
+        "恩赐丰盛，",
+        "崇高而又极其威严！"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212522"
+    },
+    "2": {
+      "lines": [
+        "啊，我的珍珠，尊贵的华冠，",
+        "真上帝与马利亚之子，",
+        "生于高天的君王！",
+        "我心称你为百合花，",
+        "你甜美的福音",
+        "是纯净的奶与蜜。",
+        "啊，我的小花，",
+        "和散那！天上的吗哪，",
+        "我们所享用的，",
+        "我永不能将你忘怀！"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212532"
+    },
+    "3": {
+      "lines": [
+        "求你深深浇灌我心，",
+        "明亮的碧玉和红宝石！",
+        "你爱的火焰",
+        "使我欢欣喜乐，叫我永远",
+        "在你所拣选的身体中",
+        "成为一根活骨！",
+        "我切慕你，",
+        "天恩之玫瑰，",
+        "我心因爱微燃如将熄之火，",
+        "已被你的爱刺透。"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212535"
+    },
+    "4": {
+      "lines": [
+        "从上帝那里有一道喜乐之光临到我，",
+        "当你以亲切的眼目",
+        "向我友好地凝望。",
+        "哦，主耶稣，我所爱的良善，",
+        "你的话语、你的灵、你的身体和宝血",
+        "使我内心得畅快！",
+        "求你友善地",
+        "将我拥入你怀中，",
+        "好叫我因你的恩典得着温暖！",
+        "凭你的话我应邀前来。"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212537"
+    },
+    "5": {
+      "lines": [
+        "主上帝，父啊，我大能的勇士，",
+        "在创世以先你已",
+        "在你的爱子里爱了我。",
+        "你的儿子已聘我归于他自己，",
+        "他是我的至宝，我是他的新妇，",
+        "我因他大有喜乐。",
+        "是啊，是啊！",
+        "他必将天上的生命赐予我，",
+        "在那至高之处！",
+        "我的心要永永远远赞美他。"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212539"
+    },
+    "6": {
+      "lines": [
+        "弹拨琴弦吧，",
+        "让甜美的音乐",
+        "满有喜乐地响起，",
+        "好叫我与亲爱的耶稣，",
+        "我至美的新郎，",
+        "在恒久的爱中奔走天路！",
+        "歌唱吧，欢跃吧，",
+        "欢呼吧，得胜吧，",
+        "感谢主！",
+        "荣耀的君王是何等伟大！"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212541"
+    },
+    "7": {
+      "lines": [
+        "我是何等满心欢喜，",
+        "因我的至宝是阿拉法、俄梅戛，",
+        "是初，是终！",
+        "为得他的赏赐，",
+        "他必将我接入乐园，",
+        "为此我拍手欢庆。",
+        "阿们！阿们！",
+        "来吧，你美丽的喜乐冠冕，",
+        "切莫耽延，",
+        "我切切等候你！"
+      ],
+      "translator": "AI v3.1",
+      "translated_at": "2026-08-04T00:52:06.212542"
+    }
+  }
+}

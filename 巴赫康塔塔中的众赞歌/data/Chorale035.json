@@ -1,0 +1,282 @@
+{
+  "chorale_id": "Chorale035",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale035-Eng3.htm",
+  "scraped_at": "2026-08-02T00:18:14",
+  "title": "Zion klagt mit Angst und Schmerzen",
+  "ekg": "",
+  "author": "Johann Heermann",
+  "author_year": "1636",
+  "melody": "",
+  "composer": "",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV13.htm",
+      "mvt_url": "../INS/BWV013-03.htm",
+      "year": "1726",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "",
+      "bc": "A34:3",
+      "type": "Chorale [A]",
+      "verse": "2",
+      "bwv": "13",
+      "movement": "3"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Zion klagt mit Angst und Schmerzen,",
+        "Zion, Gottes werte Stadt,",
+        "Die er trägt in seinem Herzen,",
+        "Die er sich erwählet hat.",
+        "Ach, spricht sie, wie hat mein Gott",
+        "Mich verlaßen in der Not",
+        "Und läßt mich so harte preßen!",
+        "Meiner hat er ganz vergeßen."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "2.",
+        "Der Gott, der mir hat versprochen",
+        "Seinen Beistand jederzeit,",
+        "Der läßt sich vergebens suchen",
+        "Jetzt in meiner Traurigkeit.",
+        "Ach, will er denn für und für",
+        "Grausam zürnen über mir?",
+        "Kann und will er sich der Armen",
+        "Jetzt nicht wie vorhin erbarmen?"
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "3. Zion, o du Vielgeliebte!",
+        "Sprach zu ihr des Herren Mund,",
+        "Zwar du bist jetzt die Betrübte,",
+        "Seel' und Geist ist dir verwund't;",
+        "Doch stell alles Trauern ein!",
+        "Wo mag eine Mutter sein,",
+        "Die ihr eigen Kind kann haßen",
+        "Und aus ihrer Sorge laßen?"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "4. Ja, wenn du gleich möchtest finden",
+        "Einen solchen Muttersinn,",
+        "Da die Liebe kann verschwinden,",
+        "So bleib ich doch, der ich bin.",
+        "Meine Treu bleibt gegen dir,",
+        "Zion, o du meine Zier;",
+        "Mein Herz hast du mir besessen,",
+        "Deiner kann ich nicht vergessen."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "5. Laß dich nicht den Satan blenden,",
+        "Der sonst nichts als schrecken kann!",
+        "Siehe, hier in meinen Händen",
+        "Hab' ich dich geschrieben an.",
+        "Wie mag es denn anders sein?",
+        "Ich muß ja gedenken dein;",
+        "Deine Mauern will ich bauen",
+        "Und dich fort und fort anschauen."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "6. Du bist mir stets vor den Augen,",
+        "Du liegst mir in meinem Schoß",
+        "Wie die Kindlein, die noch saugen,",
+        "Meine Treu' zu dir ist groß;",
+        "Dich und mich kann keine Zeit,",
+        "Keine Not, Gefahr und Streit,",
+        "Ja der Satan selbst nicht scheiden.",
+        "Bleib getreu in allem Leiden."
+      ],
+      "bold": false
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Zion mourns with anxiety and pain,",
+        "Zion,God's dear city,",
+        "which he carries in his heart,",
+        "which he has chosen for himself.",
+        "Ah, says Zion, why has my God",
+        "abandoned me in my distress",
+        "and allows me to be so hard pressed!",
+        "He has completely forgotten me."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "God, who promised me",
+        "his helping presence at all times",
+        "is sought in vain",
+        "now in my sadness.",
+        "Ah, will he forever",
+        "rage fiercely against me?",
+        "Can he and will he not",
+        "as before pity me in my wretchedness?"
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Zion, you who are greatly beloved,",
+        "says the mouth of the Lord,",
+        "you are indeed now distressed,",
+        "Your soul and spirit are wounded;",
+        "yet put aside all your mourning!",
+        "Where could there be a mother",
+        "who can hate or have no care",
+        "for her own child?"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Indeed if you could find",
+        "a mother so minded",
+        "whose love could disappear,",
+        "yet I will stay as I am.",
+        "My faithfulness abides for you,",
+        "Zion,you who are my adornment;",
+        "You have taken hold of my heart,",
+        "I cannot forget you."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Don't let Satan hoodwink you,",
+        "all he can do is just frighten you!",
+        "See, here on my hands",
+        "I have written it down.",
+        "How then could it possibly be otherwise",
+        "I must think of you;",
+        "I shall build your walls",
+        "And always watch over you."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "You are continuously before my eyes,",
+        "You lie on my bosom",
+        "like a little child who still sucks.",
+        "My faithfulness to you is great;",
+        "there is no time,no distress,",
+        "danger and strife that can separate you and me,",
+        "Not even Satan himself.",
+        "Remain faithful in all your sufferings."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    2
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "锡安恐惧痛苦哀告，",
+        "锡安，上帝所宝贵的城，",
+        "是他怀揣在心中的，",
+        "是他亲自所拣选的。",
+        "她说：哀哉，我的上帝",
+        "竟在患难中离弃了我，",
+        "使我受如此沉重的压逼！",
+        "他全然将我忘却了。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781931"
+    },
+    "2": {
+      "lines": [
+        "那曾应许我",
+        "时时扶持我的上帝，",
+        "如今在我忧伤之中，",
+        "任我寻求却寻不见。",
+        "哀哉，难道他要永远",
+        "向我大发烈怒吗？",
+        "他岂能岂愿不再如从前",
+        "怜悯我这可怜之人？",
+        "锡安啊，你这大蒙眷爱的！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781946"
+    },
+    "3": {
+      "lines": [
+        "主的口对她说：",
+        "诚然你如今是忧伤的，",
+        "你的灵与魂都受了伤；",
+        "然而当止住一切哀哭！",
+        "世上岂有母亲，",
+        "会恨恶自己的亲生孩子，",
+        "将她从自己的眷顾中丢弃？",
+        "是的，即便你真能寻见"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781951"
+    },
+    "4": {
+      "lines": [
+        "如此心肠的母亲，",
+        "她的爱可以消散无踪，",
+        "我仍旧是那位自有永有者。",
+        "我的信实向你常存，",
+        "锡安啊，你是我的华美；",
+        "你已夺了我的心，",
+        "我永不能将你忘怀。",
+        "莫让撒但蒙蔽了你，"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781954"
+    },
+    "5": {
+      "lines": [
+        "他只会恐吓人！",
+        "看哪，在我手掌之上",
+        "我已将你的名铭刻。",
+        "此事岂能更改？",
+        "我必常常记念你；",
+        "你的墙垣我必重建，",
+        "并要不断看顾你。",
+        "你常在我眼前，"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781958"
+    },
+    "6": {
+      "lines": [
+        "你卧在我怀中，",
+        "如那尚在吮奶的婴孩，",
+        "我的信实向你是大的；",
+        "你与我，没有什么能隔绝——",
+        "不论是患难、危险、争竞，",
+        "就是撒但自己也不能。",
+        "当在一切苦难中持守忠信。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.781961"
+    }
+  }
+}

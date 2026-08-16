@@ -1,0 +1,36 @@
+{
+  "Chorale015": [
+    {
+      "book": "Psalms",
+      "chapter": 45,
+      "verse": "1-17",
+      "source": "chorale:curated"
+    },
+    {
+      "book": "Song of Solomon",
+      "chapter": 1,
+      "verse": "1-17",
+      "source": "chorale:curated"
+    }
+  ],
+  "Chorale053": [
+    {
+      "book": "1 Kings",
+      "chapter": 19,
+      "verse": "4",
+      "source": "chorale:curated"
+    }
+  ],
+  "Chorale007": [],
+  "Chorale098": [],
+  "Chorale026": [
+    {
+      "book": "Psalms",
+      "chapter": 12,
+      "verse": "1-8",
+      "source": "chorale:curated"
+    }
+  ],
+  "Chorale032": [],
+  "Chorale048": []
+}

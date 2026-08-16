@@ -1,0 +1,509 @@
+{
+  "chorale_id": "Chorale100",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale100-Eng3.htm",
+  "scraped_at": "2026-08-02T00:18:09",
+  "title": "In allen meinen Taten",
+  "ekg": "",
+  "author": "Paul Fleming",
+  "author_year": "1642",
+  "melody": "",
+  "composer": "Johann Quirsfeld",
+  "composer_year": "1679",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV13.htm",
+      "mvt_url": "../INS/BWV013-06.htm",
+      "year": "1726",
+      "br": "Anh 4103",
+      "re_num": "295",
+      "ke": "103",
+      "di": "-",
+      "bc": "A34:6",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "9",
+      "bwv": "13",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV44.htm",
+      "mvt_url": "../INS/BWV044-07.htm",
+      "year": "1724",
+      "br": "354",
+      "re_num": "296",
+      "ke": "355",
+      "di": "108",
+      "bc": "A78:7",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "9",
+      "bwv": "44",
+      "movement": "7"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-01.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:1",
+      "type": "Chorus (Chorale) [S, A, T, B]",
+      "verse": "1",
+      "bwv": "97",
+      "movement": "1"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-02.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:2",
+      "type": "Aria [B]",
+      "verse": "2",
+      "bwv": "97",
+      "movement": "2"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-03.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:4",
+      "type": "Recitative [T]",
+      "verse": "3",
+      "bwv": "97",
+      "movement": "3"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-04.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:4",
+      "type": "Aria [T]",
+      "verse": "4",
+      "bwv": "97",
+      "movement": "4"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-05.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:4",
+      "type": "Recitative [A]",
+      "verse": "5",
+      "bwv": "97",
+      "movement": "5"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-06.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:6",
+      "type": "Aria [A]",
+      "verse": "6",
+      "bwv": "97",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-07.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:4",
+      "type": "Aria (Duet) [S, B]",
+      "verse": "7",
+      "bwv": "97",
+      "movement": "7"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-08.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A189:4",
+      "type": "Aria [S]",
+      "verse": "8",
+      "bwv": "97",
+      "movement": "8"
+    },
+    {
+      "work_url": "../BWV97.htm",
+      "mvt_url": "../INS/BWV097-09.htm",
+      "year": "1734",
+      "br": "-",
+      "re_num": "297",
+      "ke": "-",
+      "di": "66",
+      "bc": "A189:9",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "9",
+      "bwv": "97",
+      "movement": "9"
+    },
+    {
+      "work_url": "../INS/BWV367-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "140",
+      "re_num": "211",
+      "ke": "140",
+      "di": "-",
+      "bc": "F107:1",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "367",
+      "movement": "-"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "In allen meinen Taten",
+        "laß ich den Höchsten raten,",
+        "der alles kann und hat;",
+        "er muß zu allen Dingen,",
+        "soll's anders wohl gelingen,",
+        "mir selber geben Rat und Tat."
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Nichts ist es spät und frühe",
+        "um alle meine Mühe,",
+        "mein Sorgen ist umsonst;",
+        "er mag's mit meinen Sachen",
+        "nach seinem Willen machen,",
+        "ich stell's in seine Gunst."
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Es kann mir nichts geschehen,",
+        "als was er hat ersehen",
+        "und was mir selig ist.",
+        "Ich nehm es, wie er's gibet;",
+        "was ihm von mir beliebet,",
+        "dasselbe hab auch ich erkiest."
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "Ich traue seiner Gnaden,",
+        "die mich vor allem Schaden,",
+        "vor allem Übel schützt;",
+        "leb ich nach seinen Sätzen,",
+        "so wird mich nichts verletzen,",
+        "nichts fehlen, was mir ewig nützt."
+      ],
+      "bold": true
+    },
+    "5": {
+      "lines": [
+        "Er wolle meiner Sünden",
+        "in Gnaden mich entbinden,",
+        "durchstreichen meine Schuld;",
+        "er wird auf solch Verbrechen",
+        "nicht stracks das Urteil sprechen",
+        "und haben noch mit mir Geduld."
+      ],
+      "bold": true
+    },
+    "6": {
+      "lines": [
+        "Leg ich mich späte nieder,",
+        "Erwache frühe wieder,",
+        "Lieg und ziehe fort,",
+        "In Schwachheit und in Banden,",
+        "Und was mir stößt zuhanden,",
+        "So tröstet mich sein Wort."
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Hat er es denn beschlossen,",
+        "So will ich unverdrossen",
+        "An mein Verhängnis gehn!",
+        "Kein Unfall unter allen",
+        "Soll mir zu harte fallen,",
+        "Ich will ihn überstehn."
+      ],
+      "bold": true
+    },
+    "8": {
+      "lines": [
+        "Ihm hab ich mich ergeben",
+        "zu sterben und zu leben,",
+        "sobald er mir gebeut;",
+        "es sei heut oder morgen,",
+        "dafür laß ich ihn sorgen,",
+        "er weiß allein die rechte Zeit"
+      ],
+      "bold": true
+    },
+    "9": {
+      "lines": [
+        "So sei nun, Seele, deine",
+        "und traue dem alleine,",
+        "der dich geschaffen hat.",
+        "Es gehe, wie es gehe,",
+        "dein Vater in der Höhe,",
+        "weiß  allen Sachen Rat"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "In all that I do",
+        "I am led by God�s counsel,",
+        "who can do all and owns all;",
+        "in everything he must give,",
+        "if it is to turn out well,",
+        "his own advice and counsel to me"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Early or late nothing comes",
+        "from all my efforts,",
+        "my anxiety is in vain;",
+        "he may deal with my affairs",
+        "according to his will,",
+        "I entrust them to his care."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Nothing can happen to me",
+        "except what he has foreseen",
+        "and what is a blessing for me.",
+        "I take as he gives;",
+        "what to him is pleasing from me",
+        "is the very thing I choose also myself."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "I trust in his grace",
+        "that from all harm,",
+        "from all evil protects me;",
+        "if I live according to his laws,",
+        "then there is nothing to harm me,",
+        "nothing lacking that is useful for me."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "May it be his will from my sins",
+        "in his mercy to release me,",
+        "to cancel out my guilt;",
+        "on my transgressions",
+        "he will not pronounce a harsh sentence",
+        "and he will still have patience with me."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Whether I lie down late",
+        "or wake up early,",
+        "whether I stay in or go out,",
+        "in weakness  and in bondage,",
+        "whatever happens to confront me,",
+        "yet  his word is my consolation"
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "If it is his decision,",
+        "then I will go undeterred",
+        "to meet my fate!",
+        "No misfortune whatsoever",
+        "shall be too harsh for me,",
+        "I shall overcome it"
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "To him I have entrusted myself",
+        "in dying  and in living,",
+        "whenever he bids me;",
+        "whether it may be today or tomorrow",
+        "I leave to his care,",
+        "he alone knows the right time."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Therefore, my soul, be true to yourself",
+        "and trust him alone",
+        "who has created you.",
+        "Come what may,",
+        "your Father in heaven",
+        "knows what is best in all situations"
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "凡我所行诸事，",
+        "我尽交与至高者，",
+        "他全能并拥有一切；",
+        "万事皆须他指引，",
+        "好叫诸事亨通，",
+        "他必亲自赐我谋略与作为。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775928"
+    },
+    "2": {
+      "lines": [
+        "无论早与晚，",
+        "我一切劳碌皆虚空，",
+        "我的忧虑尽归枉然；",
+        "他必照自己的旨意，",
+        "处置我的诸般事务，",
+        "我将一切交托于他的恩惠。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775945"
+    },
+    "3": {
+      "lines": [
+        "没有什么能临到我，",
+        "除非是他所定意的，",
+        "且是于我有福的。",
+        "我照他所赐的领受；",
+        "他所喜悦于我的，",
+        "我也照样选择了。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775948"
+    },
+    "4": {
+      "lines": [
+        "我信靠他的恩典，",
+        "这恩典护我脱离一切伤害，",
+        "护我远离一切凶恶；",
+        "我若照他的律例而行，",
+        "就没有什么能伤害我，",
+        "于我有永恒益处的也不至缺少。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775950"
+    },
+    "5": {
+      "lines": [
+        "愿他以恩典",
+        "解除我的罪愆，",
+        "涂抹我的罪债；",
+        "他必不因我的过犯",
+        "立刻宣告刑罚，",
+        "反要向我存忍耐的心。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775953"
+    },
+    "6": {
+      "lines": [
+        "我或深夜躺卧，",
+        "清晨重新醒来，",
+        "无论安居或前行，",
+        "在软弱与捆锁之中，",
+        "凡临到我的事，",
+        "他的话都安慰我。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775954"
+    },
+    "7": {
+      "lines": [
+        "他若已经命定了，",
+        "我便甘心乐意",
+        "迈向我的前路！",
+        "纵有诸般灾祸，",
+        "无一能叫我过于难当，",
+        "我必胜过它们。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775956"
+    },
+    "8": {
+      "lines": [
+        "我已将自己交托于他，",
+        "或死或生，",
+        "只等他一声吩咐；",
+        "或今日或明日，",
+        "我让他为此挂虑，",
+        "惟他知晓合宜的时辰。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775958"
+    },
+    "9": {
+      "lines": [
+        "灵魂啊，你当归于他，",
+        "惟独信靠那一位，",
+        "就是创造你的主。",
+        "无论遭遇何事，",
+        "你在高天之上的父，",
+        "在万事中都有谋略。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-02T00:19:27.775960"
+    }
+  }
+}

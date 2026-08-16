@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+logs/
+.workbuddy/
+raw data & all translations/
+巴赫康塔塔中的众赞歌/translation archive/
+_disabled/
+final_cn23.py
+inspect_cn23.py
+rebuild_cn23.py
+~$*
+nul
+.DS_Store

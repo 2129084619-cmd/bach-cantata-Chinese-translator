@@ -1,0 +1,158 @@
+{
+  "chorale_id": "Chorale172",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale172-Eng3.htm",
+  "scraped_at": "2026-08-04T22:27:59",
+  "title": "Wachet auf, rufs uns die Stimme",
+  "ekg": "",
+  "author": "Philipp Nicolai",
+  "author_year": "1599",
+  "melody": "",
+  "composer": "Philipp Nicolai, after Hans Sachs",
+  "composer_year": "1599",
+  "theme": "Eternity; Year End, Second Coming",
+  "description": "\"Wachet auf, ruft uns die Stimme\" (literally: Awake, the voice is calling us) is a Lutheran hymn written in German by Philipp Nicolai , first published in 1599 together with \" Wie schön leuchtet der Morgenstern \". It appears in German hymnals and in several English hymnals in translations such as \"Wake, Awake, for Night Is Flying\" (Catherine Winkworth, 1858), \"Wake, O wake! with tidings thrilling\" (Francis Crawford Burkitt, 1906), and \"Up! Awake! From Highest Steeple\" (George Ratcliffe Woodward, 1908). The hymn is known as the foundation of J.S. Bach 's chorale cantata Wachet auf, ruft uns die Stimme, BWV 140 , as well as being the foundation of settings by other composers.",
+  "vocal_works": [
+    {
+      "bwv": "140",
+      "movement": "1",
+      "type": "Chorus",
+      "title": "Wachet Auf ( Mvt. 1 ) from Cantata BWV 140 ( 1731 ) (verse 1)",
+      "verse": "1",
+      "year": "1731"
+    },
+    {
+      "bwv": "140",
+      "movement": "4",
+      "type": "Chorale",
+      "title": "Zion hört die Wächter singen ( Mvt. 4 ) from Cantata BWV 140 ( 1731 ) (verse 2),",
+      "verse": "2",
+      "year": "1731"
+    },
+    {
+      "bwv": "140",
+      "movement": "7",
+      "type": "Chorale",
+      "title": "‘Gloria sei dir gesungen’ ( Mvt. 7 )  from Cantata BWV 140 ( 1731 ) (verse 3) Ref: RE 179; Br 179; Birnstiel 185; Dietel 17; AmB 46II p.97",
+      "verse": "3",
+      "year": "1731"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Wachet auf, ruft uns die Stimme",
+        "Der Wächter sehr hoch auf der Zinne,",
+        "Wach auf, du Stadt Jerusalem!",
+        "Mitternacht heißt diese Stunde;",
+        "Sie rufen uns mit hellem Munde:",
+        "Wo seid ihr klugen Jungfrauen?",
+        "Wohl auf, der Bräutgam kömmt;",
+        "Steht auf, die Lampen nehmt!",
+        "Alleluja!",
+        "Macht euch bereit",
+        "Zu der Hochzeit,",
+        "Ihr müsset ihm entgegen gehn!"
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Zion hört die Wächter singen,",
+        "Das Herz tut ihr vor Freuden springen,",
+        "Sie wachet und steht eilend auf.",
+        "Ihr Freund kommt vom Himmel prächtig,",
+        "Von Gnaden stark, von Wahrheit mächtig,",
+        "Ihr Licht wird hell, ihr Stern geht auf.",
+        "Nun komm, du werte Kron,",
+        "Herr Jesu, Gottes Sohn!",
+        "Hosianna!",
+        "Wir folgen all",
+        "Zum Freudensaal",
+        "Und halten mit das Abendmahl."
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Gloria sei dir gesungen",
+        "Mit Menschen- und englischen Zungen,",
+        "Mit Harfen und mit Zimbeln schon.",
+        "Von zwölf Perlen sind die Pforten,",
+        "An deiner Stadt sind wir Konsorten",
+        "Der Engel hoch um deinen Thron.",
+        "Kein Aug hat je gespürt,",
+        "Kein Ohr hat je gehört",
+        "Solche Freude.",
+        "Des sind wir froh,",
+        "Io, io!",
+        "Ewig in dulci jubilo."
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Wake up, the voice calls us",
+        "of the watchmen high up on the battlements,",
+        "wake up, you city of Jerusalem!",
+        "This hour is called midnight;",
+        "they call us with a clear voice:",
+        "where are you, wise virgins ?",
+        "Get up, the bridegroom comes;",
+        "Stand up, take your lamps! Hallelujah!",
+        "Alleluia!",
+        "Make yourselves ready",
+        "for the wedding,",
+        "you must go to meet him!"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Zion hears the watchmen sing,",
+        "her heart leaps for joy,",
+        "she awakes and gets up in haste.",
+        "Her friend comes from heaven in his splendour,",
+        "strong in mercy, mighty in truth.",
+        "Her light becomes bright, her star rises.",
+        "Now come, you worthy crown,",
+        "Lord Jesus, God's son!",
+        "Hosanna!",
+        "We all follow",
+        "to the hall of joy",
+        "and share in the Lord's supper."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "May gloria be sung to you",
+        "with the tongues of men and angels,",
+        "with harps and with cymbals.",
+        "The gates are made of twelve pearls,",
+        "in your city we are companions",
+        "of the angels on high around your throne.",
+        "No eye has ever perceived,",
+        "no ear has ever heard",
+        "such joy.",
+        "Therefore we are joyful,",
+        "hurray, hurray!",
+        "for ever in sweet rejoicing."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    3
+  ],
+  "translator": "Francis Browne",
+  "source_links": [
+    {
+      "text": "Hymnary.org",
+      "url": "https://hymnary.org/text/wachet_auf_ruft_uns_die_stimme"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "chorale_id": "Chorale016",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale016-Eng3.htm",
+  "scraped_at": "2026-08-04T02:01:43",
+  "title": "Nun komm, der Heiden Heiland",
+  "ekg": "",
+  "author": "Martin Luther, based on Veni, redemptor gentium (by Saint Ambrose )",
+  "author_year": "1524",
+  "melody": "",
+  "composer": "Anon",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV36.htm",
+      "mvt_url": "../INS/BWV036-02.htm",
+      "year": "1731",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A3:2",
+      "type": "Chorale [S, A]",
+      "verse": "1",
+      "bwv": "36",
+      "movement": "2"
+    },
+    {
+      "work_url": "../BWV36.htm",
+      "mvt_url": "../INS/BWV036-06.htm",
+      "year": "1731",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A3:6",
+      "type": "Chorale [T]",
+      "verse": "6",
+      "bwv": "36",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV36.htm",
+      "mvt_url": "../INS/BWV036-08.htm",
+      "year": "1731",
+      "br": "28",
+      "re_num": "264",
+      "ke": "28",
+      "di": "-",
+      "bc": "F151:1A3:8",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "8",
+      "bwv": "36",
+      "movement": "8"
+    },
+    {
+      "work_url": "../BWV61.htm",
+      "mvt_url": "../INS/BWV061-01.htm",
+      "year": "1714",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A1:1",
+      "type": "Chorus (Overture) [S, A, T, B]",
+      "verse": "1",
+      "bwv": "61",
+      "movement": "1"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-01.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A2:1",
+      "type": "Chorus (Chorale) [S, A, T, B]",
+      "verse": "1",
+      "bwv": "62",
+      "movement": "1"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-02.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A2:2",
+      "type": "Aria [T]",
+      "verse": "2-3~",
+      "bwv": "62",
+      "movement": "2"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-03.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A2:3",
+      "type": "Recitative [B]",
+      "verse": "4-5~",
+      "bwv": "62",
+      "movement": "3"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-04.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A2:4",
+      "type": "Aria [B]",
+      "verse": "6~",
+      "bwv": "62",
+      "movement": "4"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-05.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A2:5",
+      "type": "Recitative (Duet) [S, A]",
+      "verse": "7~",
+      "bwv": "62",
+      "movement": "5"
+    },
+    {
+      "work_url": "../BWV62.htm",
+      "mvt_url": "../INS/BWV062-06.htm",
+      "year": "1724",
+      "br": "170",
+      "re_num": "265",
+      "ke": "170",
+      "di": "96",
+      "bc": "A2:6",
+      "type": "Chorale (Duet) [S, A, T, B]",
+      "verse": "8",
+      "bwv": "62",
+      "movement": "6"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Nun komm, der Heiden Heiland,",
+        "Der Jungfrauen Kind erkannt!",
+        "Dass sich wundre alle Welt,",
+        "Gott solch' Geburt ihm bestellt."
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Nicht von Mann's Blut noch von Fleisch,",
+        "Allein von dem Heil'gen Geist",
+        "Ist Gott's Wort worden ein Mensch",
+        "Und blüht ein' Frucht Weibesfleisch."
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Der Jungfrau Leib schwanger ward,",
+        "Doch blieb Keuschheit rein bewahrt,",
+        "Leucht't hervor manch' Tugend schön,",
+        "Gott da war in seinem Thron."
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "Er ging aus der Kammer sein,",
+        "Dem kön'glichen Saal so rein,",
+        "Gott von Art und Mensch ein Held,",
+        "Sein'n Weg er zu laufen eilt."
+      ],
+      "bold": true
+    },
+    "5": {
+      "lines": [
+        "Sein Lauf kam vom Vater her",
+        "Und kehrt' wieder zum Vater,",
+        "Fuhr hinunter zu der Höll'",
+        "Und wieder zu Gottes Stuhl."
+      ],
+      "bold": true
+    },
+    "6": {
+      "lines": [
+        "Der du bist dem Vater gleich,",
+        "Führ' hinaus den Sieg im Fleisch,",
+        "Dass dein' ew'ge Gott'sgewalt",
+        "In uns das krank' Fleisch erhalt'."
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Dein' Krippe glaenzt hell und klar,",
+        "Die Nacht gibt ein neu Licht dar,",
+        "Dunkel mus nicht kommen drein,",
+        "Der Glaub' bleibt immer im Schein."
+      ],
+      "bold": true
+    },
+    "8": {
+      "lines": [
+        "Lob sei Gott dem Vater g'tan,",
+        "Lob sei Gott sein'm ein'gen Sohn,",
+        "Lob sei Gott dem Heil'gen Geist",
+        "Immer und in Ewigkeit."
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Now come, Saviour of the gentiles,",
+        "recognised as the child of the Virgin,",
+        "so that all the world is amazed",
+        "God ordained such a birth for him."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Not from man’s flesh and blood",
+        "but only from the Holy Spirit",
+        "has God’s Word became man",
+        "and flourishes as the fruit of a woman’s body."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "The virgin’s body was pregnant,",
+        "but her chastity remained pure,",
+        "in this way her many virtues shine clearly,",
+        "God was there on his throne."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "He went forth from his chamber,",
+        "from the royal palace so pure,",
+        "by nature God and man, a hero,",
+        "he hastens to run his way."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "His course came from the Father",
+        "and leads back to the Father,",
+        "he went down to Hell",
+        "and back to God’s throne."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "You who are equal to the Father,",
+        "be victorious in the flesh",
+        "so that your eternal divine power",
+        "may support our weak flesh."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "Your crib shines bright and clear,",
+        "in the night there is a new light,",
+        "darkness must not overpower it,",
+        "faith remains always radiant."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "Praise be given to God the Father,",
+        "praise be to God his only Son;",
+        "praise be to god the Holy Ghost",
+        "for ever and always."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "translator": "Francis Browne",
+  "source_links": []
+}

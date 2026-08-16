@@ -1,0 +1,278 @@
+{
+  "chorale_id": "Chorale026",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale026-Eng3.htm",
+  "scraped_at": "2026-08-01T23:03:05",
+  "title": "Ach Gott, vom Himmel sieh darein",
+  "ekg": "",
+  "author": "Martin Luther",
+  "author_year": "1523/24",
+  "melody": "Ach Gott, vom Himmel sieh darein",
+  "composer": "Anon (c 1410)",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "ver": "1",
+      "work": "BWV 2",
+      "work_url": "/BWV2.htm",
+      "mvt": "Mvt. 1",
+      "mvt_url": "/INS/BWV002-01.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A98:1",
+      "type": "Chorus [S, A, T, B]"
+    },
+    {
+      "ver": "6",
+      "work": "BWV 2",
+      "work_url": "/BWV2.htm",
+      "mvt": "Mvt. 6",
+      "mvt_url": "/INS/BWV002-06.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "7",
+      "ke": "262",
+      "di": "26",
+      "bc": "A98:6",
+      "type": "Chorale [S, A, T, B]"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Ach Gott, vom Himmel sieh' darein",
+        "Und lass' dich des erbarmen,",
+        "Wie wenig sind der Heil'gen dein,",
+        "Verlassen sind wir Armen:",
+        "Dein Wort man laesst nicht haben wahr,",
+        "Der Glaub' ist auch verloschen gar",
+        "Bei allen Menschenkindern."
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Sie lehren eitel falsche List,",
+        "Was eigner Witz erfindet;",
+        "Ihr Herz nicht eines Sinnes ist,",
+        "In Gottes Wort gegründet.",
+        "Der wählet dies, der andre das,",
+        "Sie trennen uns ohn' alle Mass'",
+        "Und gleißen schön von außen."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Gott woll' ausrotten alle Lehr'r,",
+        "Die falschen Schein uns lehren,",
+        "Dazu ihr' Zung' stolz offenbar",
+        "Spricht Trotz, wer will's uns wehren?",
+        "Wir haben Recht und Macht allein,",
+        "Was wir setzen, das gilt gemein;",
+        "Wer ist, der uns soll meistern?"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Darum spricht Gott: Ich muß auf sein,",
+        "Die Armen sind verstöret,",
+        "Ihr Seufzen dringt zu mir herein,",
+        "Ich hab' ihr' Klag' erhöret.",
+        "Mein heilsam Wort soll auf den Plan,",
+        "Getrost und frisch sie greifen an",
+        "Und sein die Kraft der Armen."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Das Silber durch's Feuer siebenmal",
+        "Bewaehrt, wird lauter funden:",
+        "Am Gottes Wort man warten soll",
+        "Desgleichen alle Stunden:",
+        "Es will durch's Kreuz bewaehret sein,",
+        "Da wird sein' Kraft erkannt und Schein",
+        "Und leucht't stark in die Lande."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Das wollst du, Gott, bewahren rein",
+        "Fuer deisem argen G'schlechte,",
+        "Und lass uns dir befohlen sein,",
+        "Das sich's in uns nicht flechte,",
+        "Der gottlos' Hauf' sich umher findt,",
+        "Wo diese lose Leute sind",
+        "In deinem Volk erhaben."
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Ah God, look down from heaven",
+        "and still have mercy on us,",
+        "how few are the saints that belong to you,",
+        "we poor wretches are forsaken.",
+        "People simply will not accept your word as truth,",
+        "faith is also fading away",
+        "among all mankind."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "They teach vain, false cunning,",
+        "the invention of their own wit.",
+        "Their hearts are not of one mind,",
+        "based on God�s word.",
+        "One choooses this, another that,",
+        "they cause endless divisions amongst us",
+        "and have a fine outward gleam."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "May it be God�s will to root out all the teachers",
+        "who teach us false appearances.",
+        "For this purpose their tongues arrogantly and openly",
+        "speak defiance: �Who will oppose us ?",
+        "We alone have right and power.",
+        "What we set up is commonly accepted.",
+        "Who is there who should be master over us?�"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Therefore God speaks: �I must take action,",
+        "the poor are bewildered.",
+        "Their sighs pierce through to me,",
+        "I have heard their lamentation.",
+        "My healing word shall according to my plan",
+        "bring them consolation and relief",
+        "and be the strength of the poor."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Silver by fire  seven times tested",
+        "is found to be pure.",
+        "We should in the same way wait for God�s word",
+        "at all times:",
+        "through the cross it will be tested,",
+        "in this way its power",
+        "and glory will be known and it shine strongly."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "May you , God, keep pure that [Word]",
+        "in the face of this evil generation",
+        "that we may entrust ourselves to you,",
+        "so that nothing in us may twist it.",
+        "The godless crowd surounds us",
+        "where such mischievous characters",
+        "are exalted among your people."
+      ],
+      "bold": true
+    }
+  },
+  "bach_verses": [
+    1,
+    6
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "上帝啊，从天上垂看吧，",
+        "求你怜恤我们，",
+        "你的圣徒何其稀少，",
+        "我们这些困苦人已被撇弃；",
+        "人们不叫你的话语得以为真，",
+        "信心也已全然熄灭，",
+        "在所有人子中间。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183304"
+    },
+    "2": {
+      "lines": [
+        "他们教导虚妄的诡诈，",
+        "都是自己聪明所发明的；",
+        "他们的心并非一心一意，",
+        "在上帝的话语上建立。",
+        "这人选这样，那人选那样，",
+        "他们无端地分裂我们，",
+        "外表却装得十分光鲜。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183315"
+    },
+    "3": {
+      "lines": [
+        "愿上帝铲除一切师傅，",
+        "就是那些教导虚假模样的人，",
+        "况且他们的舌头骄傲张狂，",
+        "口出狂言：谁能拦阻我们？",
+        "唯独我们有权利和能力，",
+        "我们所定的，就通行无阻；",
+        "有谁能管辖我们呢？"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183318"
+    },
+    "4": {
+      "lines": [
+        "因此上帝说：我必要兴起，",
+        "困苦人正受欺压，",
+        "他们的叹息上达于我，",
+        "我已垂听他们的哀告。",
+        "我救恩的话语必要上前，",
+        "安慰他们，使他们重新得力，",
+        "并作困苦人的力量。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183319"
+    },
+    "5": {
+      "lines": [
+        "银子经火七次炼过，",
+        "炼净之后更显纯粹：",
+        "人对上帝的话语应当等候，",
+        "时时都是如此：",
+        "它要经十字架被炼净，",
+        "那时它的能力和光辉才被认识，",
+        "并强烈照耀遍地。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183321"
+    },
+    "6": {
+      "lines": [
+        "上帝啊，求你保守它纯全，",
+        "面对这邪恶的世代，",
+        "求你使我们得以托付于你，",
+        "叫这恶事不缠绕我们，",
+        "那不信的群体四处游荡，",
+        "就是这些放荡之人，",
+        "在你子民中高居其上。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T22:43:21.183323"
+    }
+  }
+}

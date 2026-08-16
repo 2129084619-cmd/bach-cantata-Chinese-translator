@@ -1,0 +1,397 @@
+{
+  "chorale_id": "Chorale032",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale032-Eng3.htm",
+  "scraped_at": "2026-08-16T23:19:31",
+  "title": "Treuer Gott, ich muss dir klagen",
+  "ekg": "",
+  "author": "Johann Heermann",
+  "author_year": "1630",
+  "melody": "",
+  "composer": "",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV25.htm",
+      "mvt_url": "../INS/BWV025-06.htm",
+      "year": "1723",
+      "br": "254282",
+      "re_num": "101",
+      "ke": "282",
+      "di": "11",
+      "bc": "A129:6",
+      "type": "Chorale [S, A, T. B]",
+      "verse": "12",
+      "bwv": "25",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV194.htm",
+      "mvt_url": "../INS/BWV194-06.htm",
+      "year": "1723",
+      "br": "63256",
+      "re_num": "100",
+      "ke": "64256",
+      "di": "18",
+      "bc": "A91:6",
+      "type": "Chorale [S, A, T. B]",
+      "verse": "6 & 7",
+      "bwv": "194",
+      "movement": "6"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Treuer Gott, ich muß dir klagen",
+        "meines Herzens Jammerstand ;",
+        "ob dir wol sind meine Plagen",
+        "besser, als mir selbst, bekannt !",
+        "Grosse Schwachheit ich bey mir",
+        "in Anfechtung oftmal spür,",
+        "wenn der Satan allen Glauben",
+        "will aus meinem Herzen rauben."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Du, Gott, dem nichts ist verborgen,",
+        "weißt, daß ich nichts von mir hab,",
+        "nichts von allen meinen Sorgen,",
+        "alles ist, Herr, deine Gab.",
+        "Was ich Gutes find an mir,",
+        "das hab ich allein von dir,",
+        "auch den Glauben mir und allen",
+        "giebst du, wie dirs mag gefallen."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "O mein Gott, vor den ich trete",
+        "itzt in meiner grossen Noth ;",
+        "höre, wie ich sehnlich bete,",
+        "laß mich werden nicht zu Spott !",
+        "Mach zu nicht des Teufels Werk,",
+        "meinen schwachen Glauben stärk,",
+        "daß ich nimmermehr verzage,",
+        "Christum stets im Herzen trage."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Jesu, Brunnquell aller Gnaden,",
+        "der du niemand von dir stößst,",
+        "der mit Schwachheit ist beladen,",
+        "sondern deine Jünger tröst :",
+        "sollt ihr Glaube auch so klein",
+        "wie ein kleines Senfkorn seyn,",
+        "wolltst du sie doch würdig schätzen",
+        "grosse Berge zu versetzen."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Laß mich Gnade vor dir finden,",
+        "der ich bin voll Traurigkeit ;",
+        "hilf du mir [171] selbst überwinden,",
+        "so oft ich muß in den Streit.",
+        "Meinen Glauben täglich mehr,",
+        "und des Geistes Schwert verehr,",
+        "damit ich den Feind kann schlagen,",
+        "alle Pfeile von mir jagen."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Heilger Geist ins Himmels Throne,",
+        "Gleicher Gott von Ewigkeit",
+        "Mit dem Vater und dem Sohne,",
+        "Der Betrübten Trost und Freud!",
+        "Allen Glauben, den ich find ,",
+        "Hast du in mir angezündt,",
+        "Über mir in Gnaden walte,",
+        "Ferner deine Gnad erhalte."
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Deine Hilfe zu mir sende,",
+        "O du edler Herzensgast!",
+        "Und das gute Werk vollende,",
+        "Das du angefangen hast.",
+        "Blas in mir das Fünklein auf,",
+        "Bis daß nach vollbrachtem Lauf",
+        "Ich den Auserwählten gleiche",
+        "Und des Glaubens Ziel erreiche."
+      ],
+      "bold": true
+    },
+    "8": {
+      "lines": [
+        "Gott, groß über alle Götter,",
+        "heilige Dreyeinigkeit !",
+        "Ausser dir ist kein Erretter,",
+        "hilf, itzt ist es Helfenszeit :",
+        "da der Feind die Pfeil abdrückt,",
+        "meine Schwachheit mir aufrückt,",
+        "will mir allen Trost verschlingen,",
+        "und mich in Verzweiflung bringen."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Zeuch du mich aus jedem Stricke,",
+        "die er mir geleget hat ;",
+        "laß ihm fehlen seine Tücke,",
+        "drauf er sinnet früh und spat !",
+        "Gieb Kraft, daß ich allen Strauß",
+        "ritterlich mag stehen aus,",
+        "und, so oft als ich muß kämpfen,",
+        "hilf mir meine Feinde dämpfen !"
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Reiche deinem schwachen Kinde,",
+        "das auf matten Füßen steht,",
+        "deine Gnadenhand geschwinde ;",
+        "bis die Angst vorüber geht :",
+        "wie die Jugend gängle mich,",
+        "daß der Feind nicht rühme sich,",
+        "er hab solches Herz gefället,",
+        "das auf dich sein Hofnung stellet."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "Du bist meine Hilf und Leben,",
+        "mein Fleiß, meine Zuversicht,",
+        "dem ich Leib und Seel ergeben,",
+        "Gott, mein Gott, verzeuch doch nicht :",
+        "eile mir zu stehen bey,",
+        "brich des Feindes Pfeil entzwey ;",
+        "laß ihn selbst zurücke prallen,",
+        "und mit Schimpf zur Hölle fallen."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "Ich will alle meine Tage",
+        "Rühmen deine starke Hand,",
+        "Daß du meine Plag und Klage",
+        "Hast so herzlich abgewandt.",
+        "Nicht nur in der Sterblichkeit",
+        "Soll dein Ruhm sein ausgebreit':",
+        "Ich wills auch hernach erweisen",
+        "Und dort ewiglich dich preisen."
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Faithful God, I must lament to you",
+        "the miserable state of my heart,",
+        "even though my troubles are",
+        "better known to you than to myself!",
+        "Within myself great weakness",
+        "I often feel in temptation",
+        "when Satan wants to steal",
+        "all faith from my heart."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "You God, from whom nothing is hidden,",
+        "know that I have nothing of myself,",
+        "nothing for all my cares,",
+        "everything is, Lord, your gift.",
+        "Whatever good I find in myself",
+        "I have received from you,",
+        "even faith to me and everyone",
+        "you give, as it pleases you."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "O my God, before whom I come",
+        "now in my great distress,",
+        "listen, as I pray with longing,",
+        "let me not be put to scorn!",
+        "Bring to nothing the devil’s work,",
+        "strengthen my weak belief,",
+        "so that I shall never despair",
+        "but always bear Christ in my heart."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Jesus , source of all mercy,",
+        "you drive away from you no one",
+        "who is burdened with weakness,",
+        "but comfort your followers:",
+        "even if their faith were as tiny",
+        "as a little mustard seed,",
+        "you would still consider it worthy",
+        "to move great mountains."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "May I who am full of sorrow",
+        "fnd mercy from you;",
+        "help me to overcome myself",
+        "as I must often do in my struggle.",
+        "Increase my faith from day to day",
+        "and give me the sword of the  spirit",
+        "with which I can strike the foe",
+        "and drive all his arrows away from me."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Holy spirit on the throne of heaven,",
+        "equal God from eternity",
+        "with the Father and the Son,",
+        "comfort and joy of the afflicted!",
+        "All the faith I can find",
+        "you have kindled within me.",
+        "Rule over me in mercy,",
+        "maintain your mercy in the future."
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Send your help to me,",
+        "o you noble guest of my heart!",
+        "and complete the good work",
+        "that you have begun.",
+        "Kindle within me the little spark",
+        "until, after I have completed the course of my life,",
+        "I may be like those you have chosen",
+        "nd reach the goal of faith."
+      ],
+      "bold": true
+    },
+    "8": {
+      "lines": [
+        "God, great beyond all gods,",
+        "holy Trinity!",
+        "Besides you there is no deliverer,",
+        "help, now is the time for help:",
+        "for the enemy lets fly his arrows,",
+        "reproaches me with my weakness,",
+        "wants to devour all that comforts me",
+        "and to bring me into despair"
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Pull me out of the snare",
+        "that he has laid for me;",
+        "let his malice fail",
+        "which he plots early and late!",
+        "Give me strength,",
+        "so that all the struggle may gallantly endure",
+        "and, whenever I have to fight,",
+        "help me to conquer my enemies."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Reach out to your feeble child,",
+        "who stands on weary feet,",
+        "your merciful hand in haste,",
+        "until my anguish has passed:",
+        "lead me along like a child",
+        "so that the enemy may not boast",
+        "that he has overthrown a heart",
+        "that places its hope in you."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "You are my help and life,",
+        "my diligence, my confidence,",
+        "to whom I devote my body and soul,",
+        "God, my God , do not withdraw :",
+        "hurry to stand by me,",
+        "break in two the arrows of the enemy,",
+        "let him in turn be hurled back",
+        "and ignominiously fall down to hell."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "All my days I shall",
+        "praise your mighty hand",
+        "because by you my trouble and distress",
+        "have been turned aside with such love.",
+        "Not only in this mortal life",
+        "should your glory be spread abroad:",
+        "I want to bear witness to it hereafter also",
+        "and there for ever praise you."
+      ],
+      "bold": true
+    }
+  },
+  "bach_verses": [
+    6,
+    7,
+    12
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "6": {
+      "lines": [
+        "圣灵啊，坐在天上宝座，",
+        "从永远就是同等的上帝，",
+        "与父与子同等，",
+        "是忧伤者的安慰与喜乐！",
+        "我里面所存的信心，",
+        "都是你在我里面点燃，",
+        "求你在恩典中掌管我，",
+        "并长久保守你的恩典。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T23:23:36.422119"
+    },
+    "7": {
+      "lines": [
+        "求你向我施下帮助，",
+        "哦，你这尊贵的内心之客！",
+        "求你成就那善工，",
+        "就是你所起头的。",
+        "求你在我里面吹旺那小火苗，",
+        "直到跑完当跑的路，",
+        "我得以像蒙拣选的人，",
+        "并达到信心的目标。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T23:23:36.422273"
+    }
+  }
+}

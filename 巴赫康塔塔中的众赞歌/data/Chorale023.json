@@ -1,0 +1,839 @@
+{
+  "chorale_id": "Chorale023",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale023-Eng3.htm",
+  "scraped_at": "2026-08-03T23:22:46",
+  "title": "Jesu, meiner Seelen Wonne",
+  "ekg": "",
+  "author": "Martin Jahn",
+  "author_year": "1661",
+  "melody": "",
+  "composer": "",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV147.htm",
+      "mvt_url": "../INS/BWV147-06.htm",
+      "year": "1723",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A174:6",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "6",
+      "bwv": "147",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV147.htm",
+      "mvt_url": "../INS/BWV147-10.htm",
+      "year": "1723",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A174:10",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "16",
+      "bwv": "147",
+      "movement": "10"
+    },
+    {
+      "work_url": "/BWV146.htm",
+      "mvt_url": "../INS/BWV146-08.htm",
+      "year": "1726",
+      "br": "-",
+      "re_num": "360",
+      "ke": "-",
+      "di": "-",
+      "bc": "A70:8",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "*",
+      "bwv": "146",
+      "movement": "8"
+    },
+    {
+      "work_url": "../BWV154.htm",
+      "mvt_url": "../INS/BWV154-03.htm",
+      "year": "1724",
+      "br": "233",
+      "re_num": "365",
+      "ke": "233",
+      "di": "127",
+      "bc": "A29:3",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "2",
+      "bwv": "154",
+      "movement": "3"
+    },
+    {
+      "work_url": "/INS/BWV359-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "364",
+      "re_num": "363",
+      "ke": "365",
+      "di": "-",
+      "bc": "F206.1",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "359",
+      "movement": "-"
+    },
+    {
+      "work_url": "/INS/BWV360-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "349",
+      "re_num": "364",
+      "ke": "350",
+      "di": "104",
+      "bc": "F206.2",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "360",
+      "movement": "-"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Jesu, meiner Seelen Wonne,",
+        "Jesu, meine beste Lust,",
+        "Jesu, meine Freudensonne,",
+        "Jesu, dir ist ja bewußt,",
+        "wie ich dich so herzlich liebe",
+        "und mich ohne dich betrübe.",
+        "Drum o Jesu komm zu mir",
+        "und bleib bei mir für und für!"
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Jesu, mein Hort und Erretter,",
+        "Jesu, meine Zuversicht,",
+        "Jesu, starker Schlangentreter,",
+        "Jesu, meines Lebens Licht!",
+        "Wie verlanget meinem Herzen,",
+        "Jesulein, nach dir mit Schmerzen!",
+        "Komm, ach komm, ich warte dein,",
+        "komm, o liebstes Jesulein!"
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Kommst du, ja du kommst gegangen,",
+        "Jesu, du bist schon allhier,",
+        "klopfest stark und mit Verlangen",
+        "an an meine Herzenstür.",
+        "Bleib doch nicht so draußen stehen,",
+        "willst du wieder von mir gehen?",
+        "Ach, ich lasse dich durchaus",
+        "nicht weg gehn von meinem Haus."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Ei warum sollt ich dich lassen,",
+        "Jesu wieder von mir gehen?",
+        "Meine Wohlfahrt müßt’ ich hassen,",
+        "wenn ich ließ dies geschehn,",
+        "Wohne doch in meinem Herzen,",
+        "so muß alle Not und Schmerzen",
+        "weichen alsobald von mir,",
+        "wenn du, Jesu, bist allhier."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Ach nun hab ich endlich funden",
+        "den, der meine Seel liebt,",
+        "der sich mit mir hat verbunden,",
+        "und sich selbst für mich hingibt.",
+        "Den will ich nun fest umfassen",
+        "und durchaus nicht von mit lassen",
+        "bis er mir den Segen spricht.",
+        "Meinen Jesum laß ich nicht!"
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Wohl mir, daß ich Jesum habe,",
+        "o wie feste halt ich ihn,",
+        "daß er mir mein Herze labe,",
+        "wenn ich krank und traurig bin.",
+        "Jesum hab ich, der mich liebet",
+        "Und sich mir zu eigen gibet;",
+        "Ach drum laß ich Jesum nicht,",
+        "Wenn mir gleich mein Herze bricht."
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Muß ich alles gleich verlassen,",
+        "was ich hab in dieser Welt,",
+        "will ich doch im Herzen fassen,",
+        "meinen Jesum, der gefällt",
+        "mir vor allen andern Schätzen,",
+        "an dem ich mich kann ergötzen,",
+        "er ist meine Zuversicht,",
+        "meinen Jesum laß ich nicht!"
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "Ach wer wollte Jesum lassen,",
+        "Jesum laß ich nimmermehr!",
+        "Andre mögen Jesum hassen,",
+        "Jesum ich allein begehr,",
+        "in den gut’ und bösen Tagen,",
+        "daß er mir mein Kreuz helf’ tragen,",
+        "weil er ist der Weg und Licht",
+        "laß ich meinen Jesum nicht."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Ich sollt’ in der Hölle liegen,",
+        "immerfort und ohne Zahl,",
+        "und mich wie ein Schlachtschaf biegen,",
+        "in dem Schwefelpfuhl und Qual.",
+        "Ja der Tod sollt ewig nagen",
+        "mein Gewissen und mich plagen,",
+        "Jesus aber reißt mich raus",
+        "aus des Satans Folterhaus."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Jesus hat durch seine Wunden",
+        "mich gesund gemacht und heil",
+        "daran denk ich alle Stunden,",
+        "drum ist er mein bestes Teil.",
+        "Denn durch seinen Tod und Sterben",
+        "macht er mich zum Himmelserben,",
+        "und das glaub’ ich sicherlich,",
+        "Jesus machet selig mich."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "O wie sollt’ ich Jesum lassen,",
+        "weil er mir so wohl getan",
+        "und mich von der breiten Straßen",
+        "hat geführet himmelan",
+        "Jesum will ich immer lieben",
+        "in den Freuden und Betrüben.",
+        "Jesum laß ich nicht von mir,",
+        "weil ich leb auf Erden hier."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "Wenn die Welt mit ihren Netzen",
+        "mich zu Boden fällen will,",
+        "und die andern sich ergötzen,",
+        "an derselben Affenspiel,",
+        "will ich meinen Jesum fassen,",
+        "in den Arm und ihn nicht lassen,",
+        "bis daß ich mit ihm zugleich",
+        "herrschen werd im Himmelreich."
+      ],
+      "bold": false
+    },
+    "13": {
+      "lines": [
+        "Demnach mögen andre weiden",
+        "sich in dieser Eitelkeit,",
+        "mich soll nichts von Jesu scheiden,",
+        "und der ew’gen Seligkeit,",
+        "die mir Jesus hat erworben,",
+        "da er ist für mich gestorben.",
+        "Drum, o Welt, fahr immer hin,",
+        "wenn ich nur bei Jesu bin."
+      ],
+      "bold": false
+    },
+    "14": {
+      "lines": [
+        "Wenn ich nur kann Jesum haben,",
+        "nach dem andern2frag ich nicht.",
+        "Er kann meine Seele laben",
+        "und ist meine Zuversicht",
+        "in den letzten Todeszügen,",
+        "wenn ich hilflos da muß liegen",
+        "und mir bricht der Augen Licht,",
+        "laß ich meinen Jesum nicht."
+      ],
+      "bold": false
+    },
+    "15": {
+      "lines": [
+        "Sollt ich meinen Jesum lassen,",
+        "Er wird in der letzten Not",
+        "auf der finstern Todesstraßen",
+        "bei mir stehen, wenn der Tod,",
+        "seine Grausamkeit ausübet,",
+        "und die Meinigen betrübet,",
+        "und der Teufel mich anficht,",
+        "meinen Jesum laß ich nicht."
+      ],
+      "bold": false
+    },
+    "16": {
+      "lines": [
+        "Jesus bleibet meine Freude,",
+        "Meines Herzens Trost und Saft,",
+        "Jesus wehret allem Leide,",
+        "Er ist meines Lebens Kraft,",
+        "Meiner Augen Lust und Sonne,",
+        "Meiner Seele Schatz und Wonne;",
+        "Darum laß ich Jesum nicht",
+        "Aus dem Herzen und Gesicht."
+      ],
+      "bold": true
+    },
+    "17": {
+      "lines": [
+        "Jesus ist der Feinde Schrecken,",
+        "Jesus ist der Hölle Zwang,",
+        "drum wird er mich auferwecken,",
+        "durch Posaunen Hall und Klang,",
+        "da ich dann erneuert werde",
+        "auferstehen aus der Erde,",
+        "Jesum schauen von Gesicht,",
+        "meinen Jesum laß ich nicht."
+      ],
+      "bold": false
+    },
+    "18": {
+      "lines": [
+        "Ach wie wird mich Jesus herzen,",
+        "meiner Augen Trost und Licht,",
+        "alle Tränen, alle Schmerzen,",
+        "wischen von dem Angesicht,",
+        "und mit großem Jubilieren",
+        "mich zur Himmelsfreud’ einführen,",
+        "Drum so höret alle her:",
+        "Jesum laß ich nimmermehr"
+      ],
+      "bold": false
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Jesus, delight of my soul,",
+        "Jesus, my best pleasure,",
+        "Jesus,my sun of joy,",
+        "Jesus, it is well known to you",
+        "how I love you from my heart",
+        "and am distressed without you.",
+        "Therefore O Jesus come to me",
+        "and stay with me forever and ever."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Jesus, my refuge and deliverer,",
+        "Jesus, the ground of my confidence,",
+        "Jesus, mighty trampler on the serpent,",
+        "Jesus, light of my life!",
+        "How my heart longs for you,",
+        "dear Jesus, painfully!",
+        "Come, ah come, I wait for you,",
+        "come,O dearest Jesus!"
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "You come, you have indeed come,",
+        "Jesus, you are already here,",
+        "You knock loud and longingly",
+        "at the door of my heart.",
+        "Do not then stay standing outside,",
+        "do you want to go away from me again?",
+        "Ah I will allow you by no means",
+        "to go away from my house"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Oh why should I let you",
+        "go away from me again, Jesus?",
+        "I must hate my own welfare",
+        "if I let this happen,",
+        "dwell therefore in my heart,",
+        "then all pain and distress must",
+        "soon vanish from me,",
+        "if you, Jesus, are here."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Ah now I have finally found",
+        "him who loves my soul,",
+        "who has united me with himself",
+        "and has given himself for me.",
+        "Him I shall now hold firmly",
+        "and by no means let him leave me",
+        "until he speaks the blessing for me.",
+        "I shall not abandon my Jesus!"
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Happy am I, to have my Jesus,",
+        "oh how firmly I hold on to him",
+        "so that he may refresh my heart",
+        "when I am sick and sorrowful.",
+        "I have Jesus, who loves me",
+        "and gives himself to me.",
+        "Ah therefore I shall not abandon Jesus",
+        "even if my heart breaks."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "If I had to abandon everything",
+        "that I have in this world,",
+        "then I would still in my heart seize hold of",
+        "my Jesus, who delights me",
+        "before all other treasures,",
+        "in whom I can take delight,",
+        "he is my reassurance,",
+        "I shall not abandon my Jesus"
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "Ah whoever wants may abandon Jesus,",
+        "I shall never ever abandon Jesus!",
+        "Others may hate Jesus,",
+        "I desire Jesus alone",
+        "in good and bad days,",
+        "so that he may help me bear my cross",
+        "since he is the way and light",
+        "I shall not abandon my Jesus"
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "I might be lying in hell",
+        "forever and without end,",
+        "and be twisted around like a sheep for slaughter",
+        "in the sulphurous pit and torment.",
+        "Indeed death might eternally gnaw",
+        "my conscience and torment me.",
+        "But Jesus snatches me away",
+        "out of Satan's torture chamber."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Jesus has through his wounds",
+        "made me healthy and well",
+        "this I think of always,",
+        "therefore he is my best portion.",
+        "Through his death and dying",
+        "he makes me inherit heaven",
+        "and I believe this confidently,",
+        "Jesus makes me blessed."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "O how should I abandon Jesus,",
+        "since he has done so well for me",
+        "and from the wide roads",
+        "has led me to heaven",
+        "I shall always love Jesus",
+        "in joy and distress.",
+        "I shall not let Jesus go from me",
+        "while I live here on earth."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "When the world with its snares",
+        "wants to cast me down to the ground",
+        "And other people take pleasure",
+        "in such monkey business,",
+        "I shall hold onto my Jesus",
+        "in my arms and not let him go",
+        "until I together with him",
+        "Will rein in the kingdom of heaven"
+      ],
+      "bold": false
+    },
+    "13": {
+      "lines": [
+        "And so others can feed themselves",
+        "on such vanity,",
+        "nothing shall separate me from Jesus",
+        "and from the everlasting bliss",
+        "which Jesus has won for me",
+        "when he died for me.",
+        "Therefore,O World, go on your way,",
+        "if only I am with Jesus."
+      ],
+      "bold": false
+    },
+    "14": {
+      "lines": [
+        "If only I can have Jesus,",
+        "and ask after nothing else.",
+        "He can refresh my soul",
+        "and it is my reassurance",
+        "in the last throes of death",
+        "when I must lie there helpless",
+        "and light breaks in my eyes,",
+        "I shall not abandon my Jesus."
+      ],
+      "bold": false
+    },
+    "15": {
+      "lines": [
+        "If I were to abandon my Jesus,",
+        "in the last distre",
+        "on dark roads of death",
+        "he will be with me, when death",
+        "exerts its horror",
+        "and distresses my family",
+        "and the devil puts me to the test,",
+        "I shall not abandon my Jesus"
+      ],
+      "bold": false
+    },
+    "16": {
+      "lines": [
+        "Jesus remains my joy,",
+        "my hearts consolation and sap,",
+        "Jesus protects me from all suffering,",
+        "he is the strength of my life,",
+        "the delight and sun of my eyes,",
+        "the treasure and bliss of my soul;",
+        "therefore I do not abandon Jesus",
+        "from my heart and face."
+      ],
+      "bold": false
+    },
+    "17": {
+      "lines": [
+        "Jesus is the horror of the enemy,",
+        "Jesus is the compulsion of hell,",
+        "therefore he will awaken me",
+        "through the echo and clamour of trumpets,",
+        "so that I shall then be revived",
+        "to rise up from the earth,",
+        "to see Jesus face to face,",
+        "I shall not abandon my Jesus."
+      ],
+      "bold": false
+    },
+    "18": {
+      "lines": [
+        "Ah how Jesus will embrace me,",
+        "the consolation and light of my eyes,",
+        "All tears, all sorrows,",
+        "he will wipe from my face",
+        "and with great rejoicing",
+        "lead me to the joy of heaven,",
+        "therefore let everybody hear:",
+        "I shall never abandon Jesus."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    6,
+    16
+  ],
+  "translator": "Francis Browne",
+  "source_links": [
+    {
+      "text": "Archiv Reichslyrik",
+      "url": "http://www.monarchieliga.de/text/hymne/jahn-jesu-meiner-seelen-wonne.htm"
+    }
+  ],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "耶稣，我灵魂的喜悦，",
+        "耶稣，我至美的欢愉，",
+        "耶稣，我喜乐的日头，",
+        "耶稣，你所确知的是：",
+        "我何等热切地爱你，",
+        "无你便悲伤不已。",
+        "因此，哦耶稣，来就我吧，",
+        "永永远远住在我这里！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480675"
+    },
+    "2": {
+      "lines": [
+        "耶稣，我的护卫与拯救者，",
+        "耶稣，我的盼望所在，",
+        "耶稣，大能的践蛇者，",
+        "耶稣，我生命之光！",
+        "我心何等痛切地渴慕你，",
+        "小耶稣啊！",
+        "来吧，啊来吧，我等候你，",
+        "来吧，至爱的小耶稣！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480688"
+    },
+    "3": {
+      "lines": [
+        "你要来，是的，你正走来，",
+        "耶稣，你已在此处，",
+        "大有力量且满怀切望地",
+        "叩击我的心门。",
+        "不要只站在门外，",
+        "你又要离开我而去么？",
+        "啊，我绝不允许你",
+        "从我家离开而去。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480692"
+    },
+    "4": {
+      "lines": [
+        "我为何要离开你，耶稣，",
+        "又让你从我而去呢？",
+        "我若让此事发生，",
+        "便是在恨恶自己的福祉。",
+        "但愿你就住在我心中，",
+        "如此一切困苦与伤痛",
+        "就必立刻从我退去，",
+        "耶稣，当你在此处。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480694"
+    },
+    "5": {
+      "lines": [
+        "啊，我终于寻见了",
+        "那位爱慕我灵魂的主，",
+        "他亲自与我联合，",
+        "并为我舍弃己身。",
+        "我要紧紧抓住他，",
+        "决不从自己身边放过他，",
+        "直到他向我宣告祝福：",
+        "我不撇下我的耶稣！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480695"
+    },
+    "6": {
+      "lines": [
+        "我有耶稣，何等有福，",
+        "我紧紧抓住他，",
+        "好叫他在我病弱忧愁之时，",
+        "使我的心畅快。",
+        "我有耶稣，他爱我，",
+        "将自己全然赐予我；",
+        "因此纵然我心破碎，",
+        "我也不撇下耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480697"
+    },
+    "7": {
+      "lines": [
+        "即或我必须撇下",
+        "我在这世上所有的一切，",
+        "我仍要在心中持守",
+        "我的耶稣，",
+        "他超越其他一切珍宝",
+        "令我喜悦，在他里面我可得享乐，",
+        "他是我所信靠的，",
+        "我不撇下我的耶稣！"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480698"
+    },
+    "8": {
+      "lines": [
+        "啊，谁愿撇下耶稣呢，",
+        "我永不再撇下耶稣！",
+        "别人可以恨恶耶稣，",
+        "我唯独渴慕耶稣。",
+        "在顺境与逆境的日子，",
+        "求他扶助我背负十架，",
+        "因他是道路与光，",
+        "我不撇下我的耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480700"
+    },
+    "9": {
+      "lines": [
+        "我本当躺卧在地狱中，",
+        "永不止息，不计其数，",
+        "如待宰之羊弯曲身体，",
+        "在硫磺火湖与痛苦之中。",
+        "是的，死亡要永远啃噬",
+        "我的良心、折磨我，",
+        "但耶稣救我脱离",
+        "撒但的苦刑之牢。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480701"
+    },
+    "10": {
+      "lines": [
+        "耶稣以他的创伤",
+        "使我健全得医治，",
+        "我时时思念，",
+        "因此他是我至美的份。",
+        "因为以他的死与亡，",
+        "他使我成为天国后嗣，",
+        "我确信不疑地相信：",
+        "耶稣使我得享永福。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480703"
+    },
+    "11": {
+      "lines": [
+        "我岂可离开耶稣呢，",
+        "他向来待我如此良善，",
+        "将我从阔路之上",
+        "引向高天。",
+        "在喜乐与忧愁中，",
+        "我都要爱耶稣。",
+        "我活在世上的日子，",
+        "决不让耶稣离开我。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480705"
+    },
+    "12": {
+      "lines": [
+        "当世界以它的网罗",
+        "想将我击倒在地，",
+        "他人正沉溺于",
+        "世间浮华之时，",
+        "我要抓住我的耶稣，",
+        "抱在怀中，不放他离去，",
+        "直到我与他一同",
+        "在天国中掌权作王。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480707"
+    },
+    "13": {
+      "lines": [
+        "因此，任凭他人",
+        "自得于这虚空吧，",
+        "没有什么能叫我",
+        "与耶稣分离，",
+        "与耶稣所为我赢得的永恒福乐分离——",
+        "正是他以死成就的。",
+        "因此，世界啊，尽可消逝而去，",
+        "只要我在耶稣身旁。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480708"
+    },
+    "14": {
+      "lines": [
+        "只要我能拥有耶稣，",
+        "便不问他事。",
+        "他能使我的灵魂畅快，",
+        "是我在临终时刻的信靠——",
+        "当我无助卧躺，",
+        "目光昏暗消散，",
+        "我也不撇下",
+        "我的耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480710"
+    },
+    "15": {
+      "lines": [
+        "我岂能撇下我的耶稣呢？",
+        "在最终的急难中，",
+        "在黑暗的死亡之路，",
+        "他必在我身旁站立，",
+        "当死亡施展凶暴，",
+        "当亲人悲痛，",
+        "魔鬼控告我之时——",
+        "我不撇下我的耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480713"
+    },
+    "16": {
+      "lines": [
+        "耶稣永为我喜乐，",
+        "我心的安慰与甘泉，",
+        "耶稣抵御一切苦难，",
+        "他是我生命的力量，",
+        "我眼中的喜悦与日头，",
+        "我灵魂的珍宝与欢欣；",
+        "因此我不让耶稣离开",
+        "我的心与眼。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480714"
+    },
+    "17": {
+      "lines": [
+        "耶稣是仇敌的惊骇，",
+        "耶稣是地狱的压制，",
+        "因此他必以号筒的响声",
+        "唤醒我，",
+        "那时我必得更新，",
+        "从尘土中复活，",
+        "亲眼得见耶稣，",
+        "我不撇下我的耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480716"
+    },
+    "18": {
+      "lines": [
+        "啊，耶稣将何等拥抱我，",
+        "我眼目的安慰与光，",
+        "必擦去我脸上一切的眼泪、",
+        "一切的痛苦，",
+        "并以大能的欢呼",
+        "引入天上的喜乐。",
+        "因此，你们众人都来听：",
+        "我永不再撇下耶稣。"
+      ],
+      "translator": "AI",
+      "translated_at": "2026-08-03T23:26:36.480717"
+    }
+  }
+}

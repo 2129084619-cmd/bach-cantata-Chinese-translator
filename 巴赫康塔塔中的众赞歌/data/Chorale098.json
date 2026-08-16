@@ -1,0 +1,270 @@
+{
+  "chorale_id": "Chorale098",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale098-Eng3.htm",
+  "scraped_at": "2026-08-16T21:36:06",
+  "title": "Nun dankt all und bringet Ehr",
+  "ekg": "231",
+  "author": "Paul Gerhardt",
+  "author_year": "1647",
+  "melody": "",
+  "composer": "Anon / Nikolaus Herman",
+  "composer_year": "1554",
+  "theme": "General Song of Thanks",
+  "description": "\"Nun danket all und bringet Ehr\" (Now thank all and bring honour) is a German Lutheran hymn, with a text written by Paul Gerhardt and first published in 1647. Melody by Nikolaus Herman (1554) to his 'Kommt her, ihr lieben Schwesterlein'. It has inspired musical settings by composers from the 17th to the 21st century.",
+  "vocal_works": [
+    {
+      "bwv": "195",
+      "movement": "6",
+      "type": "Chorale",
+      "title": "Nun danket all und bringet Ehr ( Mvt. 6 ) from Cantata BWV 195 (1727-1732) (verse 1) Ref: RE 236; BC B14:6; CST 239",
+      "verse": "1",
+      "year": ""
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Nun danket all und bringet Ehr,",
+        "Ihr Menschen in der Welt,",
+        "Dem, dessen Lob der Engel Heer",
+        "Im Himmel stets vermeldt,"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "Ermuntert euch und singt mit Schall",
+        "Gott, unserm höchsten Gut,",
+        "Der seine Wunder überall",
+        "Und große Dinge thut."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "Der uns vom Mutterleibe an",
+        "Frisch und gesund erhält",
+        "Und, wo kein Mensch nicht helfen kann,",
+        "Sich selbst zum Helfer stellt."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Der, ob wir ihn gleich hoch betrübt,",
+        "Doch bleibet gutes Muths,",
+        "Die Straf erläßt, die Schuld vergibt",
+        "Und thut uns alles Guts."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Er gebe uns ein fröhlich Herz,",
+        "Erfrische Geist und Sinn,",
+        "Und werf all Angst, Furcht, Sorg und Schmerz",
+        "Ins Merres Tiefe hin."
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Er lasse seinen Frieden ruhn",
+        "In Israelis Land,",
+        "Er gebe Glück zu unserm Thun",
+        "Und Heil zu allem Stand."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "Er lasse seine Lieb und Güt",
+        "Um, bei und mit uns gehn,",
+        "Was aber ängstet und bemüht,",
+        "Gar ferne von uns stehn."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "So lange dieses Leben währt",
+        "Sei er stets unser Heil",
+        "Und bleib auch, wann wir von der Erd",
+        "Abscheiden, unser Theil."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Er drucke, wenn das Herze bricht,",
+        "Uns unsre Augen zu",
+        "Und zeig uns drauf sein Angesicht",
+        "Dort in der ewgen Ruh"
+      ],
+      "bold": false
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "1. Now, mortals all, your voices raise,",
+        "Acclaim God lustily,",
+        "Whom angel hosts throng with their praise",
+        "Before His throne on high ! (bis)"
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "2. Lift up your voice right heartily",
+        "To Him Who reigns above,",
+        "Who worketh for us wondrously",
+        "And showers on us His love ! (bis)"
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "3. He since our mother gave us birth",
+        "In surety doth us hold,",
+        "And when man's aid's of little worth",
+        "Will in His care enfold. (bis)"
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [],
+      "bold": false
+    },
+    "5": {
+      "lines": [],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "6. He showers peace and plenteousness",
+        "Upon our Motherland,",
+        "With happiness He doth her bless",
+        "And strengthens her right hand. (bis)"
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "8. So long as we have life and breath",
+        "His watch still may He keep!",
+        "And when we hear the call of death",
+        "In Jesus may we sleep! (bis)"
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [],
+      "bold": false
+    }
+  },
+  "bach_verses": [],
+  "translator": "",
+  "source_links": [
+    {
+      "text": "Hymnary.org",
+      "url": "https://hymnary.org/text/nun_danket_all_und_bringet_ehr"
+    }
+  ],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "众人都当感谢，将荣耀献上，",
+        "世上的人哪，",
+        "献给那位，天使天军",
+        "在天上不住颂赞的，"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410131"
+    },
+    "2": {
+      "lines": [
+        "振作起来，扬声歌唱，",
+        "唱给上帝，我们至高的善，",
+        "他随处施行奇事，",
+        "又行大事。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410143"
+    },
+    "3": {
+      "lines": [
+        "他从母腹起",
+        "就使我们健壮康泰，",
+        "在人无力相助之处，",
+        "他亲自作我们的帮助。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410146"
+    },
+    "4": {
+      "lines": [
+        "我们纵然大大伤他心，",
+        "他却仍存善心，",
+        "免去刑罚，赦免罪债，",
+        "又赐我们一切美善。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410148"
+    },
+    "5": {
+      "lines": [
+        "愿他赐我们喜乐的心，",
+        "更新我们的灵与意念，",
+        "将一切惧怕、恐惧、忧愁与痛苦",
+        "都投入深海。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410150"
+    },
+    "6": {
+      "lines": [
+        "愿他让他的平安安歇",
+        "在以色列之地，",
+        "愿他赐福我们手中的工作，",
+        "赐救恩给各等身份的人。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410151"
+    },
+    "7": {
+      "lines": [
+        "愿他让他的慈爱与良善",
+        "环绕、临近并与我们同行，",
+        "但使那令人忧虑烦扰之事",
+        "远远离开我们。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410152"
+    },
+    "8": {
+      "lines": [
+        "只要此生尚存，",
+        "愿他永远作我们的救恩，",
+        "当我们离开这地之时，",
+        "也作我们的份。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410154"
+    },
+    "9": {
+      "lines": [
+        "当心破碎之时，愿他",
+        "合上我们的双眼，",
+        "并随即向我们显出他的面",
+        "在那永恒的安息里。"
+      ],
+      "translator": "AI v3.2",
+      "translated_at": "2026-08-16T21:42:37.410155"
+    }
+  }
+}

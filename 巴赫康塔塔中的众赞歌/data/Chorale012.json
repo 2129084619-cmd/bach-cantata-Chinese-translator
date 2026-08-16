@@ -1,0 +1,467 @@
+{
+  "chorale_id": "Chorale012",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale012-Eng3.htm",
+  "scraped_at": "2026-08-02T00:16:00",
+  "title": "Christ lag in Todesbanden",
+  "ekg": "",
+  "author": "Martin Luther",
+  "author_year": "1524",
+  "melody": "",
+  "composer": "Anon / Martin Luther & Johann Walter",
+  "composer_year": "1524",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-02.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:2",
+      "type": "Chorus [S, A, T, B]",
+      "verse": "1",
+      "bwv": "4",
+      "movement": "2"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-03.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:3",
+      "type": "Duet [S, A]",
+      "verse": "2",
+      "bwv": "4",
+      "movement": "3"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-04.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:4",
+      "type": "Aria [T]",
+      "verse": "3",
+      "bwv": "4",
+      "movement": "4"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-05.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:5",
+      "type": "Chorus [S, A, T, B]",
+      "verse": "4",
+      "bwv": "4",
+      "movement": "5"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-06.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:6",
+      "type": "Aria [B]",
+      "verse": "5",
+      "bwv": "4",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-07.htm",
+      "year": "1707/08",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A54:7",
+      "type": "Aria (Duet) [S, T]",
+      "verse": "6",
+      "bwv": "4",
+      "movement": "7"
+    },
+    {
+      "work_url": "../BWV4.htm",
+      "mvt_url": "../INS/BWV004-08.htm",
+      "year": "1707/08",
+      "br": "184",
+      "re_num": "41",
+      "ke": "184",
+      "di": "-",
+      "bc": "A54:8",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "7",
+      "bwv": "4",
+      "movement": "8"
+    },
+    {
+      "work_url": "../BWV158.htm",
+      "mvt_url": "../INS/BWV158-04.htm",
+      "year": "?",
+      "br": "261",
+      "re_num": "40",
+      "ke": "261",
+      "di": "24",
+      "bc": "A61:4, A171:4",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "5",
+      "bwv": "158",
+      "movement": "4"
+    },
+    {
+      "work_url": "../INS/BWV277-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "15",
+      "re_num": "38",
+      "ke": "15",
+      "di": "-",
+      "bc": "F26.1",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "277",
+      "movement": "-"
+    },
+    {
+      "work_url": "../INS/BWV278-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "370",
+      "re_num": "39",
+      "ke": "371",
+      "di": "133",
+      "bc": "F26.2",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "278",
+      "movement": "-"
+    },
+    {
+      "work_url": "../INS/BWV279-00.htm",
+      "mvt_url": "",
+      "year": "?",
+      "br": "261",
+      "re_num": "40",
+      "ke": "261",
+      "di": "24",
+      "bc": "A61:4",
+      "type": "Chorale [S, A, T, B]",
+      "verse": "-",
+      "bwv": "279",
+      "movement": "-"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Christ lag in Todesbanden",
+        "Für unsre Sünd gegeben,",
+        "Er ist wieder erstanden",
+        "Und hat uns bracht das Leben;",
+        "Des wir sollen fröhlich sein,",
+        "Gott loben und ihm dankbar sein",
+        "Und singen halleluja,",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Den Tod niemand zwingen kunnt",
+        "Bei allen Menschenkindern,",
+        "Das macht' alles unsre Sünd,",
+        "Kein Unschuld war zu finden.",
+        "Davon kam der Tod so bald",
+        "Und nahm über uns Gewalt,",
+        "Hielt uns in seinem Reich gefangen.",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Jesus Christus, Gottes Sohn,",
+        "An unser Statt ist kommen",
+        "Und hat die Sünde weggetan,",
+        "Damit dem Tod genommen",
+        "All sein Recht und sein Gewalt,",
+        "Da bleibet nichts denn Tods Gestalt,",
+        "Den Stach'l hat er verloren.",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "Es war ein wunderlicher Krieg,",
+        "Da Tod und Leben rungen,",
+        "Das Leben behielt den Sieg,",
+        "Es hat den Tod verschlungen.",
+        "Die Schrift hat verkündigt das,",
+        "Wie ein Tod den andern fraß,",
+        "Ein Spott aus dem Tod ist worden.",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "5": {
+      "lines": [
+        "Hier ist das rechte Osterlamm,",
+        "Davon Gott hat geboten,",
+        "Das ist hoch an des Kreuzes Stamm",
+        "In heißer Lieb gebraten,",
+        "Das Blut zeichnet unsre Tür,",
+        "Das hält der Glaub dem Tode für,",
+        "Der Würger kann uns nicht mehr schaden.",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "6": {
+      "lines": [
+        "So feiern wir das hohe Fest",
+        "Mit Herzensfreud und Wonne,",
+        "Das uns der Herre scheinen läßt,",
+        "Er ist selber die Sonne,",
+        "Der durch seiner Gnade Glanz",
+        "Erleuchtet unsre Herzen ganz,",
+        "Der Sünden Nacht ist verschwunden.",
+        "Halleluja!"
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "Wir essen und leben wohl",
+        "In rechten Osterfladen,",
+        "Der alte Sauerteig nicht soll",
+        "Sein bei dem Wort Gnaden,",
+        "Christus will die Koste sein",
+        "Und speisen die Seel allein,",
+        "Der Glaub will keins andern leben.",
+        "Halleluja!"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Christ lay in death's bonds",
+        "handed over for our sins,",
+        "he is risen again",
+        "and has brought us life",
+        "For this we should be joyful,",
+        "praise God and be thankful to him",
+        "and sing allelluia,",
+        "Alleluia"
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Nobody could overcome death",
+        "among all the children of mankind.",
+        "Our sin was the cause of all this,",
+        "no innocence was to be found.",
+        "Therefore death came so quickly",
+        "and seized power over us,",
+        "held us captive in his kingdom.",
+        "Alleluia"
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Jesus Christ, God's son,",
+        "has come to our place",
+        "and has put aside our sins,",
+        "and in this way from death has taken",
+        "all his rights and his power,",
+        "here remains nothing but death's outward form,",
+        "it has lost its sting.",
+        "Alleluia!"
+      ],
+      "bold": true
+    },
+    "4": {
+      "lines": [
+        "It was a strange battle",
+        "where death and life struggled.",
+        "Life won the victory,",
+        "it has swallowed up death",
+        "Scripture has proclaimed",
+        "how one death ate the other,",
+        "death has become a mockery.",
+        "Alleluia"
+      ],
+      "bold": true
+    },
+    "5": {
+      "lines": [
+        "Here is the true Easter lamb",
+        "that God has offered",
+        "which high on the trunk of the cross",
+        "is roasted in burning love,",
+        "whose blood marks our doors,",
+        "which faith holds in front of death,",
+        "the strangler can harm us no more",
+        "Alleluia"
+      ],
+      "bold": true
+    },
+    "6": {
+      "lines": [
+        "Thus we celebrate the high feast",
+        "with joy in our hearts and delight",
+        "that the Lord lets shine for us,",
+        "He is himself the sun",
+        "who through the brilliance of his grace",
+        "enlightens our hearts completely,",
+        "the night of sin has disappeared.",
+        "Alleluia !"
+      ],
+      "bold": true
+    },
+    "7": {
+      "lines": [
+        "We eat and live well",
+        "on the right Easter cakes,",
+        "the old sour-dough should not",
+        "be with the word grace,",
+        "Christ will be our food",
+        "and alone feed the soul,",
+        "faith will live in no other way.",
+        "Alleluia"
+      ],
+      "bold": true
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "基督躺在死之捆锁中，",
+        "为我们的罪献上己身，",
+        "他已复活，重新站起，",
+        "并为我们带来生命；",
+        "因此我们应当欢喜，",
+        "赞美上帝，向他感恩，",
+        "歌唱哈利路亚，",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918606"
+    },
+    "2": {
+      "lines": [
+        "无人能胜过死亡，",
+        "在世人中间尽都如此，",
+        "这一切都因我们的罪，",
+        "无一无辜之人可寻。",
+        "死由此就速速降临，",
+        "在我们身上掌权辖制，",
+        "将我们囚禁在它的国度中。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918620"
+    },
+    "3": {
+      "lines": [
+        "耶稣基督，上帝之子，",
+        "已经代替我们来到，",
+        "并将罪全然除去，",
+        "以此夺去了死亡",
+        "一切的权柄与力量，",
+        "仅存死的形体，",
+        "它的毒钩已经失了。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918624"
+    },
+    "4": {
+      "lines": [
+        "这是一场奇妙的争战，",
+        "死与生互相角力，",
+        "生命终得了胜利，",
+        "已将死亡吞灭净尽。",
+        "圣经早已如此宣告，",
+        "一死将另一死吞噬，",
+        "死亡已成了一场笑柄。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918626"
+    },
+    "5": {
+      "lines": [
+        "这是真正的逾越节羔羊，",
+        "乃上帝亲自所命定的，",
+        "它被高高挂在十架杆上，",
+        "以炽热的爱火烤炙，",
+        "宝血标记我们的门楣，",
+        "信心以此挡在死亡面前，",
+        "那灭命的再不能害我们。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918628"
+    },
+    "6": {
+      "lines": [
+        "我们守这至高的节期，",
+        "满有心之喜乐与欢欣，",
+        "是主使我们得享光辉，",
+        "他自己就是那太阳，",
+        "借着他恩典的光华",
+        "全然照亮我们的心，",
+        "罪的暗夜已经消散。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918630"
+    },
+    "7": {
+      "lines": [
+        "我们吃喝，安然度日，",
+        "在真正的复活节饼中，",
+        "旧酵断不可存留",
+        "在那恩典的话语旁，",
+        "基督愿作我们的粮食，",
+        "亲自喂养人的灵魂，",
+        "信心惟靠此而生。",
+        "哈利路亚！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-02T00:11:26.918632"
+    }
+  }
+}
