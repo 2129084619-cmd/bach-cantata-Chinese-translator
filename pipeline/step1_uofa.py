@@ -308,8 +308,9 @@ def _fetch_uofa(bwv):
         #   - Mvt 2/5 are "Coro Versus N" — they carry the "Coro" keyword, so
         #     the branch below classifies them as Chorus (a genuine chorus).
         #   - Mvt 3/4/6/7/8 are bare "Versus N <voices>" (e.g. "Versus 2 S A"),
-        #     which fall through to type='chorale'. Their scoring is flexible —
-        #     they may be sung OVPP (one voice per part) or by a full choir.
+        #     which are KEPT as type='Versus' (not forced to 'chorale'). Their
+        #     scoring is flexible — they may be sung OVPP (one voice per part)
+        #     or by a full choir, so we do not hard-label them as chorus.
         # Also NOTE: BWV 62/91 use the standard Coro/Aria/Choral format on
         # UAlberta — they are NOT the "Versus" format of BWV 4.
         if m and ('Coro' in ls or 'Recitativo' in ls or 'Aria' in ls
@@ -330,8 +331,10 @@ def _fetch_uofa(bwv):
             elif 'Duetto' in mvt_type_raw or 'Duet' in mvt_type_raw:
                 mvt_type = 'Duet'
             elif 'Versus' in mvt_type_raw:
-                # Chorale-cantata stanza movement (e.g. BWV 4 Mvt 3 "Versus 2 S A")
-                mvt_type = 'chorale'
+                # Chorale-cantata stanza movement (e.g. BWV 4 Mvt 3 "Versus 2 S A").
+                # Keep the type as 'Versus' — do NOT force it to 'chorale'. Only a
+                # "Coro"/"Chorus" keyword (handled above) makes a movement Chorus.
+                mvt_type = 'Versus'
             else:
                 mvt_type = mvt_type_raw
 
@@ -342,9 +345,10 @@ def _fetch_uofa(bwv):
                 'english': [],
                 'annotation_ids': [],
                 'line_footnote_ids': [],
-                # Flag mixed-type movements (e.g. "Aria T e Choral A" in BWV 60),
-                # and chorale-cantata stanza movements ("Coro Versus 1" in BWV 4)
-                # whose text is a chorale verse despite a Chorus/Aria type label.
+                # Flag mixed-type movements (e.g. "Aria T e Choral A" in BWV 60)
+                # and chorale-cantata stanza movements ("Coro Versus 1" / bare
+                # "Versus N" in BWV 4), whose text is a chorale verse despite a
+                # Chorus/Aria/Versus type label. step45 uses this to detect reuse.
                 'has_chorale': bool(
                     mvt_type != 'chorale' and
                     ('Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw
