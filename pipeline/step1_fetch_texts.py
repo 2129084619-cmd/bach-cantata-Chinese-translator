@@ -47,6 +47,70 @@ def _fetch_json(bwv_number):
                 raise RuntimeError(f"Failed to fetch {url}: {e}")
 
 
+# English role-name remnants that bachcantatatexts.org leaves as standalone
+# lines in the English text (e.g. "Fear", "Hope", "Soul", "Jesus"). These are
+# NOT lyrics — they are the English translation of a dialogue role label.
+# They must be stripped so line_footnote_ids aligns with the German lyric lines.
+_ENGLISH_ROLE_REMNANTS = frozenset({
+    'Soul', 'Jesus', 'Christ', 'Savior', 'Bridegroom', 'Bride', 'Anima',
+    'Fear', 'Hope', 'Death', 'Satan',
+    'Evangelist', 'Pilate', 'Peter', 'Maid', 'Servant', 'Judas',
+})
+
+
+def _is_english_role_remnant(text):
+    """Return True if `text` is a standalone English role-name remnant line."""
+    t = (text or '').strip()
+    if not t:
+        return False
+    words = t.split()
+    return len(words) == 1 and words[0] in _ENGLISH_ROLE_REMNANTS
+
+
+def _extract_html_note_parts(html):
+    """Split an HTML text block into [(clean_text, [note_ids]), ...] by <br>.
+
+    Footnote markers come as <sup>N</sup> (or [N]) inside each line's HTML.
+    """
+    if not html:
+        return []
+    parts = re.split(r'<br\s*/?\s*>', html, flags=re.IGNORECASE)
+    result = []
+    for part in parts:
+        clean = BeautifulSoup(part, 'html.parser').get_text().strip()
+        if not clean:
+            continue
+        ids = [int(m.group(1)) for m in re.finditer(r'<sup>(\d+)</sup>', part)]
+        if not ids:
+            ids = [int(m.group(1)) for m in re.finditer(r'\[(\d+)\]', part)]
+        result.append((clean, ids))
+    return result
+
+
+def _is_role_remnant_line(de_text, en_text):
+    """Return True if a de/en line pair is a dialogue role-label remnant.
+
+    bachcantatatexts.org emits role labels as standalone lines in BOTH the
+    German text (e.g. "Furcht", "[Vox Dei/Christi]") and the English text
+    (e.g. "Fear", "[Voice of God/Christ]"). These are not lyrics and carry no
+    line_footnote_ids — they must be skipped so the footnote list aligns 1:1
+    with the actual lyric lines.
+    """
+    dt = (de_text or '').strip()
+    et = (en_text or '').strip()
+    if dt.startswith('[') and dt.endswith(']'):
+        return True
+    if et.startswith('[') and et.endswith(']'):
+        return True
+    if dt:
+        parts = [p.strip() for p in re.split(r'\s*[,&]\s*', dt) if p.strip()]
+        if parts and all(p.lower() in _get_known_roles_lower() for p in parts):
+            return True
+    if _is_english_role_remnant(et):
+        return True
+    return False
+
+
 def _parse_json_to_structured(data):
     """Convert raw JSON into our standardized internal format.
 
@@ -81,69 +145,68 @@ def _parse_json_to_structured(data):
         mv_type = raw_mv.get('mvt_text_type', '')
         texts = raw_mv.get('mvt_texts', [])
 
-        german_lines = []
-        english_lines = []
-        annotation_ids = []
-        line_footnote_ids = []  # Per-line footnote IDs for endnote placement
-
-        # Track HTML blocks for per-line footnote extraction
-        english_html_lines = []
+        de_plain = ''
+        de_html = ''
+        en_plain = ''
+        en_html = ''
 
         for text_block in texts:
             lang = text_block.get('text_language', '')
             plain = text_block.get('text_plain', '')
             html = text_block.get('text_html', '')
-            lines = [l.strip() for l in plain.split('\n') if l.strip()]
-
             if lang == 'de':
-                # Detect BWV 17-style API bug: second "de" block is actually English
-                # Heuristic: no umlauts/ß, contains common English words
-                if german_lines:
-                    german_chars = sum(1 for c in ' '.join(lines) if c in 'äöüßÄÖÜ')
-                    eng_indicators = any(w in ' '.join(lines).lower()
+                # BWV 17-style API bug: a second "de" block that is actually English
+                if de_plain:
+                    candidate_lines = [l.strip() for l in plain.split('\n') if l.strip()]
+                    german_chars = sum(1 for c in ' '.join(candidate_lines) if c in 'äöüßÄÖÜ')
+                    eng_indicators = any(w in ' '.join(candidate_lines).lower()
                                         for w in ['the', 'and', 'have', 'like', 'lord', 'god'])
                     if german_chars == 0 and eng_indicators:
-                        # This is English mislabeled as de
-                        english_lines = lines
-                        # Extract footnote IDs from HTML
-                        if html:
-                            html_parts = re.split(r'<br\s*/?\s*>', html, flags=re.IGNORECASE)
-                            for part in html_parts:
-                                part_clean = BeautifulSoup(part, 'html.parser').get_text().strip()
-                                if not part_clean:
-                                    continue
-                                ids = [int(m.group(1)) for m in re.finditer(r'<sup>(\d+)</sup>', part)]
-                                if not ids:
-                                    ids = [int(m.group(1)) for m in re.finditer(r'\[(\d+)\]', part)]
-                                annotation_ids.extend(ids)
-                                line_footnote_ids.append(ids)
-                        continue  # Don't overwrite german_lines
-                german_lines = lines
+                        en_plain = plain
+                        en_html = html
+                        continue
+                de_plain = plain
+                de_html = html
             elif lang == 'en':
-                english_lines = lines
-                # Extract per-line footnote IDs from HTML <sup>N</sup> tags
-                if html:
-                    html_parts = re.split(r'<br\s*/?\s*>', html, flags=re.IGNORECASE)
-                    for part in html_parts:
-                        part_clean = BeautifulSoup(part, 'html.parser').get_text().strip()
-                        if not part_clean:
-                            continue
-                        ids = [int(m.group(1)) for m in re.finditer(r'<sup>(\d+)</sup>', part)]
-                        if not ids:
-                            ids = [int(m.group(1)) for m in re.finditer(r'\[(\d+)\]', part)]
-                        annotation_ids.extend(ids)
-                        line_footnote_ids.append(ids)
+                en_plain = plain
+                en_html = html
 
-        # Ensure line_footnote_ids matches german_lines length
-        while len(line_footnote_ids) < len(german_lines):
-            line_footnote_ids.append([])
+        german_lines = [l.strip() for l in de_plain.split('\n') if l.strip()] if de_plain else []
+        english_lines = [l.strip() for l in en_plain.split('\n') if l.strip()] if en_plain else []
+        # Strip English role-name remnants so english aligns with German lyric lines
+        english_lines = [l for l in english_lines if not _is_english_role_remnant(l)]
+
+        # Merge per-line footnote markers from BOTH de and en HTML blocks.
+        # The de block carries German-specific notes (spelling variants etc.);
+        # the en block carries translation notes. The two blocks are line-aligned
+        # (en is a line-by-line translation of de), so merge by line position and
+        # drop role-label remnant lines (their notes carry to the next lyric line).
+        de_parts = _extract_html_note_parts(de_html)
+        en_parts = _extract_html_note_parts(en_html)
+
+        line_footnote_ids = []
+        annotation_ids = []
+        pending_ids = []  # notes on role-label lines, carried to the next lyric line
+        n = max(len(de_parts), len(en_parts))
+        for i in range(n):
+            de_text, de_ids = de_parts[i] if i < len(de_parts) else ('', [])
+            en_text, en_ids = en_parts[i] if i < len(en_parts) else ('', [])
+            merged = sorted(set(de_ids + en_ids))
+            if _is_role_remnant_line(de_text, en_text):
+                pending_ids.extend(merged)
+                continue
+            merged = sorted(set(merged + pending_ids))
+            pending_ids = []
+            annotation_ids.extend(merged)
+            line_footnote_ids.append(merged)
+        annotation_ids = sorted(set(annotation_ids + pending_ids))
 
         movements.append({
             'number': mv_num,
             'type': mv_type,
             'german': german_lines,
             'english': english_lines,
-            'annotation_ids': sorted(set(annotation_ids)),
+            'annotation_ids': annotation_ids,
             'line_footnote_ids': line_footnote_ids,
         })
 
