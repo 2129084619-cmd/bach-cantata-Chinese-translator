@@ -251,14 +251,18 @@ def prepare_translation_context(bwv_number, movements, footnotes, glossary,
     for mv in movements:
         mv_num = mv['number']
         de_lines = mv.get('german', [])
+        line_fn_ids = mv.get('line_footnote_ids', [])
+        non_role_idx = 0
         for i, de_line in enumerate(de_lines):
             de_text, is_role = _g_text(de_line)
-            # Use pre-computed per-line footnote IDs from step1
-            line_fn_ids = mv.get('line_footnote_ids', [])
-            if i < len(line_fn_ids):
-                this_line_fn_ids = line_fn_ids[i]
-            else:
+            # line_footnote_ids is aligned to lyric lines only (role labels
+            # excluded). Role-label lines carry no footnote; lyric lines advance
+            # the non_role_idx counter (fixes dialogue-cantata footnote offset).
+            if is_role:
                 this_line_fn_ids = []
+            else:
+                this_line_fn_ids = line_fn_ids[non_role_idx] if non_role_idx < len(line_fn_ids) else []
+                non_role_idx += 1
 
             # Find relevant Chinese Bible passages for these footnotes
             relevant_bible = {}
@@ -530,6 +534,7 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
         _gap()
 
         # ── Render each line ──
+        non_role_idx = 0
         for idx, de_line in enumerate(de_lines):
             # Normalize: extract text from role-label dict (UAlberta step1 / step1.6)
             is_role = False
@@ -543,7 +548,12 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
             is_duet = is_duet_list[idx] if idx < len(is_duet_list) else False
             rt_map = role_texts_list[idx] if idx < len(role_texts_list) else None
             en_line = en_lines[idx] if idx < len(en_lines) else ''
-            fn_ids = line_fn_ids[idx] if idx < len(line_fn_ids) else []
+            # line_footnote_ids is aligned to lyric lines only; role labels skip.
+            if is_role:
+                fn_ids = []
+            else:
+                fn_ids = line_fn_ids[non_role_idx] if non_role_idx < len(line_fn_ids) else []
+                non_role_idx += 1
 
             if is_role:
                 # Dialogue role — bold TNR role name + 宋体 CN on same line
@@ -819,7 +829,9 @@ def _archive_existing_docx(output_path):
     """
     if not os.path.exists(output_path):
         return
-    ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+    # Timestamp = the file's own last-modified time (mtime), NOT the re-run date,
+    # so the archive faithfully records when the prior translation was last touched.
+    ts = datetime.fromtimestamp(os.path.getmtime(output_path)).strftime('%Y%m%d_%H%M%S')
     base, ext = os.path.splitext(output_path)
     backup_path = f'{base}_{ts}{ext}'
     shutil.copy2(output_path, backup_path)
