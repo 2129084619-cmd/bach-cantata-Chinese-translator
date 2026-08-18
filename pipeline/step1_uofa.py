@@ -537,6 +537,7 @@ def _merge_paired_exclamations(movements):
 
         new_german, new_english, new_lfn = [], [], []
         i = 0
+        non_role_idx = 0  # english/lfn index (aligned to lyric lines only)
         n = len(german)
         while i < n:
             cur = german[i]
@@ -553,27 +554,29 @@ def _merge_paired_exclamations(movements):
                     new_german.append(cur.rstrip() + ' ' + nxt.lstrip())
                     # Merge English (annotation-only, index-aligned)
                     if english:
-                        if i < len(english) and i + 1 < len(english):
+                        if non_role_idx < len(english) and non_role_idx + 1 < len(english):
                             new_english.append(
-                                english[i].rstrip() + ' ' + english[i + 1].lstrip())
-                        elif i < len(english):
-                            new_english.append(english[i])
+                                english[non_role_idx].rstrip() + ' ' + english[non_role_idx + 1].lstrip())
+                        elif non_role_idx < len(english):
+                            new_english.append(english[non_role_idx])
                     # Merge footnote ids for the merged line
                     fn = []
-                    if i < len(lfn):
-                        fn.extend(lfn[i] or [])
-                    if i + 1 < len(lfn):
-                        fn.extend(lfn[i + 1] or [])
+                    if non_role_idx < len(lfn):
+                        fn.extend(lfn[non_role_idx] or [])
+                    if non_role_idx + 1 < len(lfn):
+                        fn.extend(lfn[non_role_idx + 1] or [])
                     new_lfn.append(fn)
                     i += 2
+                    non_role_idx += 2
                     merged = True
             if not merged:
                 new_german.append(cur)
                 if english:
-                    new_english.append(english[i] if i < len(english) else '')
+                    new_english.append(english[non_role_idx] if non_role_idx < len(english) else '')
                 if lfn:
-                    new_lfn.append(lfn[i] if i < len(lfn) else [])
+                    new_lfn.append(lfn[non_role_idx] if non_role_idx < len(lfn) else [])
                 i += 1
+                non_role_idx += 1
 
         mvt['german'] = new_german
         if english:
