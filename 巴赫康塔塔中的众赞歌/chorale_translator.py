@@ -311,7 +311,9 @@ def _archive_existing_docx(chorale_id, output_path):
     """
     if not os.path.exists(output_path):
         return
-    ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+    # Timestamp = the file's own last-modified time (mtime), NOT the re-run date,
+    # so the archive faithfully records when the prior translation was last touched.
+    ts = datetime.fromtimestamp(os.path.getmtime(output_path)).strftime('%Y%m%d_%H%M%S')
     archive_dir = os.path.join(cfg.ARCHIVE_DIR, chorale_id)
     os.makedirs(archive_dir, exist_ok=True)
     base, ext = os.path.splitext(os.path.basename(output_path))
