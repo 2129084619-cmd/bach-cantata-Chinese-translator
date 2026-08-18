@@ -277,6 +277,46 @@ def _extract_metadata(html_text):
                 'instruments': instruments_clean,
             })
 
+    # Strategy 3: chorale-cantata "Versus N [voices]" single-line format
+    # (e.g. BWV 4). bach-cantatas.com lists these with the stanza number
+    # embedded — no separate movement-number line. The movement number is
+    # N+1 because the opening Sinfonia is movement 1.
+    for i, line in enumerate(lines):
+        m_v = re.match(
+            r'^Versus\s+(\d+)\s*(.*)$',
+            line.strip(), re.IGNORECASE
+        )
+        if not m_v:
+            continue
+        stanza = int(m_v.group(1))
+        mv_num = stanza + 1
+        # Voices may be bracketed ("[S, A, T, B]") or bare ("S A T B")
+        voices = m_v.group(2).strip()
+        voices = voices.strip('[]').strip()
+        # Instruments on the following line
+        instruments = ''
+        if i + 1 < len(lines):
+            inst_line = lines[i + 1].strip()
+            if re.match(
+                r'^(?:Tromba|Timpani|Corno|Oboe|Flauto|Violino|Viola|'
+                r'Violoncello|Continuo|Organo|Cembalo|Fagotto|Violone|'
+                r'Traversa|Clarino|Taille|Trombone|Cornetto)\b',
+                inst_line, re.IGNORECASE
+            ):
+                idx_cont = inst_line.rfind('Continuo')
+                if idx_cont >= 0:
+                    instruments = inst_line[:idx_cont + len('Continuo')].strip().rstrip(',').strip()
+                else:
+                    instruments = inst_line
+        # Avoid duplicates for the same movement number
+        if not any(mi['number'] == mv_num for mi in metadata['movement_info']):
+            metadata['movement_info'].append({
+                'number': mv_num,
+                'type': 'Chorale',
+                'voices': voices,
+                'instruments': instruments,
+            })
+
     log.info(f"[Step 2] Extracted metadata: occasion={metadata['occasion'][:40]}..., "
              f"{len(metadata['movement_info'])} movements info")
 
