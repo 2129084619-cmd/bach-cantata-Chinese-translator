@@ -6,11 +6,35 @@
 
 ---
 
+## [1.0.3] - 2026-08-19（补丁小更）
+
+### 🩹 Patch Note（补丁说明）
+
+本次补丁为**乐章识别**增加跨数据源交叉验证机制，并修正众赞歌诗节的标记，使乐章类型识别在「关键词命中不到」时仍有兜底。
+
+**问题背景**：v1.0.2 针对 BWV 4 的 `Versus` 诗节标题做了硬编码识别，但这是**个案特例**，不够通用。更根本的问题是——当 UAlberta 的乐章标题用了未来未知的措辞（既非 `Coro`/`Aria`/`Choral`/`Chorus`/`Sinfonia`，也非 `Versus`）时，旧代码会把它当成歌词行，乐章边界整体错乱。
+
+**修复内容**（三层机制）：
+
+| 层 | 文件 | 改动 |
+|----|------|------|
+| 兜底识别 | `pipeline/step1_uofa.py` | 遇到「数字. 标题」但**不含任何已知关键词**时，不再丢弃，而是创建 `type='unknown'` 的占位乐章（标记 `is_uncertain_type=True`），诗节标题不再混入上一乐章的歌词 |
+| 参考源扩展 | `pipeline/step2_fetch_bg.py` | bach-cantatas.com 的乐章提取新增 `Versus N [voices]` 单行格式（BWV 4 等），使 `movement_info` 对众赞歌康塔塔完整（8 乐章全提取） |
+| 交叉验证 | `pipeline/main.py` | 新增 **Step 1.7**：用 bach-cantatas.com 的 `movement_info` 把 `type='unknown'` 的乐章回填为标准类型（Chorus/Aria/Recitative/Chorale/Sinfonia） |
+
+**附带修复 — 众赞歌诗节标记**：含 `Versus` 的乐章标题（如 BWV 4 的「2. Coro Versus 1 S A T B」）即使被判为 `Chorus`，现在也会标记 `has_chorale=True`，使众赞歌复用检测能覆盖**全部 7 个诗节**（此前 Mvt2/5 因被判为纯 Chorus 而漏掉，只复用 5 个）。
+
+**回归验证**：BWV 62、91（标准关键词格式）解析不受影响；BWV 4 完整识别 8 乐章，20 脚注锚点对齐。
+
+---
+
 ## [1.0.2] - 2026-08-19（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
 
-本次补丁解决两个影响**众赞歌康塔塔**（BWV 4、62、91 等以「诗节 Versus」组织乐章的康塔塔）的解析问题，并顺带修正德语书卷名的归一化。
+本次补丁解决一个影响**以「诗节 Versus」组织乐章的众赞歌康塔塔**（BWV 4 是典型，其 UAlberta 诗节标题为「3. Versus 2 S A」格式）的解析问题，并顺带修正德语书卷名的归一化。
+
+> 说明：BWV 62、91 等其他众赞歌康塔塔在 UAlberta 上用的是标准乐章关键词（`Coro`/`Aria`/`Choral` 等），**并非** BWV 4 的 `Versus` 格式，本补丁对它们无影响。
 
 **问题背景 1 — 众赞歌康塔塔乐章被压缩**：BWV 4《Christ lag in Todes Banden》实际有 8 个乐章（Sinfonia + 7 个众赞歌诗节），但旧代码的乐章标题识别只认 `Coro`/`Aria`/`Choral`/`Chorus`/`Sinfonia`/`Duetto`/`Arioso` 这些关键词。BWV 4 的诗节标题是「3. Versus 2 S A」「4. Versus 3 T」这类**不含上述关键词**的格式，于是整首诗节标题被当成歌词行，8 个乐章被压缩成 3 个——读者看到的歌词里混着「3. Versus 2 S A」这样的排印残留，脚注也无法正确对齐到各诗节。
 
