@@ -424,6 +424,35 @@ def run_pipeline(bwv_number, skip_steps=None, force=False):
         else:
             metadata = {}
 
+    # ── Step 1.7: Cross-validate movement types (UAlberta ↔ bach-cantatas.com) ──
+    # When step1 can't recognise a movement header's type keyword, it stashes the
+    # movement as type='unknown' (is_uncertain_type=True). Here we fill the type
+    # back in from bach-cantatas.com movement_info so every movement ends up with
+    # a standard keyword (Chorus/Aria/Recitative/Chorale/Sinfonia/...).
+    if texts_data and texts_data.get('movements') and metadata:
+        try:
+            mv_info = {mi.get('number', 0): mi
+                       for mi in metadata.get('movement_info', [])}
+            fixed = 0
+            for mv in texts_data['movements']:
+                if mv.get('type') != 'unknown' and not mv.get('is_uncertain_type'):
+                    continue
+                mi = mv_info.get(mv.get('number', 0))
+                if not mi or not mi.get('type'):
+                    continue
+                mv['type'] = mi['type']
+                mv.pop('is_uncertain_type', None)
+                mv.pop('mv_type_raw', None)
+                fixed += 1
+            if fixed:
+                with open(texts_json, 'w', encoding='utf-8') as f:
+                    json.dump(texts_data, f, ensure_ascii=False, indent=2)
+                log.info(f"[Pipeline] Step 1.7: Cross-validated {fixed} movement "
+                         f"type(s) from bach-cantatas.com")
+        except Exception as e:
+            log.warning(f"[Pipeline] Step 1.7 (movement type cross-validation) "
+                        f"non-fatal: {e}")
+
     # ── Step 1.6: Cross-validate role assignments (UAlberta ↔ bach-cantatas.com) ──
     if texts_data and texts_data.get('movements') and metadata:
         try:
