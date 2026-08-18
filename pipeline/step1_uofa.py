@@ -304,7 +304,13 @@ def _fetch_uofa(bwv):
         m = header_pattern.search(ls)
         # "Versus" covers the chorale-cantata stanza headers like
         # "3. Versus 2 S A" (BWV 4), which otherwise lack a Coro/Aria/Choral
-        # keyword. NOTE: BWV 62/91 use the standard Coro/Aria/Choral format on
+        # keyword. NOTE on BWV 4's actual structure:
+        #   - Mvt 2/5 are "Coro Versus N" — they carry the "Coro" keyword, so
+        #     the branch below classifies them as Chorus (a genuine chorus).
+        #   - Mvt 3/4/6/7/8 are bare "Versus N <voices>" (e.g. "Versus 2 S A"),
+        #     which fall through to type='chorale'. Their scoring is flexible —
+        #     they may be sung OVPP (one voice per part) or by a full choir.
+        # Also NOTE: BWV 62/91 use the standard Coro/Aria/Choral format on
         # UAlberta — they are NOT the "Versus" format of BWV 4.
         if m and ('Coro' in ls or 'Recitativo' in ls or 'Aria' in ls
                   or 'Choral' in ls or 'Chorus' in ls or 'Sinfonia' in ls
