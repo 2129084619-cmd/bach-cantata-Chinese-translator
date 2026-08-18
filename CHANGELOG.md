@@ -6,6 +6,29 @@
 
 ---
 
+## [1.0.2] - 2026-08-19（补丁小更）
+
+### 🩹 Patch Note（补丁说明）
+
+本次补丁解决两个影响**众赞歌康塔塔**（BWV 4、62、91 等以「诗节 Versus」组织乐章的康塔塔）的解析问题，并顺带修正德语书卷名的归一化。
+
+**问题背景 1 — 众赞歌康塔塔乐章被压缩**：BWV 4《Christ lag in Todes Banden》实际有 8 个乐章（Sinfonia + 7 个众赞歌诗节），但旧代码的乐章标题识别只认 `Coro`/`Aria`/`Choral`/`Chorus`/`Sinfonia`/`Duetto`/`Arioso` 这些关键词。BWV 4 的诗节标题是「3. Versus 2 S A」「4. Versus 3 T」这类**不含上述关键词**的格式，于是整首诗节标题被当成歌词行，8 个乐章被压缩成 3 个——读者看到的歌词里混着「3. Versus 2 S A」这样的排印残留，脚注也无法正确对齐到各诗节。
+
+**问题背景 2 — 德语书卷名未归一化**：圣经经文清单生成时，直接用了巴赫来源站点的德语书卷名（如「Markus」），未映射回英语标准名（「Mark」），导致经文清单显示「Markus」而非「马可福音」，且 BibleGateway 查询 URL 因书卷名无效而抓取失败。
+
+**修复内容**：
+
+| 文件 | 根因 | 修复 |
+|------|------|------|
+| `pipeline/step1_uofa.py` | 乐章标题识别缺少 `Versus` 关键词 | 识别条件新增 `'Versus' in ls`；并将 `Versus` 开头的标题判定为 `type='chorale'` |
+| `pipeline/step3_fetch_bible.py` | 书卷名未经 reverse map 归一化 | 生成 manifest 前先 `BOOK_GERMAN_REVERSE_MAP.get(raw_book, raw_book)` |
+
+**效果**：BWV 4 现在正确拆分出 8 个乐章，20 条脚注 18 处锚点全部对齐，gospel 经文正确显示「马可福音」并可正常抓取。
+
+**附带**：新增 BWV 4《Christ lag in Todes Banden》完整译文（56 行 / 20 脚注 / 4 处经文），已镜像至 `latest translations/BWV_4/`。
+
+---
+
 ## [1.0.1] - 2026-08-18（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
