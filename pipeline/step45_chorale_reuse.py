@@ -49,10 +49,11 @@ def _load_index():
 def _find_chorale_movements(texts_path):
     """Scan texts.json, return all movements containing chorale text.
 
-    Detects three patterns:
+    Detects four patterns:
       1. type == 'chorale'            (pure chorale, e.g. BWV 60/5)
       2. type contains 'chor'/'Choral' (mixed, e.g. "Aria T e Choral A")
-      3. has_chorale == True           (flag set by step1_uofa)
+      3. type contains 'Versus'        (chorale-cantata stanza, e.g. BWV 4 "Versus 2 S A")
+      4. has_chorale == True           (flag set by step1_uofa)
     """
     if not os.path.exists(texts_path):
         return []
@@ -64,11 +65,12 @@ def _find_chorale_movements(texts_path):
         mv_type = mv.get('type', '')
         has_chorale_flag = mv.get('has_chorale', False)
         # Detect chorale: type == 'chorale', or type contains 'Choral'/'Chorale'
-        # (but NOT 'Chorus' — that's a regular chorus)
+        # (but NOT 'Chorus' — that's a regular chorus), or a 'Versus' stanza.
         mv_lower = mv_type.lower()
         is_chorale = (
             mv_lower == 'chorale'
             or 'choral' in mv_lower  # matches "Choral" / "Chorale", NOT "Chorus"
+            or 'versus' in mv_lower  # chorale-cantata stanza, e.g. BWV 4 "Versus 2 S A"
             or has_chorale_flag
         )
         if is_chorale:
