@@ -302,8 +302,10 @@ def _fetch_uofa(bwv):
 
         # Check for movement header
         m = header_pattern.search(ls)
-        # "Versus" covers chorale-cantata stanza headers like "3. Versus 2 S A"
-        # (BWV 4, 62, 91 …), which otherwise lack a Coro/Aria/Choral keyword.
+        # "Versus" covers the chorale-cantata stanza headers like
+        # "3. Versus 2 S A" (BWV 4), which otherwise lack a Coro/Aria/Choral
+        # keyword. NOTE: BWV 62/91 use the standard Coro/Aria/Choral format on
+        # UAlberta — they are NOT the "Versus" format of BWV 4.
         if m and ('Coro' in ls or 'Recitativo' in ls or 'Aria' in ls
                   or 'Choral' in ls or 'Chorus' in ls or 'Sinfonia' in ls
                   or 'Duetto' in ls or 'Arioso' in ls or 'Versus' in ls):
@@ -334,11 +336,36 @@ def _fetch_uofa(bwv):
                 'english': [],
                 'annotation_ids': [],
                 'line_footnote_ids': [],
-                # Flag mixed-type movements (e.g. "Aria T e Choral A" in BWV 60)
+                # Flag mixed-type movements (e.g. "Aria T e Choral A" in BWV 60),
+                # and chorale-cantata stanza movements ("Coro Versus 1" in BWV 4)
+                # whose text is a chorale verse despite a Chorus/Aria type label.
                 'has_chorale': bool(
                     mvt_type != 'chorale' and
-                    ('Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw)
+                    ('Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw
+                     or 'Versus' in mvt_type_raw)
                 ),
+            }
+            movements.append(current_mvt)
+            continue
+
+        # Movement header whose type keyword we don't recognise (e.g. a future
+        # UAlberta phrasing). Keep it as a placeholder of type 'unknown' so the
+        # stanza title is NOT swallowed into the previous movement's lyrics.
+        # main.py cross-validates it against bach-cantatas.com movement_info and
+        # fills in the standard type (Chorus/Aria/Recitative/Chorale/Sinfonia).
+        if m:
+            mvt_num = int(m.group(1))
+            mvt_type_raw = m.group(2).strip()
+            current_mvt = {
+                'number': mvt_num,
+                'type': 'unknown',
+                'mv_type_raw': mvt_type_raw,
+                'is_uncertain_type': True,
+                'german': [],
+                'english': [],
+                'annotation_ids': [],
+                'line_footnote_ids': [],
+                'has_chorale': False,
             }
             movements.append(current_mvt)
             continue
