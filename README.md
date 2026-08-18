@@ -1,62 +1,138 @@
 # 巴赫康塔塔歌词翻译 · Bach Cantata Chinese Translator
 
-> 一个把巴赫康塔塔（Bach Cantatas）德文歌词自动翻译为**简体中文**的完整管线——抓取德语原文、校验路德圣经经文、填充中文和合本（CUV）经文，最终生成德中逐行对照的 Word 文档（docx），为本地agent制作。
+> 一套面向本地 AI Agent 的巴赫声乐作品翻译工具链，包含三大能力：**康塔塔歌词翻译**、**众赞歌翻译**、**共享术语库**。抓取德语原文 → 校验路德圣经 → 填充中文和合本（CUV）经文 → AI 逐行翻译 → 生成德中对照 Word 文档。
 >
-> A complete pipeline created for local AI agent that automatically translates the German libretti of J. S. Bach's cantatas into **Simplified Chinese** — fetching the original German text, cross-referencing Luther's Bible, filling in Chinese Union Version (CUV) scripture, and producing a line-by-line German–Chinese Word document (docx).
+> A toolchain for local AI agents covering three capabilities: **cantata lyric translation**, **chorale translation**, and a **shared glossary**. It fetches the German original, cross-references Luther's Bible, fills in Chinese Union Version (CUV) scripture, performs AI line-by-line translation, and produces a German–Chinese Word document.
 
-> ⚠️ **注意**：
-> 本项目当前仅提供**简体中文（简中）翻译版本**，暂不含繁体中文版本。若未来需要繁体，可在此译本基础上另行转换。
-> 由于完全基于agent工具进行开发，当前尚处于不太完整的状态，并可能存在一定的准确性问题，后续若有运行问题请在评论区留言
-> **Note**:
-> This project currently provides a **Simplified Chinese** translation only. A Traditional Chinese version is not yet available.
-> This project is currently more or less incomplete and may have issues in accuracy, since it is created by agent powered by AI. If there were further practical issues, please reply in the discussion sector.
+> ⚠️ **注意 / Note**：
+> 本项目当前仅提供**简体中文（简中）翻译版本**，暂不含繁体中文。This project currently provides a **Simplified Chinese** translation only.
+> 本项目由 AI Agent 开发，尚处于不断完善中，可能存在准确性问题；如遇运行问题请在 Discussion 留言。This project is built by an AI agent and is still evolving; accuracy issues may exist — please report problems in the Discussion section.
 
 ---
 
-## 项目简介
+## 功能总览 / Feature Overview
 
-巴赫创作了约 200 首留存下来的康塔塔，其歌词（libretti）多为德语巴洛克诗歌，大量化用《圣经》经文与路德宗神学意象，普通读者难以直接读懂。本项目将这一翻译流程**自动化**：
+本项目围绕「把巴赫声乐作品译成简体中文」这一目标，提供三个相互联动的功能模块：
 
-1. **抓取德语原文** —— 从权威站点（UAlberta 等）抓取完整德语歌词与学术脚注；
-2. **圣经验证** —— 检索每部康塔塔对应的经课（Epistle/Gospel）与化用的《诗篇》经文；
-3. **填充和合本** —— 用中文和合本（CUV）经文作为最高参照；
-4. **AI 辅助翻译** —— 以「德语原文 + 和合本经文」为依据逐行翻译（不使用英文译文作参考）；
-5. **生成对照文档** —— 输出德中逐行对照的 docx，含脚注超链接与对话角色标签。
+| 功能 | 说明 |
+|------|------|
+| **① 康塔塔歌词翻译** | 一键运行完整管线（Step 0 ~ 4.5），抓取德语歌词与学术脚注、检索对应经课（Epistle/Gospel）与化用经文、填充和合本、AI 逐行翻译、生成含脚注超链接与对话角色标签的德中对照 docx。 |
+| **② 众赞歌翻译** | 独立的众赞歌（Chorale）子系统，支持 BWV→众赞歌映射检测、跨康塔塔复用、重译归档（按文件修改时间留档）与 latest 镜像，可与主管线联动。 |
+| **③ 共享术语库** | 宗教术语统一管理于 `巴赫康塔塔术语库.xlsx`，自动追加新术语、更新频次、标注同一术语在不同康塔塔的译法差异，确保译法一致。 |
 
-## Introduction (English)
+### English
 
-J. S. Bach composed roughly 200 surviving cantatas, whose German libretti are steeped in Baroque poetry and dense with biblical allusions and Lutheran theology. This project automates the translation of these texts into Simplified Chinese:
-
-1. **Fetch the German original** — retrieve the full German text and scholarly footnotes from authoritative sources;
-2. **Verify against Scripture** — locate the Epistle/Gospel readings and Psalm references underlying each cantata;
-3. **Fill in the Chinese Union Version (CUV)** — use the CUV as the highest authority;
-4. **AI-assisted translation** — translate line by line based on the German original + CUV scripture (the English translation is *not* used as a reference);
-5. **Generate the bilingual document** — output a German–Chinese line-by-line Word document with footnote hyperlinks and dialogue role labels.
+| Feature | Description |
+|---------|-------------|
+| **① Cantata translation** | One-command pipeline (Step 0–4.5) that fetches German lyrics + scholarly footnotes, locates the Epistle/Gospel and Psalm references, fills in CUV scripture, performs AI translation, and outputs a German–Chinese docx with footnote hyperlinks and dialogue role labels. |
+| **② Chorale translation** | A standalone chorale subsystem: BWV→chorale detection, cross-cantata reuse, re-translation archiving (keyed by file modification time) and latest-mirroring, integrated with the main pipeline. |
+| **③ Shared glossary** | Religious terminology centralized in `巴赫康塔塔术语库.xlsx`, auto-appending new terms, updating frequency, and flagging translation divergences across cantatas. |
 
 ---
 
-## 功能特性
+## 翻译流程与译文展示 / Pipeline & Samples
 
-- **完整自动化管线**（Step 0 ~ 4.5）：抓取 → 背景 → 术语 → 经文 → 众赞歌 → 翻译 → 成文，一键运行。
-- **多数据源与优先级**：UAlberta 为德语歌词主源，kantate.info（NBA 精校文本）为回退源，bachcantatatexts.org 仅作脚注/注释参考。
-- **众赞歌翻译子系统**：独立的众赞歌（Chorale）检测、复用、归档、镜像，可与康塔塔管线联动。
-- **共享术语库**：宗教术语统一管理于 Excel（`巴赫康塔塔术语库.xlsx`），译文自动同步、译法差异自动标注。
-- **圣经经文搜索**：按 BWV 检索 Epistle/Gospel/readings，并对众赞歌做「写作来源 → 经文」模糊匹配，统一填充和合本经文。
-- **德中逐行对照 docx**：含基本信息表、脚注超链接、对话角色标签（如「魂 / 耶稣」），字体规范（Times New Roman + 宋体）。
+### 翻译流程
 
-## 效果展示
+```
+IMSLP 预检 → 抓取德语原文/脚注 → 背景与经课 → 术语表 + 路德验证
+   → 中文经文清单 → 众赞歌经文模糊搜索 → 翻译上下文 → AI 逐行翻译
+   → 生成德中 docx → 注入脚注超链接 → 导出纯中文 txt + 镜像
+```
 
-仓库内已附最新译文示例（对应 `latest translations/`）：
+命令行管线负责「抓取 + 背景 + 经文 + 众赞歌检测」，生成含 `【待翻译】` 占位符的 docx 模板与翻译上下文（JSON）；**最终中文逐行翻译由 AI 助手完成**，完成后写回 docx 并镜像到 `latest translations/`。
+
+### 已上传译文 / Included translations
+
+仓库内附最新译文示例（对应 `latest translations/`）：
 
 | 作品 | 德中对照 docx | 纯中文 txt |
 |------|--------------|-----------|
-| BWV 1《Wie schön leuchtet der Morgenstern》 | [`BWV1_德中对照译文.docx`](latest%20translations/BWV_1/BWV1_德中对照译文.docx) | [`BWV1_中文译文.txt`](latest%20translations/BWV_1/BWV1_中文译文.txt) |
-| BWV 2《Ach Gott, vom Himmel sieh darein》 | [`BWV2_德中对照译文.docx`](latest%20translations/BWV_2/BWV2_德中对照译文.docx) | [`BWV2_中文译文.txt`](latest%20translations/BWV_2/BWV2_中文译文.txt) |
-| BWV 194《Höchsterwünschtes Freudenfest》 | [`BWV194_德中对照译文.docx`](latest%20translations/BWV_194/BWV194_德中对照译文.docx) | [`BWV194_中文译文.txt`](latest%20translations/BWV_194/BWV194_中文译文.txt) |
+| BWV 1《Wie schön leuchtet der Morgenstern》 | [BWV1 docx](latest%20translations/BWV_1/BWV1_德中对照译文.docx) | [BWV1 txt](latest%20translations/BWV_1/BWV1_中文译文.txt) |
+| BWV 2《Ach Gott, vom Himmel sieh darein》 | [BWV2 docx](latest%20translations/BWV_2/BWV2_德中对照译文.docx) | [BWV2 txt](latest%20translations/BWV_2/BWV2_中文译文.txt) |
+| BWV 60《O Ewigkeit, du Donnerwort》 | [BWV60 docx](latest%20translations/BWV_60/BWV60_德中对照译文.docx) | [BWV60 txt](latest%20translations/BWV_60/BWV60_中文译文.txt) |
+| BWV 194《Höchsterwünschtes Freudenfest》 | [BWV194 docx](latest%20translations/BWV_194/BWV194_德中对照译文.docx) | [BWV194 txt](latest%20translations/BWV_194/BWV194_中文译文.txt) |
 
-众赞歌示例：[`Chorale026_德中对照译文.docx`](巴赫康塔塔中的众赞歌/latest%20translation/Chorale026_德中对照译文.docx)
+众赞歌示例：[Chorale026 docx](巴赫康塔塔中的众赞歌/latest%20translation/Chorale026_德中对照译文.docx)
 
-## 项目结构
+---
+
+## Skill 部署安装 / Deploy as an Agent Skill
+
+本项目同时是一份 **WorkBuddy / CodeBuddy skill**（`SKILL.md` 操作手册），可部署到本地 AI Agent，用一句自然语言命令即可触发完整翻译流程（如 `/巴赫康塔塔歌词翻译 60`）。
+
+### 1. 环境要求 / Environment
+
+- **Python 3.9+**（开发环境为 3.13）
+- **UTF-8 环境**：项目目录与 Python 包名含中文（如 `巴赫康塔塔中的众赞歌`），Windows 默认支持，Linux/macOS 亦默认 UTF-8
+- **联网**：首次运行需联网抓取歌词与经文
+- **依赖**（见 `requirements.txt`）：`requests`、`python-docx`、`beautifulsoup4`、`openpyxl`、`lxml`、`pdfplumber`
+
+```bash
+git clone https://github.com/2129084619-cmd/bach-cantata-Chinese-translator.git
+cd bach-cantata-Chinese-translator
+pip install -r requirements.txt
+```
+
+### 2. 部署到 WorkBuddy / CodeBuddy（原生支持）
+
+1. 克隆本仓库后，将 `SKILL.md` 复制到用户级 skill 目录：
+   ```bash
+   mkdir -p ~/.workbuddy/skills/bach-cantata-translate
+   cp SKILL.md ~/.workbuddy/skills/bach-cantata-translate/SKILL.md
+   ```
+2. 若你使用 WorkBuddy 托管的 Python，请把 `SKILL.md` 里的 `python` 命令替换为你的实际解释器路径（如 `C:\Users\<你>\.workbuddy\binaries\python\envs\default\Scripts\python.exe`）。
+3. 之后即可在对话中输入 `/巴赫康塔塔歌词翻译 <BWV>` 或 `/巴赫康塔塔歌词翻译 chorale <BWV>`。
+
+### 3. 部署到其他 Agent 工具（需适配）
+
+`SKILL.md` 是通用格式的操作手册 + 命令行调用，可适配以下常见 Agent 工具（skill / rules / 自定义指令目录各有不同）：
+
+| 工具 | 部署位置 | 说明 |
+|------|---------|------|
+| **WorkBuddy / CodeBuddy**（腾讯） | `~/.workbuddy/skills/<name>/SKILL.md` | 原生支持，直接调用 |
+| **Claude Code**（Anthropic） | `~/.claude/skills/<name>/SKILL.md` | 支持 skills 机制，把 SKILL.md 放入即可 |
+| **Cursor** | `.cursor/rules/` 或项目 skill 目录 | 将 SKILL.md 内容改写为 `.mdc` rule，或直接作为自定义指令引用 |
+| **Windsurf**（Codeium） | `.windsurf/rules/` | 同上，改写为 rules 格式 |
+| **通义灵码**（阿里） | 自定义指令 / 项目规则 | 把 SKILL.md 关键流程粘贴为自定义指令 |
+| **文心快码 / 豆包 MarsCode / Kimi** | 各自的自定义 skill / 规则目录 | 核心是「管线命令 + 翻译标准」，移植成本低 |
+
+> 核心提示：无论部署到哪个工具，本质都是让 Agent 理解两件事——**① 用什么命令跑管线**（`python -m pipeline.main <BWV>`），**② 翻译要遵循什么标准**（见下方「翻译标准」）。`SKILL.md` 已把这两点写成可直接执行的流程，其余工具只需把命令路径换成你的解释器。
+
+---
+
+## 使用方法 / Usage
+
+```bash
+# 翻译 BWV 1《Wie schön leuchtet der Morgenstern》
+python -m pipeline.main 1
+
+# 强制重新抓取
+python -m pipeline.main 1 --force
+
+# 查询 BWV 对应的众赞歌
+python -m 巴赫康塔塔中的众赞歌.chorale_main 1
+
+# 手动翻译某 BWV 对应的众赞歌（生成 docx 模板后由 AI 填译）
+python -m 巴赫康塔塔中的众赞歌.chorale_main 1 --regenerate
+
+# 重建 / 查看众赞歌索引
+python -m 巴赫康塔塔中的众赞歌.chorale_main --rebuild-index
+python -m 巴赫康塔塔中的众赞歌.chorale_main --status
+```
+
+作为 skill 使用时的对话命令：
+
+```
+/巴赫康塔塔歌词翻译 1                 # 翻译 BWV 1（完整管线）
+/巴赫康塔塔歌词翻译 chorale 4         # 查询 BWV 4 对应众赞歌
+/巴赫康塔塔歌词翻译 chorale 4 --翻译  # 手动翻译 BWV 4 对应众赞歌
+/巴赫康塔塔歌词翻译 update           # 更新后端管线代码
+```
+
+---
+
+## 项目结构 / Project Structure
 
 ```
 .
@@ -92,70 +168,14 @@ J. S. Bach composed roughly 200 surviving cantatas, whose German libretti are st
 │   ├── chorale_index.json           # BWV→众赞歌映射索引（333 首 / 477 映射）
 │   ├── chorale_bible_sources.json   # 众赞歌经文来源缓存
 │   └── data/                        # 已抓取的众赞歌详情（ChoraleNNN.json）
-├── latest translations/             # 最新译文镜像（BWV 1 / 2 / 194）
+├── latest translations/             # 最新译文镜像
 ├── 巴赫康塔塔术语库.xlsx              # 共享术语库
 └── bach_vocal_index.json            # IMSLP 巴赫声乐作品索引
 ```
 
-## 环境要求
+---
 
-- **Python 3.9+**（开发环境为 3.13）
-- **UTF-8 环境**：项目目录与 Python 包名含中文（如 `巴赫康塔塔中的众赞歌`），需在 UTF-8 环境下运行；Windows 默认支持，Linux/macOS 亦默认 UTF-8。
-- 首次运行需要联网（抓取歌词与经文）。
-
-## 安装
-
-```bash
-# 1. 克隆仓库
-git clone https://github.com/2129084619-cmd/bach-cantata-Chinese-translator.git
-cd bach-cantata-Chinese-translator
-
-# 2. 安装依赖（建议使用虚拟环境）
-pip install -r requirements.txt
-```
-
-### （可选）安装为 WorkBuddy skill
-
-本项目同时提供一份 `SKILL.md`，可作为 WorkBuddy（CodeBuddy）的 skill 使用：
-
-1. 将 `SKILL.md` 复制到 `~/.workbuddy/skills/bach-cantata-translate/SKILL.md`；
-2. 若你使用 WorkBuddy 托管 Python，请把 `SKILL.md` 中的 `python` 命令替换为你的实际解释器路径（如 `C:\Users\<你>\.workbuddy\binaries\python\envs\default\Scripts\python.exe`）；
-3. 之后即可在对话中调用 `/巴赫康塔塔歌词翻译 <BWV>`。
-
-## 快速开始
-
-```bash
-# 翻译 BWV 1《Wie schön leuchtet der Morgenstern》
-python -m pipeline.main 1
-
-# 强制重新抓取
-python -m pipeline.main 1 --force
-
-# 查询 BWV 对应的众赞歌
-python -m 巴赫康塔塔中的众赞歌.chorale_main 1
-
-# 重建 / 查看众赞歌索引
-python -m 巴赫康塔塔中的众赞歌.chorale_main --rebuild-index
-python -m 巴赫康塔塔中的众赞歌.chorale_main --status
-```
-
-> 说明：命令行管线负责「抓取 + 背景 + 经文 + 众赞歌检测」，并生成含 `【待翻译】` 占位符的 docx 模板与翻译上下文（JSON）；**最终的中文逐行翻译由 AI 助手完成**（见下方「翻译标准」），完成后写回 docx 并镜像到 `latest translations/`。
-
-## 翻译管线说明
-
-| 步骤 | 名称 | 职责 |
-|------|------|------|
-| Step A0 | IMSLP 预检 | 校验 BWV 是否为巴赫声乐作品 |
-| Step A | 运行 Python 管线 | 抓取德语原文、脚注、背景、术语、经文、众赞歌 |
-| Step B | 填充和合本经文 | 用 WebFetch 从 BibleGateway 取 CUV 中文经文 |
-| Step C | 重建翻译上下文 | 汇总 texts/footnotes/glossary/bible/metadata |
-| Step D | AI 中文翻译 | 以德语原文 + 和合本为最高依据逐乐章翻译 |
-| Step E | 生成德中 docx | 替换占位符，设置字体规范 |
-| Step E2 | 注入脚注超链接 | 为脚注上标追加超链接 |
-| Step E3 | 导出 TXT + 镜像 | 写纯中文 txt，镜像到 `latest translations/` |
-| Step F | 展示结果 | 展示最终 docx 与 txt |
-
-## 翻译标准
+## 翻译标准 / Translation Standards
 
 1. **语义准确性优先**：以德语原文 + 中文和合本（CUV）为最高依据，**不使用英文译文作翻译参考**（bachcantatatexts.org 英文仅作注释素材）。
 2. **行数强制一致**：每个乐章/诗节的德语行数 = 中文行数，不可合并或拆分导致总数偏差。
@@ -165,7 +185,9 @@ python -m 巴赫康塔塔中的众赞歌.chorale_main --status
 6. **术语统一**：宗教专有名词严格对齐共享术语库与和合本译法。
 7. **背景标注**：超出和合本范围的神学/文化背景以方括号 `[注：...]` 标注。
 
-## 数据来源与版权声明
+---
+
+## 数据来源与版权声明 / Sources & Copyright
 
 本项目抓取并参考了以下公开资源，**其歌词、译文与注释的版权归各自原作者所有**：
 
@@ -182,14 +204,19 @@ python -m 巴赫康塔塔中的众赞歌.chorale_main --status
 
 > ⚠️ 本项目**仅供学习与研究用途，请勿用于商业目的**，使用抓取内容时请遵守各源站点的使用条款。
 
-## 已知限制
+---
+
+## 已知限制 / Known Limitations
 
 - 部分站点抓取时需关闭 SSL 校验（`verify=False`），仅为规避证书问题，非安全风险。
 - 中文和合本经文需通过 WebFetch（JS 渲染页面）手动填充，未完全自动化。
 - 最终翻译由 AI 助手完成（以和合本为最高参照），可能存在偏差，建议人工校对。
-- 在对话康塔塔的翻译中仍然会出现把角色名误识别成歌词并翻译的情形
+- 在对话康塔塔的翻译中仍可能把角色名误识别为歌词并翻译。
 - 部分众赞歌详情页 HTML 结构特殊，诗歌文本提取可能不完整。
 - 跨平台使用中文包名（`巴赫康塔塔中的众赞歌`）时需确保 UTF-8 环境。
+- bachcantatatexts.org 与 UAlberta 的歌词行分割偶有差异（个别长句合行），导致极少数脚注锚点存在 1 行偏差。
+
+---
 
 ## License
 
