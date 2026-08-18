@@ -302,9 +302,11 @@ def _fetch_uofa(bwv):
 
         # Check for movement header
         m = header_pattern.search(ls)
+        # "Versus" covers chorale-cantata stanza headers like "3. Versus 2 S A"
+        # (BWV 4, 62, 91 …), which otherwise lack a Coro/Aria/Choral keyword.
         if m and ('Coro' in ls or 'Recitativo' in ls or 'Aria' in ls
                   or 'Choral' in ls or 'Chorus' in ls or 'Sinfonia' in ls
-                  or 'Duetto' in ls or 'Arioso' in ls):
+                  or 'Duetto' in ls or 'Arioso' in ls or 'Versus' in ls):
             mvt_num = int(m.group(1))
             mvt_type_raw = m.group(2).strip()
             if 'Coro' in mvt_type_raw or 'Chorus' in mvt_type_raw:
@@ -319,6 +321,9 @@ def _fetch_uofa(bwv):
                 mvt_type = 'Sinfonia'
             elif 'Duetto' in mvt_type_raw or 'Duet' in mvt_type_raw:
                 mvt_type = 'Duet'
+            elif 'Versus' in mvt_type_raw:
+                # Chorale-cantata stanza movement (e.g. BWV 4 Mvt 3 "Versus 2 S A")
+                mvt_type = 'chorale'
             else:
                 mvt_type = mvt_type_raw
 
