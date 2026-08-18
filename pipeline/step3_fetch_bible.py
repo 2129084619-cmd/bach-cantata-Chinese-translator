@@ -95,7 +95,10 @@ def run(bible_references):
     seen = set()
 
     for ref in bible_references:
-        book = ref['book']
+        # Normalize German book names (e.g. "Markus" → "Mark", "Lukas" → "Luke")
+        # so book_cn lookup and BibleGateway URLs use the English name.
+        raw_book = ref['book'] or ''
+        book = config.BOOK_GERMAN_REVERSE_MAP.get(raw_book, raw_book)
         chapter = ref['chapter']
         verses = ref.get('verse', '') or ''
         key = f'{book} {chapter}:{verses}' if verses else f'{book} {chapter}'
