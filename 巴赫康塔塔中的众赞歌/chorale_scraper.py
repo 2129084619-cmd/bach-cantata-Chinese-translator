@@ -674,6 +674,9 @@ def _extract_verse_lines_from_cell(cell):
                 continue
             if line.startswith('Terms of'):
                 continue
+            # Skip a bare stanza number (e.g. "18." embedded in the last cell)
+            if re.match(r'^\d{1,3}\.?$', line):
+                continue
             lines.append(line)
     return lines
 
@@ -706,6 +709,9 @@ def _extract_verse_lines(cell):
         if line.startswith('Chorales BWV'):
             continue
         if line.startswith('Terms of'):
+            continue
+        # Skip a bare stanza number (e.g. "18." embedded in the last cell)
+        if re.match(r'^\d{1,3}\.?$', line):
             continue
         lines.append(line)
     # Filter out lines that are just BWV number links
