@@ -6,6 +6,34 @@
 
 ---
 
+## [1.0.3] - 2026-08-19（补丁小更）
+
+### 🩹 Patch Note（补丁说明）
+
+本次补丁解决 v1.0.1 遗留的一个**对话康塔塔二重唱标记行**识别问题——它会导致脚注上标 `[N]` 在二重唱乐章里错位。
+
+**问题背景**：BWV 140《Wachet auf》第 6 乐章是「魂（S）/耶稣（B）」的二重唱。数据源用三处标记表示「两个角色同唱」，旧代码都未识别为角色标签行，而是当成歌词行占位：
+
+| 数据源 | 二重唱标记 | 旧行为 |
+|--------|-----------|--------|
+| bachcantatatexts.org 英文 | `Soul & Jesus` / `Soul, Jesus` | `_is_english_role_remnant` 只认单个词，复合标记被当歌词 |
+| UAlberta 德语 | `beide`（「两者」）、`{Seele, Jesus}`（大括号角色行） | 不在 `DIALOGUE_ROLE_NAMES`，被当歌词 |
+
+结果：德语歌词行数多于脚注列表行数，第 6 乐章的 fn20/21/22/23 各错位 1-2 行（此前只能手动修正 docx 锚点）。
+
+**修复内容**（两层）：
+
+| 文件 | 修复 |
+|------|------|
+| `pipeline/step1_fetch_texts.py` | `_is_english_role_remnant` 改为按 `[,&]` 拆分，识别 `Soul & Jesus` / `Soul, Jesus` 等复合标记（每个 part 均为已知英文角色名） |
+| `pipeline/step1_uofa.py` | `_apply_role_labels` 新增：`beide`/`beiden` → 角色标签 dict；`{...}` 大括号内全为角色名/声部名（`{Seele, Jesus}`）→ 角色标签 dict（新增 `_is_brace_role_marker` 辅助） |
+
+**效果**：BWV 140 第 6 乐章 fn19/20/21/22/23 全部自动正确对齐（修复前 fn20/21/22/23 错位需手动修正）；第 3 乐章的二重唱标记（`Soul, Jesus` / `Soul & Jesus`）同样被正确识别。
+
+**回归验证**：BWV 60（Furcht/Hoffnung/Christus 对话，无二重唱标记）、BWV 71（无对话角色）脚注对齐不受影响。
+
+---
+
 ## [1.0.2] - 2026-08-19（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
