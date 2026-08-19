@@ -188,13 +188,36 @@ def _extract_role_voice_map(soup):
     return mappings
 
 
+def _is_brace_role_marker(text):
+    """Return True if `text` is a standalone brace-enclosed role/voice marker.
+
+    UAlberta marks dialogue-duet lines with a brace line listing the two
+    speakers, e.g. "{Seele, Bass}" (later "{Seele, Jesus}" after voice
+    substitution). These are role labels, NOT lyrics — they must not occupy a
+    lyric-line slot, or line_footnote_ids will misalign (BWV 140 Mvt 6,
+    fn20/21/22/23).
+    """
+    t = (text or '').strip()
+    if not (t.startswith('{') and t.endswith('}')):
+        return False
+    inner = t[1:-1].strip()
+    if not inner:
+        return False
+    from .config import DIALOGUE_ROLE_NAMES
+    known = set(DIALOGUE_ROLE_NAMES) | set(_VOICE_MARKERS)
+    parts = [p.strip() for p in re.split(r'[,/]', inner) if p.strip()]
+    return bool(parts) and all(p in known for p in parts)
+
+
 def _apply_role_labels(movements, voice_to_role):
     """Post-process: replace voice markers (Alt, Tenor, Bass, Soprano)
     with character role names (Furcht, Hoffnung, Jesus, Seele, etc.).
 
-    Handles two cases:
+    Handles:
       1. Standalone voice marker → role-label dict
       2. Inline voice marker in text (e.g. "{Sopran, Bass}") → regex substitution
+      3. Duet markers ("beide"/"beiden", brace-enclosed "{Role, Role}") → role-label
+         dict so they do not occupy a lyric-line slot (keeps line_footnote_ids aligned)
     """
     if not voice_to_role:
         return movements
@@ -219,8 +242,11 @@ def _apply_role_labels(movements, voice_to_role):
 
             text = str(line)
 
+            # Duet "both" marker ("beide"/"beiden") → role-label dict
+            if text in ('beide', 'beiden'):
+                new_german.append({'text': text, 'line_is_role_label': True})
             # Case 1: standalone voice marker → role-label dict
-            if text in v2r:
+            elif text in v2r:
                 new_german.append({
                     'text': v2r[text],
                     'line_is_role_label': True,
@@ -231,7 +257,14 @@ def _apply_role_labels(movements, voice_to_role):
                     lambda m: v2r.get(m.group(), m.group()),
                     text
                 )
-                new_german.append(replaced)
+                # A bare "{Role, Role}" line (after substitution) is a duet marker
+                if _is_brace_role_marker(replaced):
+                    new_german.append({'text': replaced, 'line_is_role_label': True})
+                else:
+                    new_german.append(replaced)
+            # Case 3: bare "{Role, Role}" line with no voice markers
+            elif _is_brace_role_marker(text):
+                new_german.append({'text': text, 'line_is_role_label': True})
             else:
                 new_german.append(line)
         mvt['german'] = new_german
