@@ -59,12 +59,25 @@ _ENGLISH_ROLE_REMNANTS = frozenset({
 
 
 def _is_english_role_remnant(text):
-    """Return True if `text` is a standalone English role-name remnant line."""
+    """Return True if `text` is a standalone English role-name remnant line.
+
+    Handles both single role names ("Soul", "Jesus") and composite duet
+    markers ("Soul & Jesus", "Soul, Jesus") that bachcantatatexts.org emits
+    for dialogue duets. Composite markers were previously missed because the
+    old check only accepted a single word — causing footnote misalignment
+    (e.g. BWV 140 Mvt 6, fn20/21/22/23).
+    """
     t = (text or '').strip()
     if not t:
         return False
-    words = t.split()
-    return len(words) == 1 and words[0] in _ENGLISH_ROLE_REMNANTS
+    # Split composite markers on commas/ampersands ("Soul & Jesus", "Soul, Jesus").
+    parts = [p.strip() for p in re.split(r'\s*[,&]\s*', t) if p.strip()]
+    if not parts:
+        return False
+    return all(
+        len(p.split()) == 1 and p in _ENGLISH_ROLE_REMNANTS
+        for p in parts
+    )
 
 
 def _extract_html_note_parts(html):
