@@ -10,6 +10,38 @@
 
 ---
 
+## [1.0.4] - 2026-08-20（补丁小更）
+
+### 🩹 Patch Note（补丁说明）
+
+本次补丁重构**众赞歌文本识别**：不再依赖乐章标题关键词（`Coro`/`Choral`/`Versus`），改用 UAlberta 页面 HTML 的**加粗标记**精确识别众赞歌文本，并纠正 `Coro` 语义。
+
+**问题背景 1 — 众赞歌识别依赖标题关键词，不够精确**：旧代码用标题里的 `Choral`/`Chorale`/`Versus` 推断 `has_chorale`，无法识别「标题无众赞歌关键词、但歌词实为众赞歌诗节」的情况（如 BWV 100 全 6 乐章均标 `Coro`/`Aria`，实为众赞歌诗节；BWV 3 第 2 乐章「Recitativo (e Choral)」中众赞歌行与宣叙调片段交替）。
+
+**问题背景 2 — `Coro` 被误判为「歧义」**：旧代码把纯 `Coro` 当作「可能开场合唱、也可能结尾四声部众赞歌」的歧义，交叉验证后把 BWV 100 第 6 乐章改成 `chorale`。实际上 UAlberta 里 `Coro` 就是**明确的合唱（Chorus）**——结尾四声部众赞歌标 `Choral`（如 BWV 3 Mvt 6），配器自由的诗节标 `Versus`（如 BWV 4）。
+
+**问题背景 3 — 众赞歌 scraper 诗节编号混入歌词**：详情页末节（Chorale065 第 18 节、Chorale035 第 2 节）德语首行残留孤立诗节编号「18.」「2.」，被当歌词行。
+
+**修复内容**：
+
+| 文件 | 修复 |
+|------|------|
+| `pipeline/step1_uofa.py` | ① `_fetch_uofa` 从 `get_text()` 改为解析 HTML `<tr>/<td class="movement">/<td class="text">` 结构；② 新增 `_parse_text_cell` 用 `<b>` 识别众赞歌行（`is_chorale=True`）、`<em>` 识别声部/角色标记；③ `has_chorale` 改为「存在加粗行即 True」；④ 移除 `is_ambiguous_chorus`，`Coro`→`Chorus`；⑤ `_merge_paired_exclamations` 让众赞歌行参与「Amen! Amen!」合并 |
+| `pipeline/main.py` | Step 1.7 移除「Coro 歧义交叉验证」分支（保留 unknown 类型回填） |
+| `巴赫康塔塔中的众赞歌/chorale_scraper.py` | 过滤孤立的诗节编号行（`N.`） |
+
+**效果**：
+- **众赞歌识别**：BWV 100 全 6 乐章正确标记 `has_chorale=True`（step45 由 0 → 6 个众赞歌乐章）；BWV 3 第 2 乐章正确区分众赞歌行（加粗）与宣叙调片段（不加粗）；BWV 91 第 2 乐章「Choral e Recitativo」正确识别
+- **Coro 语义**：BWV 100 第 6 乐章保持 `Chorus`（`has_chorale=True`），不再误改为 `chorale`；BWV 4 第 2/5 乐章保持 `Chorus`、其余 `Versus`
+- **脚注对齐顺带受益**：BWV 60 的 fn11/16/18/19/20 此前需手动修正，现自动对齐（27 条全部正确）
+- **数据修复**：Chorale065 第 18 节、Chorale035 第 2 节孤例「18.」「2.」已从 JSON 移除
+
+**回归验证**：BWV 3/4/60/62/91/100/140 解析、脚注对齐、众赞歌复用检测均不回归。
+
+**已知限制**：混合乐章中 `<em>` 声部标记（`Tenor`/`Alt` 等）仍作为歌词行处理（翻译为中文声部名）；step45 对「仅引用单行众赞歌」的乐章（如 BWV 3 第 5 乐章）复用检测仍可能误匹配诗节。
+
+---
+
 ## [1.0.3] - 2026-08-19（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
