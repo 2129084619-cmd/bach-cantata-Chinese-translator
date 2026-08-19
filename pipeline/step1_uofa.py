@@ -318,8 +318,18 @@ def _fetch_uofa(bwv):
                   or 'Duetto' in ls or 'Arioso' in ls or 'Versus' in ls):
             mvt_num = int(m.group(1))
             mvt_type_raw = m.group(2).strip()
+            is_ambiguous_chorus = False
             if 'Coro' in mvt_type_raw or 'Chorus' in mvt_type_raw:
                 mvt_type = 'Chorus'
+                # UAlberta uses a bare "Coro" for BOTH an opening chorus and a
+                # closing four-part chorale (e.g. BWV 100 Mvt 6, BWV 117 Mvt 9).
+                # A "Coro" that carries no Versus/Choral/Chorale/Chorus qualifier
+                # is ambiguous — flag it so main.py Step 1.7 cross-validates it
+                # against bach-cantatas.com, which distinguishes Chorus vs Chorale.
+                if ('Coro' in mvt_type_raw and not re.search(
+                        r'Versus|Choral|Chorale|Chorus',
+                        mvt_type_raw, re.IGNORECASE)):
+                    is_ambiguous_chorus = True
             elif 'Recitativo' in mvt_type_raw or 'Recitative' in mvt_type_raw:
                 mvt_type = 'Recitative'
             elif 'Aria' in mvt_type_raw:
@@ -341,6 +351,7 @@ def _fetch_uofa(bwv):
             current_mvt = {
                 'number': mvt_num,
                 'type': mvt_type,
+                'is_ambiguous_chorus': is_ambiguous_chorus,
                 'german': [],
                 'english': [],
                 'annotation_ids': [],
