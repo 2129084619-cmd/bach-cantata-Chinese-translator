@@ -444,7 +444,14 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
     # Use the work_name from the JSON API (overall cantata title),
     # NOT movements[0]['german'][0] — the first movement may be an
     # instrumental sinfonia/concerto whose text line is just "Sinfonia".
-    display_title = title or (movements[0]['german'][0] if movements and movements[0].get('german') else '')
+    display_title = title
+    if not display_title:
+        # Fallback 1: chorale text from metadata (accurate, no trailing comma)
+        display_title = (metadata or {}).get('chorale_text', '')
+    if not display_title and movements and movements[0].get('german'):
+        first = movements[0]['german'][0]
+        # german lines may be dicts ({'text':..., 'is_chorale':True}) since v1.0.4
+        display_title = first.get('text', '') if isinstance(first, dict) else str(first)
     _p(f'BWV {bwv_number} \u2014 \u201e{display_title}\u201c',
        bold=True, size=Pt(18), align=WD_ALIGN_PARAGRAPH.CENTER, sa=Pt(2))
     _p('\u5fb7\u4e2d\u5bf9\u7167\u8bd1\u6587 / German\u2013Chinese Parallel Translation',
