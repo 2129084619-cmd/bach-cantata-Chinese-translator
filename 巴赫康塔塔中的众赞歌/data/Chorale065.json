@@ -1,0 +1,661 @@
+{
+  "chorale_id": "Chorale065",
+  "source_url": "https://www.bach-cantatas.com/Texts/Chorale065-Eng3.htm",
+  "scraped_at": "2026-08-20T00:41:03",
+  "title": "Ach Gott, wie manches Herzeleid",
+  "ekg": "",
+  "author": "Martin Moller",
+  "author_year": "1587",
+  "melody": "",
+  "composer": "Anon (c1455)",
+  "composer_year": "",
+  "theme": "",
+  "description": "",
+  "vocal_works": [
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-01.htm",
+      "year": "1725",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A33:1",
+      "type": "Chorus (Chorale)",
+      "verse": "1",
+      "bwv": "3",
+      "movement": "1"
+    },
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-02.htm",
+      "year": "1725",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A33:2",
+      "type": "Recitative & Chorale",
+      "verse": "2",
+      "bwv": "3",
+      "movement": "2"
+    },
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-03.htm",
+      "year": "1725",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A33:3",
+      "type": "Aria",
+      "verse": "3-7",
+      "bwv": "3",
+      "movement": "3"
+    },
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-04.htm",
+      "year": "1725",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A33:4",
+      "type": "Recitative",
+      "verse": "10",
+      "bwv": "3",
+      "movement": "4"
+    },
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-05.htm",
+      "year": "1725",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A33:5",
+      "type": "Aria (Duet)",
+      "verse": "15-16",
+      "bwv": "3",
+      "movement": "5"
+    },
+    {
+      "work_url": "../BWV3.htm",
+      "mvt_url": "../INS/BWV003-06.htm",
+      "year": "1725",
+      "br": "156, 307",
+      "re_num": "8",
+      "ke": "156, 308",
+      "di": "28",
+      "bc": "A33:6",
+      "type": "Chorale",
+      "verse": "18",
+      "bwv": "3",
+      "movement": "6"
+    },
+    {
+      "work_url": "../BWV44.htm",
+      "mvt_url": "../INS/BWV044-04.htm",
+      "year": "1724",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A78:4",
+      "type": "Chorale",
+      "verse": "1",
+      "bwv": "44",
+      "movement": "4"
+    },
+    {
+      "work_url": "../BWV58.htm",
+      "mvt_url": "../INS/BWV058-01.htm",
+      "year": "1727",
+      "br": "-",
+      "re_num": "-",
+      "ke": "-",
+      "di": "-",
+      "bc": "A26:1",
+      "type": "Aria w/ Chorale",
+      "verse": "1",
+      "bwv": "58",
+      "movement": "1"
+    },
+    {
+      "work_url": "../BWV153.htm",
+      "mvt_url": "../INS/BWV153-09.htm",
+      "year": "1724",
+      "br": "217",
+      "re_num": "9",
+      "ke": "217",
+      "di": "-",
+      "bc": "A25:8",
+      "type": "Chorale",
+      "verse": "16-18",
+      "bwv": "153",
+      "movement": "9"
+    }
+  ],
+  "german_text": {
+    "1": {
+      "lines": [
+        "Ach Gott, wie manches Herzeleid",
+        "begegnet mir zu dieser Zeit!",
+        "Der schmale Weg ist trübsalsvoll,",
+        "den ich zum Himmel wandern soll."
+      ],
+      "bold": true
+    },
+    "2": {
+      "lines": [
+        "Wie schwerlich läßt sich Fleisch und Blut",
+        "zwingen zu dem ewigen gut!",
+        "Wo soll ich mich denn wenden hin?",
+        "Zu dir, Herr Jesu, steht mein Sinn."
+      ],
+      "bold": true
+    },
+    "3": {
+      "lines": [
+        "Bei dir mein Herz Trost, Hilf und Rat",
+        "allzeit gewiß gefunden hat;",
+        "niemand jemals verlassen ist,",
+        "der getraut hat auf Jesum Christ."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "Du bist der große Wundermann,",
+        "das zeigt dein Amt und dein Person.",
+        "Welch Wundering hat man erfahr'n,",
+        "da du, mein Gott, bist Mensch gebor'n."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "Und führest mich durch deinen Tod",
+        "ganz wunderlich aus aller Not!",
+        "Jesu, mein Herr und Gott allein,",
+        "wie süß ist mir der name dein!"
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "Es kann kein Trauern sein so schwer,",
+        "dein süßer Nam' er freut viel mehr;",
+        "kein Elend mag so bitter sein,",
+        "dein süßer Nam'der lindert's sein."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "Ob mir gleich Leib und Seel' verschmacht't,",
+        "so weißt du, Herr, daß ich's nicht acht'.",
+        "Wenn ich dich hab', so hab ich wohl,",
+        "was mich ewig erfreuen soll."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "Dein bin ich ja mit Leib und Seel',",
+        "was kann mir tun Sünd', Tod und Höll'?",
+        "Kein' beßre Treu' auf Erden ist",
+        "denn nur bei dir, Herr Jesu Christ."
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "Ich weiß, daß du mich nicht verläßt,",
+        "dein Wahrheit bleibt mir ewig fest.",
+        "Du bist mein rechter, treuer Hirt,",
+        "der ewig mich behüten wird."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Jesu, mein' Freud', mein' Ehr'und Ruhm,",
+        "mein's Herzens Schatz und mein Reichtum,",
+        "ich kann's ja doch nicht zeigen an,",
+        "wie hoch dein Nam' erfreuen kann."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "Wer Glaub' und Lieb' im Herzen hat,",
+        "der wird's erfahren in der Tat,",
+        "drum hab' ich oft und viel gered't:",
+        "Wenn ich an dir nicht Freude hätt."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "So wollt' den Tod ich wünschen her,",
+        "ja daß ich nie geboren wär';",
+        "denn wer dich nicht im Herzen hat,",
+        "der ist gewiß lebendig tot."
+      ],
+      "bold": false
+    },
+    "13": {
+      "lines": [
+        "Jesu, du edler Bräutgam wert,",
+        "mein'höchste Zier auf dieser Erd',",
+        "an dir allein ich mich ergötz",
+        "weit über alle güldnen Schätz."
+      ],
+      "bold": false
+    },
+    "14": {
+      "lines": [
+        "Sooft ich nur gedenk' an dich,",
+        "all mein Gemüt erfreuet sich;",
+        "wenn ich mein' Hoffnung stell' zu dir,",
+        "so fühl' ich Fried und Trost in mir."
+      ],
+      "bold": false
+    },
+    "15": {
+      "lines": [
+        "Wenn ich Nöten bet' und sing',",
+        "so wird mein Herz recht guter Ding'.",
+        "Dein Geist bezeugt, daß solches frei",
+        "des ew'gen Lebens Vorschmack sei."
+      ],
+      "bold": false
+    },
+    "16": {
+      "lines": [
+        "Drum will ich, weil ich lebe noch,",
+        "das Kreuz dir willig tragen nach.",
+        "Mein Gott, mach' mich dazu bereit,",
+        "es dient zum Besten' allezeit."
+      ],
+      "bold": true
+    },
+    "17": {
+      "lines": [
+        "Hilf mir mein' Sach' recht greifen an,",
+        "daß ich den Lauf vollenden kann;",
+        "Hilf mir auch zwingen Fleisch und Blut,",
+        "vor Sünd Schanden mich behüt'!"
+      ],
+      "bold": true
+    },
+    "18": {
+      "lines": [
+        "Erhalt mein Herz im Glauben rein,",
+        "so leb' und sterb' ich dir allein.",
+        "Jesu, mein Trost hör' mein' Begier:",
+        "o mein Heiland, wär' ich bei dir!"
+      ],
+      "bold": true
+    }
+  },
+  "english_text": {
+    "1": {
+      "lines": [
+        "Ah God, how many a heartache",
+        "I meet with in this time!",
+        "The narrow way is full of affliction",
+        "by which I must travel to heaven."
+      ],
+      "bold": false
+    },
+    "2": {
+      "lines": [
+        "With what difficulty are flesh and blood",
+        "compelled to seek the everlasting good!",
+        "Where then should I  turn?",
+        "By  you, Lord Jesus,my thoughts stand."
+      ],
+      "bold": false
+    },
+    "3": {
+      "lines": [
+        "With you my heart has always",
+        "certainly found comfort, help and counsel;",
+        "nobody has ever been forsaken",
+        "who has trusted Jesus Christ."
+      ],
+      "bold": false
+    },
+    "4": {
+      "lines": [
+        "You are the great miracle-worker,",
+        "this reveals your office  and your person.",
+        "What amazement we have to learn",
+        "that you , my God have been born as a man."
+      ],
+      "bold": false
+    },
+    "5": {
+      "lines": [
+        "And through your death you lead me",
+        "most marvellously out of all distress!",
+        "Jesus, my only Lord and God,",
+        "how sweet is your name to me!"
+      ],
+      "bold": false
+    },
+    "6": {
+      "lines": [
+        "No grief can be so heavy",
+        "that your sweet name does not give more delight",
+        "no misery could be so bitter",
+        "that it is not soothed by your sweet name."
+      ],
+      "bold": false
+    },
+    "7": {
+      "lines": [
+        "Although my body and soul both languish,",
+        "you know, Lord, that I do not care.",
+        "If I have you , then I indeed have",
+        "what will delight me for ever."
+      ],
+      "bold": false
+    },
+    "8": {
+      "lines": [
+        "If I am yours body and soul,",
+        "what can sin death and hell do to me?",
+        "There is no greater faithfulness on earth",
+        "than there is in you alone, Lord Jesus Christ"
+      ],
+      "bold": false
+    },
+    "9": {
+      "lines": [
+        "I know that you do not forsake me,",
+        "your truth remains firmly for me for ever.",
+        "You are my true, faithful shepherd,",
+        "who will always protect me."
+      ],
+      "bold": false
+    },
+    "10": {
+      "lines": [
+        "Jesus, my joy, my honour and glory,",
+        "my heart’s treasure and my riches,",
+        "I simply cannot indicate",
+        "what great delight your name can give."
+      ],
+      "bold": false
+    },
+    "11": {
+      "lines": [
+        "Anyone who has faith and love in their heart",
+        "will know this through experience,",
+        "therefore  I have said again and again:",
+        "…what if I did not have delight in you."
+      ],
+      "bold": false
+    },
+    "12": {
+      "lines": [
+        "Then I would wish for death,",
+        "that I had never been born;",
+        "for anybody who does not have you in his heart",
+        "is certainly living dead."
+      ],
+      "bold": false
+    },
+    "13": {
+      "lines": [
+        "Jesus, you noble bridegroom,",
+        "my greatest glory on this earth,",
+        "in you alone do I take delight,",
+        "far above all gilded treasures."
+      ],
+      "bold": false
+    },
+    "14": {
+      "lines": [
+        "Whenever I just think of you,",
+        "all my spirit rejoices;",
+        "if I place my hope in you,",
+        "then I feel peace and consolation within me."
+      ],
+      "bold": false
+    },
+    "15": {
+      "lines": [
+        "When I pray and sing about my troubles,",
+        "then my heart becomes something truly good.",
+        "Your Spirit attests that such an experience",
+        "is a foretaste of eternal life."
+      ],
+      "bold": false
+    },
+    "16": {
+      "lines": [
+        "Therefore I want, while I still live,",
+        "to bear the cross joyfully after you;",
+        "my God, make me ready to do this,",
+        "it is always for the best!"
+      ],
+      "bold": false
+    },
+    "17": {
+      "lines": [
+        "Help me to deal rightly with my situation",
+        "so that I can accomplish my course,",
+        "help me also to master my flesh and blood,",
+        "protect me from sin and shame!"
+      ],
+      "bold": false
+    },
+    "18": {
+      "lines": [
+        "Keep my heart pure in faith",
+        "so I may live and die for you alone.",
+        "Jesus, my comfort, hear my desire,",
+        "o my Saviour , I want to be with you."
+      ],
+      "bold": false
+    }
+  },
+  "bach_verses": [
+    1,
+    2,
+    16,
+    17,
+    18
+  ],
+  "translator": "Francis Browne",
+  "source_links": [],
+  "chinese_text": {
+    "1": {
+      "lines": [
+        "啊，神啊，多少心愁",
+        "此际正与我相逢！",
+        "那窄路满布患难，",
+        "我却须沿它走向天家。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "2": {
+      "lines": [
+        "血肉之躯何等艰难，",
+        "被催逼去追求那永恒的美善！",
+        "我当转向何方呢？",
+        "我的心志，主耶稣啊，惟系于你。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "3": {
+      "lines": [
+        "在你那里，我的心恒常",
+        "确实寻得安慰、帮助与劝勉；",
+        "凡信靠耶稣基督的人，",
+        "从未被离弃。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "4": {
+      "lines": [
+        "你是那伟大的行奇事者，",
+        "你的职分与位格都显明此点。",
+        "何等奇妙啊，我的神，",
+        "你竟降生为人。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "5": {
+      "lines": [
+        "你借你的死，",
+        "奇妙地领我脱离一切患难！",
+        "耶稣，我惟一的主与神，",
+        "你的名于我是何等甘甜！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "6": {
+      "lines": [
+        "再沉重的哀伤，",
+        "你的甘甜之名能带来更大的喜乐；",
+        "再苦涩的患难，",
+        "你的甘甜之名也能使之得慰。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "7": {
+      "lines": [
+        "纵使我的身与灵都衰残，",
+        "主啊，你知我全不以为意。",
+        "我若得着你，便得着",
+        "那永远使我欢欣的至宝。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "8": {
+      "lines": [
+        "我的身与灵都属乎你，",
+        "罪恶、死亡与地狱能奈我何？",
+        "世上再无更大的信实，",
+        "惟有主耶稣基督你那里。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "9": {
+      "lines": [
+        "我深知你必不离弃我，",
+        "你的真理于我恒久稳固。",
+        "你是我真正忠心的牧者，",
+        "必永远护庇我。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "10": {
+      "lines": [
+        "耶稣，我的喜乐、我的尊荣与荣耀，",
+        "我心中的珍宝与财富，",
+        "我实在无法言说，",
+        "你的名能带来何等的欢欣。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "11": {
+      "lines": [
+        "凡心中有信心与爱心的人，",
+        "必在实际中经历此点；",
+        "因此我屡屡反复地说：",
+        "我若不在你里面得喜乐，"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "12": {
+      "lines": [
+        "我便宁愿求死，",
+        "甚愿自己从未出生；",
+        "因为心中没有你的人，",
+        "实在是虽生犹死。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "13": {
+      "lines": [
+        "耶稣，你尊贵的新郎，",
+        "我在这世上最高的荣耀，",
+        "我惟独以你为乐，",
+        "远超一切黄金的珍宝。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "14": {
+      "lines": [
+        "每当我想起你，",
+        "我全人都欢欣鼓舞；",
+        "当我把盼望放在你身上，",
+        "我便感到内心的平安与安慰。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "15": {
+      "lines": [
+        "当我在患难中祷告歌唱，",
+        "我的心便真的欢畅。",
+        "你的灵作证，这样的经历",
+        "正是永生的预尝。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "16": {
+      "lines": [
+        "因此只要我仍活着，",
+        "便愿甘心地背起十字架跟从你。",
+        "我的神，求你使我预备好，",
+        "因这恒常都为我的益处效力。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "17": {
+      "lines": [
+        "求你帮助我正确地处理我的一切，",
+        "使我能跑完当跑的路；",
+        "求你帮助我胜过血肉之躯，",
+        "保守我脱离罪恶与羞辱！"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    },
+    "18": {
+      "lines": [
+        "保守我心在信心中纯洁，",
+        "我便单单为你而活、为你而死。",
+        "耶稣，我的安慰，垂听我的渴慕，",
+        "我的救主啊，愿我与你同在。"
+      ],
+      "translator": "AI (manual review)",
+      "translated_at": "2026-08-20T00:47:06"
+    }
+  }
+}
