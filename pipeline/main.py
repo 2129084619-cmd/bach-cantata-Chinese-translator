@@ -425,13 +425,10 @@ def run_pipeline(bwv_number, skip_steps=None, force=False):
             metadata = {}
 
     # ── Step 1.7: Cross-validate movement types (UAlberta ↔ bach-cantatas.com) ──
-    # Two cases are resolved here against bach-cantatas.com movement_info:
-    #   (A) step1 stashed an unrecognised header as type='unknown'
-    #       (is_uncertain_type=True) — fill the standard type back in.
-    #   (B) step1 saw a bare "Coro" that is ambiguous between an opening chorus
-    #       and a closing four-part chorale (is_ambiguous_chorus=True) — resolve
-    #       it: bach-cantatas.com "Chorale" → type='chorale' (has_chorale=True),
-    #       "Chorus" → keep Chorus.
+    # Resolved here against bach-cantatas.com movement_info: step1 stashes an
+    # unrecognised header as type='unknown' (is_uncertain_type=True) — fill the
+    # standard type back in. (A bare "Coro" is a genuine CHORUS on UAlberta, NOT
+    # an ambiguous chorus/chorale — has_chorale is derived from bold chorale text.)
     if texts_data and texts_data.get('movements') and metadata:
         try:
             mv_info = {mi.get('number', 0): mi
@@ -447,15 +444,6 @@ def run_pipeline(bwv_number, skip_steps=None, force=False):
                         mv.pop('mv_type_raw', None)
                         fixed += 1
                     continue
-                # Case B: ambiguous "Coro" (Chorus vs Chorale)
-                if mv.get('is_ambiguous_chorus'):
-                    mi = mv_info.get(mv.get('number', 0))
-                    bc_type = (mi.get('type') or '').strip().lower() if mi else ''
-                    if bc_type in ('chorale', 'choral'):
-                        mv['type'] = 'chorale'
-                        mv['has_chorale'] = True
-                        fixed += 1
-                    mv.pop('is_ambiguous_chorus', None)
             if fixed:
                 with open(texts_json, 'w', encoding='utf-8') as f:
                     json.dump(texts_data, f, ensure_ascii=False, indent=2)
