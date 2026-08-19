@@ -29,6 +29,7 @@
 | `pipeline/step1_uofa.py` | ① `_fetch_uofa` 从 `get_text()` 改为解析 HTML `<tr>/<td class="movement">/<td class="text">` 结构；② 新增 `_parse_text_cell` 用 `<b>` 识别众赞歌行（`is_chorale=True`）、`<em>` 识别声部/角色标记；③ `has_chorale` 改为「存在加粗行即 True」；④ 移除 `is_ambiguous_chorus`，`Coro`→`Chorus`；⑤ `_merge_paired_exclamations` 让众赞歌行参与「Amen! Amen!」合并 |
 | `pipeline/main.py` | Step 1.7 移除「Coro 歧义交叉验证」分支（保留 unknown 类型回填） |
 | `巴赫康塔塔中的众赞歌/chorale_scraper.py` | 过滤孤立的诗节编号行（`N.`） |
+| `pipeline/step4_translate.py` | 标题 fallback 处理 dict：`display_title` 依次取 `title` → `metadata.chorale_text` → `german[0].text`（修复众赞歌康塔塔标题被渲染成 `{'text':..., 'is_chorale':True}` dict 字面量的 regression，BWV 3/5） |
 
 **效果**：
 - **众赞歌识别**：BWV 100 全 6 乐章正确标记 `has_chorale=True`（step45 由 0 → 6 个众赞歌乐章）；BWV 3 第 2 乐章正确区分众赞歌行（加粗）与宣叙调片段（不加粗）；BWV 91 第 2 乐章「Choral e Recitativo」正确识别
