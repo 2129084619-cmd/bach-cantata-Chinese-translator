@@ -276,12 +276,112 @@ def _apply_role_labels(movements, voice_to_role):
 # UAlberta parser
 # ═══════════════════════════════════════════════════════════════
 
+def _extract_title(soup):
+    """Extract the cantata title from the page's 'BWV N ...' line."""
+    text = soup.get_text('\n')
+    lines = [l.rstrip() for l in text.split('\n')]
+    for line in lines[:5]:
+        ls = line.strip()
+        if ls and ls.startswith('BWV '):
+            t = re.match(r'BWV\s+\d+\w*\s+(.+)', ls)
+            if t:
+                raw = t.group(1).strip()
+                raw = re.split(r'\s*\*\s*\*', raw)[0].strip()
+                raw = re.split(r'\s*\|\s*', raw)[0].strip()
+                raw = re.sub(r'\s*,?\s*$', '', raw)
+                return raw
+    return ''
+
+
+def _classify_mvt_type(mvt_type_raw):
+    """Classify a UAlberta movement header's type string into a standard keyword.
+
+    UAlberta uses 'Coro' for a genuine CHORUS (sung by the full choir), NOT as an
+    ambiguous chorus/chorale marker — a closing four-part chorale is labelled
+    'Choral' instead (e.g. BWV 3 Mvt 6 "6. Choral"), and a flexible-scoring
+    chorale stanza is labelled 'Versus' (e.g. BWV 4). 'has_chorale' is therefore
+    NOT derived from this type string — it comes from bold chorale-text detection.
+
+    Returns '' for an unrecognised keyword (caller marks it type='unknown').
+    """
+    if 'Coro' in mvt_type_raw or 'Chorus' in mvt_type_raw:
+        return 'Chorus'
+    if 'Recitativo' in mvt_type_raw or 'Recitative' in mvt_type_raw:
+        return 'Recitative'
+    if 'Aria' in mvt_type_raw:
+        return 'Aria'
+    if 'Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw:
+        return 'chorale'
+    if 'Sinfonia' in mvt_type_raw:
+        return 'Sinfonia'
+    if 'Duetto' in mvt_type_raw or 'Duet' in mvt_type_raw:
+        return 'Duet'
+    if 'Versus' in mvt_type_raw:
+        return 'Versus'
+    return ''
+
+
+def _parse_text_cell(cell):
+    """Parse a UAlberta <td class='text'> cell into structured lines.
+
+    UAlberta renders chorale text (Bach-set chorale verses) in <b>/<strong>, and
+    voice/role markers in <em>/<i>. Lines are separated by <br>. Returns a list
+    of {'text': str, 'is_bold': bool, 'is_em': bool} dicts, one per line — bold
+    signals chorale text, em signals a voice/role marker.
+    """
+    from bs4 import NavigableString, Tag
+    lines = []
+
+    def _walk(node, in_bold, in_em, buf):
+        # buf holds (text_segment, is_bold, is_em) tuples for the current line
+        for child in node.children:
+            if isinstance(child, NavigableString):
+                s = str(child)
+                # Whitespace segments carry no bold/em state — otherwise a
+                # trailing newline inside <b> (after its <br>) would leak bold
+                # onto the following <em> voice-marker line.
+                buf.append((s, in_bold and bool(s.strip()),
+                            in_em and bool(s.strip())))
+            elif isinstance(child, Tag):
+                if child.name == 'br':
+                    text = ''.join(seg[0] for seg in buf).strip()
+                    if text:
+                        lines.append({
+                            'text': text,
+                            'is_bold': any(seg[1] for seg in buf),
+                            'is_em': any(seg[2] for seg in buf),
+                        })
+                    buf.clear()
+                elif child.name in ('b', 'strong'):
+                    _walk(child, True, in_em, buf)
+                elif child.name in ('em', 'i'):
+                    _walk(child, in_bold, True, buf)
+                else:
+                    _walk(child, in_bold, in_em, buf)
+
+    buf = []
+    _walk(cell, False, False, buf)
+    text = ''.join(seg[0] for seg in buf).strip()
+    if text:
+        lines.append({
+            'text': text,
+            'is_bold': any(seg[1] for seg in buf),
+            'is_em': any(seg[2] for seg in buf),
+        })
+    return lines
+
+
 def _fetch_uofa(bwv):
     """Fetch and parse German text from UAlberta cantata page.
 
     For dialogue/secular/passion works: detects role→voice mappings from
     page top / movement headers, then replaces voice abbreviations (Alt,
     Tenor, Bass, Sopran) in the lyrics body with actual character names.
+
+    Chorale detection: UAlberta renders chorale verses in <b>. Bold lines are
+    marked 'is_chorale' and the movement's 'has_chorale' flag is derived from
+    their presence — a reliable signal independent of the type keyword (which
+    may be 'Coro', 'Aria', 'Recitativo', etc.).
     """
     url = UOF_A_URL.format(bwv=bwv)
     try:
@@ -300,171 +400,76 @@ def _fetch_uofa(bwv):
         roles_str = ', '.join(f'{r}({v})' for v, r in voice_to_role.items())
         print(f"  [UAlberta] Detected roles: {roles_str}")
 
-    # ── Step B: Extract text from table structure ──
-    # Use get_text('\\n') for reliable line-by-line extraction,
-    # then detect role markers in the post-processing pass.
-    text = soup.get_text('\n')
-    lines = [l.rstrip() for l in text.split('\n')]
+    title = _extract_title(soup)
 
-    # Extract title
-    title = ''
-    for line in lines[:5]:
-        ls = line.strip()
-        if ls and ls.startswith('BWV '):
-            t = re.match(r'BWV\s+\d+\w*\s+(.+)', ls)
-            if t:
-                raw = t.group(1).strip()
-                raw = re.split(r'\s*\*\s*\*', raw)[0].strip()
-                raw = re.split(r'\s*\|\s*', raw)[0].strip()
-                raw = re.sub(r'\s*,?\s*$', '', raw)
-                title = raw
-            break
+    title = _extract_title(soup)
 
-    # Parse movements
+    # ── Step B: Parse movements from the HTML table structure ──
+    # Each movement is a <tr> with a <td class="movement"> (header + instruments)
+    # and a <td class="text"> (lyrics). Bold (<b>) lyric lines are chorale text;
+    # <em> lines are voice/role markers.
     movements = []
-    current_mvt = None
-    header_pattern = re.compile(r'\*?\*?\s*(\d+)\.\s+(.+?)(?:\s+\*?\*?)?$')
-    instr_keywords = ['Oboe', 'Violin', 'Viola', 'Continuo', 'Corno', 'Flauto',
-                      'Tromba', 'Trombone', 'Organo', 'Cembalo', 'Fagotto',
-                      'Travers', 'Timpani', 'Violoncello']
+    header_pattern = re.compile(r'^\s*(\d+)\.\s+(.+?)\s*$')
 
-    for line in lines:
-        ls = line.strip()
-        if not ls:
+    for mv_cell in soup.find_all('td', class_='movement'):
+        b_tag = mv_cell.find('b')
+        header_text = (b_tag.get_text(' ', strip=True) if b_tag
+                       else mv_cell.get_text(' ', strip=True))
+        m = header_pattern.match(header_text)
+        if not m:
             continue
+        mvt_num = int(m.group(1))
+        mvt_type_raw = m.group(2).strip()
+        mvt_type = _classify_mvt_type(mvt_type_raw)
 
-        # Check for movement header
-        m = header_pattern.search(ls)
-        # "Versus" covers the chorale-cantata stanza headers like
-        # "3. Versus 2 S A" (BWV 4), which otherwise lack a Coro/Aria/Choral
-        # keyword. NOTE on BWV 4's actual structure:
-        #   - Mvt 2/5 are "Coro Versus N" — they carry the "Coro" keyword, so
-        #     the branch below classifies them as Chorus (a genuine chorus).
-        #   - Mvt 3/4/6/7/8 are bare "Versus N <voices>" (e.g. "Versus 2 S A"),
-        #     which are KEPT as type='Versus' (not forced to 'chorale'). Their
-        #     scoring is flexible — they may be sung OVPP (one voice per part)
-        #     or by a full choir, so we do not hard-label them as chorus.
-        # Also NOTE: BWV 62/91 use the standard Coro/Aria/Choral format on
-        # UAlberta — they are NOT the "Versus" format of BWV 4.
-        if m and ('Coro' in ls or 'Recitativo' in ls or 'Aria' in ls
-                  or 'Choral' in ls or 'Chorus' in ls or 'Sinfonia' in ls
-                  or 'Duetto' in ls or 'Arioso' in ls or 'Versus' in ls):
-            mvt_num = int(m.group(1))
-            mvt_type_raw = m.group(2).strip()
-            is_ambiguous_chorus = False
-            if 'Coro' in mvt_type_raw or 'Chorus' in mvt_type_raw:
-                mvt_type = 'Chorus'
-                # UAlberta uses a bare "Coro" for BOTH an opening chorus and a
-                # closing four-part chorale (e.g. BWV 100 Mvt 6, BWV 117 Mvt 9).
-                # A "Coro" that carries no Versus/Choral/Chorale/Chorus qualifier
-                # is ambiguous — flag it so main.py Step 1.7 cross-validates it
-                # against bach-cantatas.com, which distinguishes Chorus vs Chorale.
-                if ('Coro' in mvt_type_raw and not re.search(
-                        r'Versus|Choral|Chorale|Chorus',
-                        mvt_type_raw, re.IGNORECASE)):
-                    is_ambiguous_chorus = True
-            elif 'Recitativo' in mvt_type_raw or 'Recitative' in mvt_type_raw:
-                mvt_type = 'Recitative'
-            elif 'Aria' in mvt_type_raw:
-                mvt_type = 'Aria'
-            elif 'Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw:
-                mvt_type = 'chorale'
-            elif 'Sinfonia' in mvt_type_raw:
-                mvt_type = 'Sinfonia'
-            elif 'Duetto' in mvt_type_raw or 'Duet' in mvt_type_raw:
-                mvt_type = 'Duet'
-            elif 'Versus' in mvt_type_raw:
-                # Chorale-cantata stanza movement (e.g. BWV 4 Mvt 3 "Versus 2 S A").
-                # Keep the type as 'Versus' — do NOT force it to 'chorale'. Only a
-                # "Coro"/"Chorus" keyword (handled above) makes a movement Chorus.
-                mvt_type = 'Versus'
+        tr = mv_cell.find_parent('tr')
+        text_cell = tr.find('td', class_='text') if tr else None
+        parsed = _parse_text_cell(text_cell) if text_cell else []
+
+        german = []
+        has_chorale = False
+        for line in parsed:
+            text = line['text']
+            if line['is_bold']:
+                has_chorale = True
+                german.append({'text': text, 'is_chorale': True})
+            elif line['is_em']:
+                if '(' in text and re.match(r'^\S+\s*\([ABTSabts]\)', text):
+                    continue
+                german.append(text)
             else:
-                mvt_type = mvt_type_raw
+                if text in _SECTION_MARKERS:
+                    continue
+                german.append(text)
 
-            current_mvt = {
-                'number': mvt_num,
-                'type': mvt_type,
-                'is_ambiguous_chorus': is_ambiguous_chorus,
-                'german': [],
-                'english': [],
-                'annotation_ids': [],
-                'line_footnote_ids': [],
-                # Flag mixed-type movements (e.g. "Aria T e Choral A" in BWV 60)
-                # and chorale-cantata stanza movements ("Coro Versus 1" / bare
-                # "Versus N" in BWV 4), whose text is a chorale verse despite a
-                # Chorus/Aria/Versus type label. step45 uses this to detect reuse.
-                'has_chorale': bool(
-                    mvt_type != 'chorale' and
-                    ('Choral' in mvt_type_raw or 'Chorale' in mvt_type_raw
-                     or 'Versus' in mvt_type_raw)
-                ),
-            }
-            movements.append(current_mvt)
-            continue
+        from .config import DIALOGUE_ROLE_NAMES
+        german = [
+            {'text': g, 'line_is_role_label': True}
+            if isinstance(g, str) and g in DIALOGUE_ROLE_NAMES else g
+            for g in german
+        ]
 
-        # Movement header whose type keyword we don't recognise (e.g. a future
-        # UAlberta phrasing). Keep it as a placeholder of type 'unknown' so the
-        # stanza title is NOT swallowed into the previous movement's lyrics.
-        # main.py cross-validates it against bach-cantatas.com movement_info and
-        # fills in the standard type (Chorus/Aria/Recitative/Chorale/Sinfonia).
-        if m:
-            mvt_num = int(m.group(1))
-            mvt_type_raw = m.group(2).strip()
-            current_mvt = {
-                'number': mvt_num,
-                'type': 'unknown',
-                'mv_type_raw': mvt_type_raw,
-                'is_uncertain_type': True,
-                'german': [],
-                'english': [],
-                'annotation_ids': [],
-                'line_footnote_ids': [],
-                'has_chorale': False,
-            }
-            movements.append(current_mvt)
-            continue
+        mv_dict = {
+            'number': mvt_num,
+            'type': mvt_type if mvt_type else 'unknown',
+            'german': german,
+            'english': [],
+            'annotation_ids': [],
+            'line_footnote_ids': [],
+            'has_chorale': has_chorale,
+        }
+        if not mvt_type:
+            mv_dict['mv_type_raw'] = mvt_type_raw
+            mv_dict['is_uncertain_type'] = True
+        movements.append(mv_dict)
 
-        if not current_mvt:
-            continue
-
-        # Skip instrumentation lines
-        if any(kw in ls for kw in instr_keywords):
-            if ',' in ls or '/' in ls:
-                continue
-            words = ls.split()
-            if len(words) <= 3 and not any(c in 'äöüß' for c in ls):
-                continue
-
-        # Skip footer section
-        if ls.startswith('* * *') or ls.startswith('Besetzung'):
-            break
-
-        # Clean bold / italic markers, collect text
-        cleaned = re.sub(r'\*\*', '', ls).strip()
-        cleaned = re.sub(r'^\*\s*|\s*\*$', '', cleaned).strip()
-        if cleaned:
-            # Skip section/part markers in multi-part cantatas
-            # (e.g. BWV 195 "Erster Teil" / "Zweiter Teil")
-            if cleaned in _SECTION_MARKERS:
-                continue
-            # Skip role-mapping annotation lines like "Seele (S), Jesus (B)"
-            if re.match(r'^\S+\s*\([ABTSabts]\)', cleaned) and '(' in cleaned:
-                continue
-            # Detect standalone role names (e.g. "Seele" in BWV 140 Mvt 6)
-            from .config import DIALOGUE_ROLE_NAMES
-            if cleaned in DIALOGUE_ROLE_NAMES:
-                current_mvt['german'].append({
-                    'text': cleaned,
-                    'line_is_role_label': True,
-                })
-            else:
-                current_mvt['german'].append(cleaned)
-
-    # ── Step C: Post-process — replace voice markers with role names ──
+    # ── Step C: Post-process ─ replace voice markers with role names ──
     if voice_to_role:
         _apply_role_labels(movements, voice_to_role)
 
     return movements, title
+
+
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -627,34 +632,42 @@ def _merge_paired_exclamations(movements):
         n = len(german)
         while i < n:
             cur = german[i]
-            if isinstance(cur, dict):
-                # Role-label dict: keep as-is (not a lyric exclamation)
+            # Role-label dict (line_is_role_label): keep as-is, not a lyric line.
+            # A chorale dict (is_chorale) IS a lyric line — it may still merge.
+            if isinstance(cur, dict) and cur.get('line_is_role_label'):
                 new_german.append(cur)
                 i += 1
                 continue
-            cur_word = _short_word(cur)
+            cur_text = cur.get('text', '') if isinstance(cur, dict) else cur
+            cur_word = _short_word(cur_text)
             merged = False
             if cur_word and i + 1 < n:
                 nxt = german[i + 1]
-                if isinstance(nxt, str) and _short_word(nxt) == cur_word:
-                    new_german.append(cur.rstrip() + ' ' + nxt.lstrip())
-                    # Merge English (annotation-only, index-aligned)
-                    if english:
-                        if non_role_idx < len(english) and non_role_idx + 1 < len(english):
-                            new_english.append(
-                                english[non_role_idx].rstrip() + ' ' + english[non_role_idx + 1].lstrip())
-                        elif non_role_idx < len(english):
-                            new_english.append(english[non_role_idx])
-                    # Merge footnote ids for the merged line
-                    fn = []
-                    if non_role_idx < len(lfn):
-                        fn.extend(lfn[non_role_idx] or [])
-                    if non_role_idx + 1 < len(lfn):
-                        fn.extend(lfn[non_role_idx + 1] or [])
-                    new_lfn.append(fn)
-                    i += 2
-                    non_role_idx += 2
-                    merged = True
+                if not (isinstance(nxt, dict) and nxt.get('line_is_role_label')):
+                    nxt_text = nxt.get('text', '') if isinstance(nxt, dict) else nxt
+                    if _short_word(nxt_text) == cur_word:
+                        merged_text = cur_text.rstrip() + ' ' + nxt_text.lstrip()
+                        if isinstance(cur, dict) or isinstance(nxt, dict):
+                            new_german.append({'text': merged_text, 'is_chorale': True})
+                        else:
+                            new_german.append(merged_text)
+                        # Merge English (annotation-only, index-aligned)
+                        if english:
+                            if non_role_idx < len(english) and non_role_idx + 1 < len(english):
+                                new_english.append(
+                                    english[non_role_idx].rstrip() + ' ' + english[non_role_idx + 1].lstrip())
+                            elif non_role_idx < len(english):
+                                new_english.append(english[non_role_idx])
+                        # Merge footnote ids for the merged line
+                        fn = []
+                        if non_role_idx < len(lfn):
+                            fn.extend(lfn[non_role_idx] or [])
+                        if non_role_idx + 1 < len(lfn):
+                            fn.extend(lfn[non_role_idx + 1] or [])
+                        new_lfn.append(fn)
+                        i += 2
+                        non_role_idx += 2
+                        merged = True
             if not merged:
                 new_german.append(cur)
                 if english:
