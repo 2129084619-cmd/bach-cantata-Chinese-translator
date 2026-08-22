@@ -266,3 +266,11 @@ ORATORIO_PASSION_BWV = frozenset({
 ORATORIO_PASSION_VOICE_ROLE = {
     'Tenor': 'Evangelist',
 }
+
+# Multi-part works: UAlberta splits some works across several pages whose
+# movement numbering restarts at 1 on each page. BWV 248 (Christmas Oratorio)
+# is split into six parts (248I.html … 248VI.html). step1_uofa merges them and
+# offsets each part's movement numbers by part_index * 1000 so they stay unique.
+BWV_MULTI_PART = {
+    '248': ('I', 'II', 'III', 'IV', 'V', 'VI'),
+}
