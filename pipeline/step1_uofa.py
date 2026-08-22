@@ -27,6 +27,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from . import config
+from . import step1_fetch_texts
 
 UOF_A_URL = 'https://sites.ualberta.ca/~wfb/cantatas/{bwv}.html'
 BCT_URL = 'https://bachcantatatexts.org/BWV{bwv}.json'
@@ -321,6 +322,21 @@ def _classify_mvt_type(mvt_type_raw):
     return ''
 
 
+def _extract_voices(mvt_type_raw):
+    """Extract solo-voice abbreviations from a movement header string.
+
+    e.g. 'Recitativo T B' → 'Tenor, Bass'; 'Aria A' → 'Alto';
+    'Coro' → '' (a chorus carries no solo-voice suffix on UAlberta).
+    Used to label sub-numbered movements (7a/7b/7c) whose voices are absent
+    from bach-cantatas.com movement_info.
+    """
+    tokens = re.findall(r'\b([ABTS])\b', mvt_type_raw)
+    if not tokens:
+        return ''
+    names = {'A': 'Alto', 'T': 'Tenor', 'B': 'Bass', 'S': 'Soprano'}
+    return ', '.join(names.get(t, t) for t in tokens)
+
+
 def _parse_text_cell(cell):
     """Parse a UAlberta <td class='text'> cell into structured lines.
 
@@ -409,7 +425,7 @@ def _fetch_uofa(bwv):
     # and a <td class="text"> (lyrics). Bold (<b>) lyric lines are chorale text;
     # <em> lines are voice/role markers.
     movements = []
-    header_pattern = re.compile(r'^\s*(\d+)\.\s+(.+?)\s*$')
+    header_pattern = re.compile(r'^\s*(\d+)([a-z]?)\.\s+(.+?)\s*$')
 
     for mv_cell in soup.find_all('td', class_='movement'):
         b_tag = mv_cell.find('b')
@@ -418,8 +434,9 @@ def _fetch_uofa(bwv):
         m = header_pattern.match(header_text)
         if not m:
             continue
-        mvt_num = int(m.group(1))
-        mvt_type_raw = m.group(2).strip()
+        mvt_num, mv_label = step1_fetch_texts._parse_mvt_number(
+            m.group(1) + (m.group(2) or ''))
+        mvt_type_raw = m.group(3).strip()
         mvt_type = _classify_mvt_type(mvt_type_raw)
 
         tr = mv_cell.find_parent('tr')
@@ -436,6 +453,12 @@ def _fetch_uofa(bwv):
             elif line['is_em']:
                 if '(' in text and re.match(r'^\S+\s*\([ABTSabts]\)', text):
                     continue
+                # Scene marker starting with a role name
+                # (e.g. "Evangelist, zwei Männer in weißen Kleidern") → role-label
+                first_word = text.split(',')[0].strip()
+                if first_word in DIALOGUE_ROLE_NAMES:
+                    german.append({'text': text, 'line_is_role_label': True})
+                    continue
                 german.append(text)
             else:
                 if text in _SECTION_MARKERS:
@@ -451,12 +474,14 @@ def _fetch_uofa(bwv):
 
         mv_dict = {
             'number': mvt_num,
+            'mvt_label': mv_label,
             'type': mvt_type if mvt_type else 'unknown',
             'german': german,
             'english': [],
             'annotation_ids': [],
             'line_footnote_ids': [],
             'has_chorale': has_chorale,
+            'voices': _extract_voices(mvt_type_raw),
         }
         if not mvt_type:
             mv_dict['mv_type_raw'] = mvt_type_raw
@@ -464,6 +489,17 @@ def _fetch_uofa(bwv):
         movements.append(mv_dict)
 
     # ── Step C: Post-process ─ replace voice markers with role names ──
+    # Oratorio/Passion works (detected via an Evangelist role label) have no
+    # explicit role→voice map on UAlberta; the narrator is always the Tenor.
+    # Supply a default Tenor→Evangelist map so "Tenor"/"beide" markers become
+    # role labels instead of plain lyric lines.
+    if not voice_to_role:
+        has_evangelist = any(
+            isinstance(g, dict) and g.get('text') == 'Evangelist'
+            for mv in movements for g in mv.get('german', [])
+        )
+        if has_evangelist:
+            voice_to_role = {'Tenor': 'Evangelist'}
     if voice_to_role:
         _apply_role_labels(movements, voice_to_role)
 
@@ -507,7 +543,7 @@ def _parse_bct_movements(bct_data):
         # Fallback: simple English extraction
         movements = []
         for raw_mv in bct_data.get('movements', []):
-            mv_num = int(raw_mv.get('mvt_num', 0))
+            mv_num, mv_label = step1_fetch_texts._parse_mvt_number(raw_mv.get('mvt_num', 0))
             english_lines = []
             for tb in raw_mv.get('mvt_texts', []):
                 if tb.get('text_language') == 'en':
@@ -515,6 +551,7 @@ def _parse_bct_movements(bct_data):
                     break
             movements.append({
                 'number': mv_num,
+                'mvt_label': mv_label,
                 'type': raw_mv.get('mvt_text_type', ''),
                 'german': [],
                 'english': english_lines,
@@ -528,7 +565,7 @@ def _parse_bct_german_movements(bct_data):
     """Parse bachcantatatexts.org JSON into movement dicts with German lines (fallback)."""
     movements = []
     for raw_mv in bct_data.get('movements', []):
-        mv_num = int(raw_mv.get('mvt_num', 0))
+        mv_num, mv_label = step1_fetch_texts._parse_mvt_number(raw_mv.get('mvt_num', 0))
         mv_type = raw_mv.get('mvt_text_type', '')
         german_lines = []
         english_lines = []
@@ -548,6 +585,7 @@ def _parse_bct_german_movements(bct_data):
                     english_lines = s_lines
         movements.append({
             'number': mv_num,
+            'mvt_label': mv_label,
             'type': mv_type,
             'german': german_lines,
             'english': english_lines,
