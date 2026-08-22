@@ -525,14 +525,15 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
         # ── Movement heading: include vocal and instrumental info ──
         mi = mv_info_map.get(num, {})
         raw_type = mi.get('type', '').strip()
-        voices = mi.get('voices', '').strip()
+        # voices fall back to step1's parsed header voices for sub-numbered
+        # movements (7a/7b/7c) absent from bach-cantatas.com movement_info
+        voices = mi.get('voices', '').strip() or mv.get('voices', '').strip()
 
-        heading_parts = [f'Movement {num}']
-        full_label = raw_type
-        if voices and voices not in raw_type:
-            full_label = f'{raw_type} [{voices}]'
-        elif not full_label:
-            full_label = mv.get('type', '')
+        mv_label = mv.get('mvt_label') or str(num)
+        heading_parts = [f'Movement {mv_label}']
+        full_label = raw_type or mv.get('type', '')
+        if voices and voices not in full_label:
+            full_label = f'{full_label} [{voices}]'
 
         if full_label:
             heading_parts.append(full_label)
