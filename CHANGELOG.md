@@ -18,16 +18,20 @@
 
 | 文件 | 变更 |
 |------|------|
-| `pipeline/config.py` | 新增 `BWV_MULTI_PART = {'248': ('I'…'VI')}` 多部分作品映射 |
+| `pipeline/config.py` | 新增 `BWV_MULTI_PART = {'248': ('I'…'VI')}` 多部分作品映射 + `MULTI_PART_OFFSET = 1000` 共享偏移 + `BOOK_EN_ALIAS` 书卷别名（"Isaah"→"Isaiah"、"Ecclesiastical Letters"→"Sirach"）+ `BOOK_CHINESE_MAP['Sirach']` |
 | `pipeline/step1_uofa.py` | ① 重构 `_fetch_uofa` 为分发 + `_fetch_uofa_page`（单页解析）+ `_fetch_uofa_multipart`（多页合并）；② 合并时每部分乐章 `number` 偏移 `part_index * 1000`（I: 1–9、II: 1001–1014…VI: 5001–5011），加 `part` 字段与 `mvt_label` 前缀（`I.1`、`II.5`）；③ 每部分独立解析角色映射（II 有 Engel、VI 有 Herodes），默认 `Tenor→Evangelist` 贯穿全剧（`base_bwv` 去罗马数字后判 `ORATORIO_PASSION_BWV`） |
+| `pipeline/step2_fetch_bg.py` | ① 新增 `_run_multipart`：bach-cantatas.com 六部分用阿拉伯数字 `BWV248-1-Eng3.htm`~`BWV248-6-Eng3.htm`，逐页抓取合并 occasion/readings/librettist/chorale_ids，`movement_info` 的 `number` 按 `part_index * MULTI_PART_OFFSET` 偏移；② 新增 `_extract_readings_list` + `_parse_readings_body`：提取 "Readings:" 行的**全部**经文（`/`、`&` 分隔、书卷名带点归一、`&` 段继承书卷名），存入 `readings['all']`（带 `part` 标记）；③ `run()` 按 `BWV_MULTI_PART` 分发；④ `BWV_COMPOSED_FALLBACK` 加 `'248': '1734 (Leipzig)'` |
+| `pipeline/step3_fetch_bible.py` | `collect_bible_references` 消费 `readings['all']` 聚合经文 |
+| `pipeline/step4_translate.py` | 基本信息表对多部分作品显示聚合经文（`[I] Titus 2:11-14 \| [II] …` 带 part 标记） |
 
 **标题提取增强**：`_extract_title` 优先 `<td class="title">`（并去掉末尾部分号 "Herzeleid I" → "Herzeleid"），新增 `_extract_subtitle`。多部分作品总标题取首部分 `<td class="subtitle">` 去罗马数字（"Weihnachts-Oratorium I" → "Weihnachts-Oratorium"）。**顺带修复** BWV 3/4/5 众赞歌康塔塔此前 title 为空（靠 fallback 首行歌词）的问题。
 
 **效果**：
 - BWV 248 合并 65 乐章（9+14+13+7+11+11），`number` 唯一，标题 `Movement I.1` ~ `Movement VI.11`，主标题 `BWV 248 — „Weihnachts-Oratorium“`
+- BWV 248 背景补全：6 部分 occasion 聚合、17 段经文（Epistle/Gospel，带部分标记）、14 个众赞歌链接、作曲年份 1734
 - BWV 3 主标题 `„Ach Gott, wie manches Herzeleid“`（此前 fallback 为歌词行）
 
-**已知限制**：bach-cantatas.com（step2）对 BWV 248 六部分用 `BWV248-1-Eng3.htm` ~ `BWV248-6-Eng3.htm`，当前 `_fetch_page` 仍按单一 `BWV248-Eng3.htm`（404）抓取，故 BWV 248 的 metadata（occasion/readings/chorale links）暂缺；bachcantatatexts.org 亦无 BWV 248 JSON，脚注为空。待后续适配 step2。
+**已知限制**：bachcantatatexts.org 无 BWV 248 JSON，故脚注/英文注释仍为空；`movement_info` 仅 bach-cantatas.com 第一部（9 乐章）能提取到配器，其余五部分沿用 step1 的声部信息。
 
 ---
 
