@@ -24,7 +24,8 @@
 
 | 文件 | 修复 |
 |------|------|
-| `pipeline/step1_uofa.py` | ① 新增 `_extract_voices`（`re.findall(r'\b([ABTS])\b')` 提取声部缩写→完整名），`_fetch_uofa` 存 `voices` 字段；② em 行处理：首词命中 `DIALOGUE_ROLE_NAMES` 的场景标记（"Evangelist, zwei Männer…"）→ 角色标签 dict；③ Step C 检测到 Evangelist 时补充 `voice_to_role={'Tenor': 'Evangelist'}`（清唱剧叙述者=男高音），使 "Tenor"→"Evangelist"、"beide"→角色标签 |
+| `pipeline/step1_uofa.py` | ① 新增 `_extract_voices`（`re.findall(r'\b([ABTS])\b')` 提取声部缩写→完整名），`_fetch_uofa` 存 `voices` 字段；② em 行处理：首词命中 `DIALOGUE_ROLE_NAMES` 的场景标记（"Evangelist, zwei Männer…"）→ 角色标签 dict；③ Step C 改用显式 `ORATORIO_PASSION_BWV` 列表：无 `voice_to_role` 时补充默认 `{'Tenor': 'Evangelist'}`（清唱剧/受难曲叙述者=男高音），使 "Tenor"→"Evangelist"、"beide"→角色标签 |
+| `pipeline/config.py` | 新增 `ORATORIO_PASSION_BWV = {11, 248, 249, 244, 245}`（清唱剧 + 受难曲）与 `ORATORIO_PASSION_VOICE_ROLE = {'Tenor': 'Evangelist'}` 默认映射 |
 | `pipeline/step4_translate.py` | 标题生成 `voices = mi.get('voices') or mv.get('voices')`（7a/7b/7c 回退到 step1 解析的声部），且 `full_label = raw_type or mv.get('type')` 修复类型缺失 |
 
 **效果**：
