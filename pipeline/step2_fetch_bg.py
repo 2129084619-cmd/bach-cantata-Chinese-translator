@@ -24,6 +24,7 @@ import urllib3
 BWV_COMPOSED_FALLBACK = {
     '71': '1708 (Mühlhausen)',
     '140': '1731 (Leipzig)',
+    '248': '1734 (Leipzig)',
 }
 
 import requests
@@ -335,6 +336,65 @@ def _extract_metadata(html_text):
     return metadata
 
 
+def _parse_readings_body(body, kind):
+    """Parse a readings sub-body into individual reference dicts.
+
+    Handles multiple readings joined by '/' and chapters joined by '&'
+    (e.g. "Titus 2: 11-14 / Isaiah 9: 2-7", "Acts 6: 8-15 & 7: 55-60").
+    A '&'-joined segment that lacks a book name inherits the previous one.
+    """
+    refs = []
+    last_book = None
+    for seg in re.split(r'[/&]', body):
+        seg = seg.strip()
+        # Normalise a trailing period on the book name ("Titus. 3: 4-7" →
+        # "Titus 3: 4-7") and a trailing period on the whole segment.
+        seg = re.sub(r'\.\s*(?=\d)', ' ', seg)
+        seg = seg.rstrip('.')
+        if not seg:
+            continue
+        m = re.match(r'^(\d?\s*[A-Za-z]+(?:\s+[A-Za-z]+)*)\s+(\d+)\s*:\s*(.+)$', seg)
+        if m:
+            book = m.group(1).strip()
+            chapter = int(m.group(2))
+            verse = m.group(3).strip()
+            last_book = book
+        else:
+            m2 = re.match(r'^(\d+)\s*:\s*(.+)$', seg)
+            if not m2 or not last_book:
+                continue
+            book = last_book
+            chapter = int(m2.group(1))
+            verse = m2.group(2).strip()
+        book = config.BOOK_EN_ALIAS.get(book, book)
+        refs.append({'book': book, 'chapter': chapter, 'verse': verse, 'kind': kind})
+    return refs
+
+
+def _extract_readings_list(html_text):
+    """Extract ALL Epistle/Gospel readings from a bach-cantatas.com page.
+
+    Unlike _extract_metadata's single epistle/gospel regex (which keeps only
+    the first reading), this returns every reading on the "Readings:" line,
+    e.g. "Epistle: Titus 2: 11-14 / Isaiah 9: 2-7 ; Gospel: Luke 2: 1-14".
+
+    Returns a list of {book, chapter, verse, kind} dicts (kind ∈ epistle/gospel).
+    """
+    text = _strip_html_structured(html_text)
+    m = re.search(r'Readings\s*:\s*(.*)', text, re.IGNORECASE)
+    if not m:
+        return []
+    line = m.group(1).strip()
+    refs = []
+    for seg in re.split(r';\s*', line):
+        m2 = re.match(r'(Epistle|Gospel)\s*:\s*(.*)', seg, re.IGNORECASE)
+        if not m2:
+            continue
+        kind = m2.group(1).lower()
+        refs.extend(_parse_readings_body(m2.group(2).strip(), kind))
+    return refs
+
+
 def _extract_chorale_links(html_text):
     """Extract Chorale ID links from bach-cantatas.com page.
 
@@ -457,17 +517,107 @@ def _extract_bachipedia_readings(html_text):
     return refs
 
 
+def _run_multipart(bwv, parts):
+    """Fetch and merge metadata for a multi-part work across its pages.
+
+    bach-cantatas.com splits BWV 248 across BWV248-1-Eng3.htm …
+    BWV248-6-Eng3.htm (Arabic numerals). Each page carries its own
+    Event/Readings/Text; we aggregate them, offset each part's movement
+    numbers by part_index * MULTI_PART_OFFSET, and collect every reading
+    into readings['all'] (each tagged with its 'part').
+    """
+    occasions = []
+    librettists = []
+    chorale_texts = []
+    all_readings = []
+    chorale_ids = set()
+    movement_info = []
+    composed = ''
+    parts_detail = []
+
+    for part_index, suffix in enumerate(parts):
+        page_bwv = f'{bwv}-{part_index + 1}'  # bach-cantatas.com uses Arabic numerals
+        html = _fetch_page(page_bwv)
+        meta = _extract_metadata(html)
+        chor = _extract_chorale_links(html)
+        readings = _extract_readings_list(html)
+
+        if meta['occasion']:
+            occasions.append(meta['occasion'])
+        if meta['librettist']:
+            librettists.append(meta['librettist'])
+        if meta['chorale_text']:
+            chorale_texts.append(meta['chorale_text'])
+        if not composed and meta['composed']:
+            composed = meta['composed']
+        chorale_ids.update(chor)
+        for mi in meta['movement_info']:
+            mi = dict(mi)
+            mi['number'] = part_index * config.MULTI_PART_OFFSET + mi['number']
+            mi['part'] = suffix
+            movement_info.append(mi)
+        for r in readings:
+            r = dict(r)
+            r['part'] = suffix
+            all_readings.append(r)
+        parts_detail.append({'part': suffix, 'event': meta['occasion'], 'readings': readings})
+
+    first_ep = next((r for r in all_readings if r['kind'] == 'epistle'), None)
+    first_gos = next((r for r in all_readings if r['kind'] == 'gospel'), None)
+
+    def _compat(r):
+        if not r:
+            return {}
+        return {'book': r['book'], 'chapter': r['chapter'], 'verses': r['verse']}
+
+    metadata = {
+        'occasion': ' | '.join(occasions),
+        'occasion_cn': '',
+        'readings': {
+            'epistle': _compat(first_ep),
+            'gospel': _compat(first_gos),
+            'all': all_readings,
+            'bachipedia': [],
+        },
+        'composed': composed,
+        'librettist': ' | '.join(librettists),
+        'chorale_text': ' | '.join(chorale_texts),
+        'movement_info': movement_info,
+        'chorale_ids': sorted(chorale_ids),
+        'parts': parts_detail,
+    }
+
+    # bachipedia.org supplementary readings (single work page)
+    bachipedia_html = _fetch_bachipedia(bwv)
+    bachipedia_refs = _extract_bachipedia_readings(bachipedia_html)
+    metadata['readings']['bachipedia'] = bachipedia_refs
+
+    # Apply hardcoded fallback for missing fields
+    if not metadata.get('composed') and bwv in BWV_COMPOSED_FALLBACK:
+        metadata['composed'] = BWV_COMPOSED_FALLBACK[bwv]
+        log.info(f"[Step 2] Composed date set from fallback: {metadata['composed']}")
+
+    log.info(f"[Step 2] Merged {len(parts)} parts: {len(occasions)} occasions, "
+             f"{len(all_readings)} readings, {len(chorale_ids)} chorale links, "
+             f"{len(movement_info)} movement info")
+    return metadata
+
+
 def run(bwv_number, html_text=None):
     """Execute Step 2: extract background metadata.
 
     Args:
         bwv_number: int or str.
-        html_text: Optional pre-fetched HTML.
+        html_text: Optional pre-fetched HTML (single-page works only).
 
     Returns:
         dict: metadata
     """
     bwv = str(bwv_number)
+    parts = config.BWV_MULTI_PART.get(bwv)
+    if parts:
+        return _run_multipart(bwv, parts)
+
     if html_text is None:
         html_text = _fetch_page(bwv)
     metadata = _extract_metadata(html_text)
