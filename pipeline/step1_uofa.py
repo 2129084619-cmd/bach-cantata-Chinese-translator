@@ -32,6 +32,12 @@ from . import step1_fetch_texts
 UOF_A_URL = 'https://sites.ualberta.ca/~wfb/cantatas/{bwv}.html'
 BCT_URL = 'https://bachcantatatexts.org/BWV{bwv}.json'
 
+# Movement-number offset applied to each part of a multi-part work so the
+# merged movement list stays unique (BWV 248 part I: 1..9, part II: 1001..,
+# part III: 2001.., …). Kept well above the letter-suffix encoding used by
+# _parse_mvt_number (base*100+suffix, max ~2700 for real cantatas).
+_MULTI_PART_OFFSET = 1000
+
 
 def run(bwv_number):
     """Fetch and parse cantata data from primary + secondary sources.
@@ -278,7 +284,21 @@ def _apply_role_labels(movements, voice_to_role):
 # ═══════════════════════════════════════════════════════════════
 
 def _extract_title(soup):
-    """Extract the cantata title from the page's 'BWV N ...' line."""
+    """Extract the cantata title from the page.
+
+    Prefers the <td class="title"> cell (the work's title line, e.g. "Wie
+    schön leuchtet der Morgenstern"), stripping a trailing part numeral
+    ("... Herzeleid I" → "... Herzeleid"). Falls back to the old 'BWV N …'
+    line scan for pages that lack the classed cell.
+    """
+    title_cell = soup.find('td', class_='title')
+    if title_cell:
+        raw = title_cell.get_text(' ', strip=True)
+        # Drop a trailing part numeral ("Herzeleid I", "Morgenstern II")
+        raw = re.sub(r'\s+[IVX]+\s*$', '', raw).strip()
+        if raw:
+            return raw
+
     text = soup.get_text('\n')
     lines = [l.rstrip() for l in text.split('\n')]
     for line in lines[:5]:
@@ -291,6 +311,15 @@ def _extract_title(soup):
                 raw = re.split(r'\s*\|\s*', raw)[0].strip()
                 raw = re.sub(r'\s*,?\s*$', '', raw)
                 return raw
+    return ''
+
+
+def _extract_subtitle(soup):
+    """Extract the <td class="subtitle"> cell (e.g. "Weihnachts-Oratorium I",
+    "Himmelfahrts-Oratorium"), or '' if absent."""
+    sub = soup.find('td', class_='subtitle')
+    if sub:
+        return sub.get_text(' ', strip=True)
     return ''
 
 
@@ -388,7 +417,7 @@ def _parse_text_cell(cell):
 
 
 def _fetch_uofa(bwv):
-    """Fetch and parse German text from UAlberta cantata page.
+    """Fetch and parse German text from UAlberta cantata page(s).
 
     For dialogue/secular/passion works: detects role→voice mappings from
     page top / movement headers, then replaces voice abbreviations (Alt,
@@ -398,8 +427,54 @@ def _fetch_uofa(bwv):
     marked 'is_chorale' and the movement's 'has_chorale' flag is derived from
     their presence — a reliable signal independent of the type keyword (which
     may be 'Coro', 'Aria', 'Recitativo', etc.).
+
+    Multi-part works (BWV 248, the Christmas Oratorio) are split across six
+    UAlberta pages (248I.html … 248VI.html); these are fetched and merged via
+    _fetch_uofa_multipart.
     """
-    url = UOF_A_URL.format(bwv=bwv)
+    parts = config.BWV_MULTI_PART.get(str(bwv))
+    if parts:
+        return _fetch_uofa_multipart(bwv, parts)
+    movements, title, _subtitle = _fetch_uofa_page(bwv, UOF_A_URL.format(bwv=bwv))
+    return movements, title
+
+
+def _fetch_uofa_multipart(bwv, parts):
+    """Fetch and merge a work split across multiple UAlberta pages.
+
+    Each part's movement numbers restart at 1; we offset them by
+    part_index * _MULTI_PART_OFFSET so the merged list has unique numbers,
+    and tag each movement with its part suffix ('I'…'VI') plus a display
+    label ('I.1', 'II.5', …).
+
+    The overall title is taken from the first part's <td class="subtitle">
+    ("Weihnachts-Oratorium I") with the part numeral stripped, since each
+    part's own title is just its opening incipit.
+    """
+    all_movements = []
+    title = ''
+    for part_index, suffix in enumerate(parts):
+        bwv_label = f'{bwv}{suffix}'
+        url = UOF_A_URL.format(bwv=bwv_label)
+        movements, part_title, subtitle = _fetch_uofa_page(
+            bwv_label, url, part_suffix=suffix, part_index=part_index)
+        if not title:
+            if subtitle:
+                # "Weihnachts-Oratorium I" → "Weihnachts-Oratorium"
+                title = re.sub(r'\s+[IVX]+\s*$', '', subtitle).strip()
+            elif part_title:
+                title = part_title
+        all_movements.extend(movements)
+    return all_movements, title
+
+
+def _fetch_uofa_page(bwv, url, part_suffix=None, part_index=None):
+    """Fetch and parse a single UAlberta cantata page.
+
+    Returns (movements, title, subtitle). When part_suffix is given, each
+    movement's number is offset by part_index * _MULTI_PART_OFFSET and tagged
+    with the part suffix so merged multi-part works stay unambiguous.
+    """
     try:
         resp = requests.get(url, timeout=config.REQUEST_TIMEOUT)
         resp.raise_for_status()
@@ -417,8 +492,7 @@ def _fetch_uofa(bwv):
         print(f"  [UAlberta] Detected roles: {roles_str}")
 
     title = _extract_title(soup)
-
-    title = _extract_title(soup)
+    subtitle = _extract_subtitle(soup)
 
     # ── Step B: Parse movements from the HTML table structure ──
     # Each movement is a <tr> with a <td class="movement"> (header + instruments)
@@ -434,7 +508,7 @@ def _fetch_uofa(bwv):
         m = header_pattern.match(header_text)
         if not m:
             continue
-        mvt_num, mv_label = step1_fetch_texts._parse_mvt_number(
+        base_num, base_label = step1_fetch_texts._parse_mvt_number(
             m.group(1) + (m.group(2) or ''))
         mvt_type_raw = m.group(3).strip()
         mvt_type = _classify_mvt_type(mvt_type_raw)
@@ -472,6 +546,12 @@ def _fetch_uofa(bwv):
             for g in german
         ]
 
+        mvt_num = base_num
+        mv_label = base_label
+        if part_suffix is not None:
+            mvt_num = part_index * _MULTI_PART_OFFSET + base_num
+            mv_label = f'{part_suffix}.{base_label}'
+
         mv_dict = {
             'number': mvt_num,
             'mvt_label': mv_label,
@@ -483,6 +563,8 @@ def _fetch_uofa(bwv):
             'has_chorale': has_chorale,
             'voices': _extract_voices(mvt_type_raw),
         }
+        if part_suffix is not None:
+            mv_dict['part'] = part_suffix
         if not mvt_type:
             mv_dict['mv_type_raw'] = mvt_type_raw
             mv_dict['is_uncertain_type'] = True
@@ -490,15 +572,17 @@ def _fetch_uofa(bwv):
 
     # ── Step C: Post-process ─ replace voice markers with role names ──
     # Oratorio/Passion works (BWV 11/248/249/244/245) have no explicit
-    # role→voice map on UAlberta; the narrator (Evangelist) is always the
+    # role→voice map on every page; the narrator (Evangelist) is always the
     # Tenor. Supply the default map so "Tenor"/"beide" markers become role
-    # labels instead of plain lyric lines.
-    if not voice_to_role and str(bwv) in config.ORATORIO_PASSION_BWV:
+    # labels instead of plain lyric lines. For multi-part pages the bwv label
+    # carries a Roman numeral (e.g. "248I"), so strip non-digits first.
+    base_bwv = re.sub(r'[^0-9]', '', str(bwv))
+    if not voice_to_role and base_bwv in config.ORATORIO_PASSION_BWV:
         voice_to_role = config.ORATORIO_PASSION_VOICE_ROLE
     if voice_to_role:
         _apply_role_labels(movements, voice_to_role)
 
-    return movements, title
+    return movements, title, subtitle
 
 
 
