@@ -70,6 +70,12 @@ def collect_bible_references(metadata, chorale_bible_refs=None):
     gos = readings.get('gospel', {}) or {}
     if gos.get('book'):
         _add(gos['book'], gos.get('chapter'), gos.get('verses', ''), 'gospel')
+    # Multi-part works (BWV 248) aggregate every Epistle/Gospel reading into
+    # readings['all'] (each {book, chapter, verse, kind, part}). Consume them
+    # here so every part's readings are fetched, not just the first.
+    for r in readings.get('all', []) or []:
+        _add(r.get('book'), r.get('chapter'), r.get('verse', ''),
+             r.get('kind', 'epistle'))
     for r in readings.get('bachipedia', []) or []:
         _add(r.get('book'), r.get('chapter'), r.get('verse', ''), 'bachipedia')
     for r in (chorale_bible_refs or []):
