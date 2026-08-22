@@ -10,6 +10,30 @@
 
 ---
 
+## [1.0.5] - 2026-08-22（补丁小更）
+
+### 🩹 Patch Note（补丁说明）
+
+本次补丁解决 BWV 11《Lobet Gott in seinen Reichen》（升天节清唱剧）两个问题：**子编号乐章标题缺声部信息**，以及**清唱剧的角色/场景标记未启用角色标签渲染**。
+
+**问题背景 1 — 7a/7b/7c 标题缺声部**：`step1` 的 `_classify_mvt_type` 只返回类型（"Recitativo T B" → "Recitative"），丢弃了声部缩写；且 bach-cantatas.com 的 `movement_info` 不覆盖 7a/7b/7c。导致 docx 标题显示 "Movement 7a — Recitative"，缺其他乐章都有的 "[Tenor]" 声部标注。
+
+**问题背景 2 — 清唱剧角色标记未渲染**：BWV 11 无 `persons_role_map`，`_apply_role_labels` 因 `voice_to_role` 为空而不执行，7a 的 "Evangelist, zwei Männer…"（场景）、"Tenor"（声部）、"beide"（二重唱）均按普通德文行翻译。
+
+**修复内容**：
+
+| 文件 | 修复 |
+|------|------|
+| `pipeline/step1_uofa.py` | ① 新增 `_extract_voices`（`re.findall(r'\b([ABTS])\b')` 提取声部缩写→完整名），`_fetch_uofa` 存 `voices` 字段；② em 行处理：首词命中 `DIALOGUE_ROLE_NAMES` 的场景标记（"Evangelist, zwei Männer…"）→ 角色标签 dict；③ Step C 检测到 Evangelist 时补充 `voice_to_role={'Tenor': 'Evangelist'}`（清唱剧叙述者=男高音），使 "Tenor"→"Evangelist"、"beide"→角色标签 |
+| `pipeline/step4_translate.py` | 标题生成 `voices = mi.get('voices') or mv.get('voices')`（7a/7b/7c 回退到 step1 解析的声部），且 `full_label = raw_type or mv.get('type')` 修复类型缺失 |
+
+**效果**：
+- 标题：`Movement 7a — Recitative [Tenor, Bass]` / `7b — Recitative [Alto]` / `7c — Recitative [Tenor]`
+- 角色标签：7a 场景"传福音者；两位白衣人"、"传福音者"、"二人同声"均按角色标签渲染
+- BWV 11 docx 重写（56 行译文 + 26 脚注复用旧译文），中文 txt 同步更新
+
+---
+
 ## [1.0.4] - 2026-08-20（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
