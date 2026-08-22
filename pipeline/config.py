@@ -245,3 +245,24 @@ DIALOGUE_ROLE_NAMES = frozenset({
     # === Secular — BWV 249b (Celebration of Genius) ===
     'Genius',       # Genius
 })
+
+# ── Oratorio / Passion works ──
+# Bach's oratorios and Passions use an Evangelist (narrator) and, in the
+# Passions, a Christ/character bass. Their UAlberta lyrics mark role labels
+# with <em> (voice markers like "Tenor"/"beide") but expose no Persons:
+# role→voice map, so step1 supplies a default voice→role map for these works.
+ORATORIO_PASSION_BWV = frozenset({
+    '11',    # Lobet Gott in seinen Reichen — Ascension Oratorio
+    '248',   # Christmas Oratorio (six parts)
+    '249',   # Easter Oratorio
+    '244',   # St Matthew Passion
+    '245',   # St John Passion
+})
+
+# Default voice→role map for oratorio/Passion works (when no Persons: map).
+# The narrator (Evangelist) is always the Tenor. The Passions' Bass for
+# Jesus/Christ is left to DIALOGUE_ROLE_NAMES standalone-name detection rather
+# than a blanket voice→role rule — the Oratorios' Bass is a lyric soloist.
+ORATORIO_PASSION_VOICE_ROLE = {
+    'Tenor': 'Evangelist',
+}
