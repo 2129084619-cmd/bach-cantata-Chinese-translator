@@ -32,11 +32,8 @@ from . import step1_fetch_texts
 UOF_A_URL = 'https://sites.ualberta.ca/~wfb/cantatas/{bwv}.html'
 BCT_URL = 'https://bachcantatatexts.org/BWV{bwv}.json'
 
-# Movement-number offset applied to each part of a multi-part work so the
-# merged movement list stays unique (BWV 248 part I: 1..9, part II: 1001..,
-# part III: 2001.., …). Kept well above the letter-suffix encoding used by
-# _parse_mvt_number (base*100+suffix, max ~2700 for real cantatas).
-_MULTI_PART_OFFSET = 1000
+# Movement-number offset per part of a multi-part work (shared with step2).
+_MULTI_PART_OFFSET = config.MULTI_PART_OFFSET
 
 
 def run(bwv_number):
