@@ -489,17 +489,12 @@ def _fetch_uofa(bwv):
         movements.append(mv_dict)
 
     # ── Step C: Post-process ─ replace voice markers with role names ──
-    # Oratorio/Passion works (detected via an Evangelist role label) have no
-    # explicit role→voice map on UAlberta; the narrator is always the Tenor.
-    # Supply a default Tenor→Evangelist map so "Tenor"/"beide" markers become
-    # role labels instead of plain lyric lines.
-    if not voice_to_role:
-        has_evangelist = any(
-            isinstance(g, dict) and g.get('text') == 'Evangelist'
-            for mv in movements for g in mv.get('german', [])
-        )
-        if has_evangelist:
-            voice_to_role = {'Tenor': 'Evangelist'}
+    # Oratorio/Passion works (BWV 11/248/249/244/245) have no explicit
+    # role→voice map on UAlberta; the narrator (Evangelist) is always the
+    # Tenor. Supply the default map so "Tenor"/"beide" markers become role
+    # labels instead of plain lyric lines.
+    if not voice_to_role and str(bwv) in config.ORATORIO_PASSION_BWV:
+        voice_to_role = config.ORATORIO_PASSION_VOICE_ROLE
     if voice_to_role:
         _apply_role_labels(movements, voice_to_role)
 
