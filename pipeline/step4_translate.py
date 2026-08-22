@@ -463,65 +463,104 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
     _gap()
 
     # ═══════════════════════════════════════════════════════════════
-    # BASIC INFORMATION TABLE (merged from former Docx1)
-    # ═══════════════════════════════════════════════════════════════
-    _h('\u57fa\u672c\u4fe1\u606f / General Information', level=2)
+    # ═════════════════════════════════════════════════════════════════
+    # BASIC INFORMATION — one table per part for multi-part works
+    # ═════════════════════════════════════════════════════════════════
+    _h('基本信息 / General Information', level=2)
 
-    info_items = [
-        ('\u4f5c\u54c1\u7f16\u53f7 / BWV', str(bwv_number)),
-    ]
-    occasion = metadata.get('occasion', '')
-    if occasion:
-        info_items.append(('\u793c\u4eea\u573a\u5408 / Occasion', occasion))
-    composed = metadata.get('composed', '')
-    if composed:
-        info_items.append(('\u4f5c\u66f2\u65f6\u95f4 / Composed', composed))
-    librettist = metadata.get('librettist', '')
-    if librettist:
-        info_items.append(('\u6b4c\u8bcd\u4f5c\u8005 / Librettist', librettist))
-    chorale = metadata.get('chorale_text', '')
-    if chorale:
-        info_items.append(('\u4f17\u8d5e\u6b4c / Chorale', chorale))
-    readings_all = metadata.get('readings', {}).get('all', [])
-    if readings_all:
-        # Multi-part work (e.g. BWV 248): aggregate every part's Epistle/Gospel,
-        # tagging each with its part numeral.
-        ep_refs = [r for r in readings_all if r.get('kind') == 'epistle']
-        gos_refs = [r for r in readings_all if r.get('kind') == 'gospel']
-        if ep_refs:
-            info_items.append(('\u4e66\u4fe1\u7ecf\u6587 / Epistle',
-                              ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
-                                         for r in ep_refs)))
-        if gos_refs:
-            info_items.append(('\u798f\u97f3\u7ecf\u6587 / Gospel',
-                              ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
-                                         for r in gos_refs)))
+    def _info_table(rows):
+        """Render a 2-column label/value table."""
+        t = doc.add_table(rows=len(rows), cols=2, style='Light Grid Accent 1')
+        for i, (k, v) in enumerate(rows):
+            t.cell(i, 0).text = k
+            t.cell(i, 1).text = v
+            for ci in [0, 1]:
+                for para in t.cell(i, ci).paragraphs:
+                    for run in para.runs:
+                        run.font.size = Pt(9.5)
+        for row in t.rows:
+            row.cells[0].width = Cm(4.5)
+        return t
+
+    parts = metadata.get('parts', []) if metadata else []
+
+    if parts:
+        # Multi-part work (e.g. BWV 248 Christmas Oratorio): render ONE table
+        # PER PART so each part's occasion/readings stay grouped and readable,
+        # instead of one long combined table.
+        overview = [('作品编号 / BWV', str(bwv_number))]
+        composed = metadata.get('composed', '')
+        if composed:
+            overview.append(('作曲时间 / Composed', composed))
+        librettist = metadata.get('librettist', '')
+        if librettist:
+            overview.append(('歌词作者 / Librettist', librettist))
+        chorale = metadata.get('chorale_text', '')
+        if chorale:
+            overview.append(('众赞歌 / Chorale', chorale))
+        _info_table(overview)
+        _gap()
+
+        for part in parts:
+            label = part.get('part', '')
+            event = part.get('event', '')
+            heading = f'Part {label}'
+            if event:
+                heading += f' — {event}'
+            _h(heading, level=3)
+            rows = [('礼仪场合 / Occasion', event or '')]
+            ep_refs = [r for r in part.get('readings', []) if r.get('kind') == 'epistle']
+            gos_refs = [r for r in part.get('readings', []) if r.get('kind') == 'gospel']
+            if ep_refs:
+                rows.append(('书信经文 / Epistle',
+                             ' | '.join(f"{r['book']} {r['chapter']}:{r['verse']}" for r in ep_refs)))
+            if gos_refs:
+                rows.append(('福音经文 / Gospel',
+                             ' | '.join(f"{r['book']} {r['chapter']}:{r['verse']}" for r in gos_refs)))
+            _info_table(rows)
+            _gap()
     else:
-        ep = metadata.get('readings', {}).get('epistle', {})
-        if ep:
-            info_items.append(('\u4e66\u4fe1\u7ecf\u6587 / Epistle',
-                              f"{ep.get('book', '')} {ep.get('chapter', '')}:{ep.get('verses', '')}"))
-        gos = metadata.get('readings', {}).get('gospel', {})
-        if gos:
-            info_items.append(('\u798f\u97f3\u7ecf\u6587 / Gospel',
-                              f"{gos.get('book', '')} {gos.get('chapter', '')}:{gos.get('verses', '')}"))
-
-    info_table = doc.add_table(rows=len(info_items), cols=2, style='Light Grid Accent 1')
-    for i, (k, v) in enumerate(info_items):
-        info_table.cell(i, 0).text = k
-        info_table.cell(i, 1).text = v
-        for ci in [0, 1]:
-            for para in info_table.cell(i, ci).paragraphs:
-                for run in para.runs:
-                    run.font.size = Pt(9.5)
-    for row in info_table.rows:
-        row.cells[0].width = Cm(4.5)
+        # Single-part work: one combined table (unchanged behaviour).
+        info_items = [('作品编号 / BWV', str(bwv_number))]
+        occasion = metadata.get('occasion', '')
+        if occasion:
+            info_items.append(('礼仪场合 / Occasion', occasion))
+        composed = metadata.get('composed', '')
+        if composed:
+            info_items.append(('作曲时间 / Composed', composed))
+        librettist = metadata.get('librettist', '')
+        if librettist:
+            info_items.append(('歌词作者 / Librettist', librettist))
+        chorale = metadata.get('chorale_text', '')
+        if chorale:
+            info_items.append(('众赞歌 / Chorale', chorale))
+        readings_all = metadata.get('readings', {}).get('all', [])
+        if readings_all:
+            ep_refs = [r for r in readings_all if r.get('kind') == 'epistle']
+            gos_refs = [r for r in readings_all if r.get('kind') == 'gospel']
+            if ep_refs:
+                info_items.append(('书信经文 / Epistle',
+                                  ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
+                                             for r in ep_refs)))
+            if gos_refs:
+                info_items.append(('福音经文 / Gospel',
+                                  ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
+                                             for r in gos_refs)))
+        else:
+            ep = metadata.get('readings', {}).get('epistle', {})
+            if ep:
+                info_items.append(('书信经文 / Epistle',
+                                  f"{ep.get('book', '')} {ep.get('chapter', '')}:{ep.get('verses', '')}"))
+            gos = metadata.get('readings', {}).get('gospel', {})
+            if gos:
+                info_items.append(('福音经文 / Gospel',
+                                  f"{gos.get('book', '')} {gos.get('chapter', '')}:{gos.get('verses', '')}"))
+        _info_table(info_items)
 
     _gap()
     _hr()
     _gap()
 
-    # ═══════════════════════════════════════════════════════════════
     # MOVEMENTS — per-line German-Chinese pairing
     # ═══════════════════════════════════════════════════════════════
     for mv in movements:
