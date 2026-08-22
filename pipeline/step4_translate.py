@@ -482,14 +482,29 @@ def generate_docx2(bwv_number, movements, footnotes, glossary,
     chorale = metadata.get('chorale_text', '')
     if chorale:
         info_items.append(('\u4f17\u8d5e\u6b4c / Chorale', chorale))
-    ep = metadata.get('readings', {}).get('epistle', {})
-    if ep:
-        info_items.append(('\u4e66\u4fe1\u7ecf\u6587 / Epistle',
-                          f"{ep.get('book', '')} {ep.get('chapter', '')}:{ep.get('verses', '')}"))
-    gos = metadata.get('readings', {}).get('gospel', {})
-    if gos:
-        info_items.append(('\u798f\u97f3\u7ecf\u6587 / Gospel',
-                          f"{gos.get('book', '')} {gos.get('chapter', '')}:{gos.get('verses', '')}"))
+    readings_all = metadata.get('readings', {}).get('all', [])
+    if readings_all:
+        # Multi-part work (e.g. BWV 248): aggregate every part's Epistle/Gospel,
+        # tagging each with its part numeral.
+        ep_refs = [r for r in readings_all if r.get('kind') == 'epistle']
+        gos_refs = [r for r in readings_all if r.get('kind') == 'gospel']
+        if ep_refs:
+            info_items.append(('\u4e66\u4fe1\u7ecf\u6587 / Epistle',
+                              ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
+                                         for r in ep_refs)))
+        if gos_refs:
+            info_items.append(('\u798f\u97f3\u7ecf\u6587 / Gospel',
+                              ' | '.join(f"[{r.get('part', '')}] {r['book']} {r['chapter']}:{r['verse']}"
+                                         for r in gos_refs)))
+    else:
+        ep = metadata.get('readings', {}).get('epistle', {})
+        if ep:
+            info_items.append(('\u4e66\u4fe1\u7ecf\u6587 / Epistle',
+                              f"{ep.get('book', '')} {ep.get('chapter', '')}:{ep.get('verses', '')}"))
+        gos = metadata.get('readings', {}).get('gospel', {})
+        if gos:
+            info_items.append(('\u798f\u97f3\u7ecf\u6587 / Gospel',
+                              f"{gos.get('book', '')} {gos.get('chapter', '')}:{gos.get('verses', '')}"))
 
     info_table = doc.add_table(rows=len(info_items), cols=2, style='Light Grid Accent 1')
     for i, (k, v) in enumerate(info_items):
