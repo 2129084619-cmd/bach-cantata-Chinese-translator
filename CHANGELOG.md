@@ -10,6 +10,27 @@
 
 ---
 
+## [1.1.0] - 2026-08-22（次版本·功能性新增）
+
+### ✨ 新增
+
+**BWV 248《圣诞清唱剧》六部分识别**：UAlberta 将 BWV 248 拆成六个独立页面（`248I.html` ~ `248VI.html`，罗马数字命名，每部分乐章编号从 1 重新开始）。此前 `248.html` 返回 300 重定向导致抓取失败。
+
+| 文件 | 变更 |
+|------|------|
+| `pipeline/config.py` | 新增 `BWV_MULTI_PART = {'248': ('I'…'VI')}` 多部分作品映射 |
+| `pipeline/step1_uofa.py` | ① 重构 `_fetch_uofa` 为分发 + `_fetch_uofa_page`（单页解析）+ `_fetch_uofa_multipart`（多页合并）；② 合并时每部分乐章 `number` 偏移 `part_index * 1000`（I: 1–9、II: 1001–1014…VI: 5001–5011），加 `part` 字段与 `mvt_label` 前缀（`I.1`、`II.5`）；③ 每部分独立解析角色映射（II 有 Engel、VI 有 Herodes），默认 `Tenor→Evangelist` 贯穿全剧（`base_bwv` 去罗马数字后判 `ORATORIO_PASSION_BWV`） |
+
+**标题提取增强**：`_extract_title` 优先 `<td class="title">`（并去掉末尾部分号 "Herzeleid I" → "Herzeleid"），新增 `_extract_subtitle`。多部分作品总标题取首部分 `<td class="subtitle">` 去罗马数字（"Weihnachts-Oratorium I" → "Weihnachts-Oratorium"）。**顺带修复** BWV 3/4/5 众赞歌康塔塔此前 title 为空（靠 fallback 首行歌词）的问题。
+
+**效果**：
+- BWV 248 合并 65 乐章（9+14+13+7+11+11），`number` 唯一，标题 `Movement I.1` ~ `Movement VI.11`，主标题 `BWV 248 — „Weihnachts-Oratorium“`
+- BWV 3 主标题 `„Ach Gott, wie manches Herzeleid“`（此前 fallback 为歌词行）
+
+**已知限制**：bach-cantatas.com（step2）对 BWV 248 六部分用 `BWV248-1-Eng3.htm` ~ `BWV248-6-Eng3.htm`，当前 `_fetch_page` 仍按单一 `BWV248-Eng3.htm`（404）抓取，故 BWV 248 的 metadata（occasion/readings/chorale links）暂缺；bachcantatatexts.org 亦无 BWV 248 JSON，脚注为空。待后续适配 step2。
+
+---
+
 ## [1.0.5] - 2026-08-22（补丁小更）
 
 ### 🩹 Patch Note（补丁说明）
