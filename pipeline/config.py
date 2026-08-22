@@ -144,6 +144,8 @@ BOOK_CHINESE_MAP = {
     '1 John': '约翰一书', '2 John': '约翰二书',
     '3 John': '约翰三书', 'Jude': '犹大书',
     'Revelation': '启示录',
+    # Deuterocanonical (no Chinese Union Version text; flagged for manual handling)
+    'Sirach': '便西拉智训（次经）',
 }
 
 # ── HTTP request settings ──
@@ -273,4 +275,20 @@ ORATORIO_PASSION_VOICE_ROLE = {
 # offsets each part's movement numbers by part_index * 1000 so they stay unique.
 BWV_MULTI_PART = {
     '248': ('I', 'II', 'III', 'IV', 'V', 'VI'),
+}
+
+# Movement-number offset applied per part of a multi-part work (see above),
+# shared by step1_uofa and step2_fetch_bg so merged movement numbers align.
+# Kept well above the letter-suffix encoding of _parse_mvt_number
+# (base*100+suffix, max ~2700 for real cantatas).
+MULTI_PART_OFFSET = 1000
+
+# English book-name aliases found on bach-cantatas.com pages that differ from
+# the canonical English names used by BOOK_CHINESE_MAP (e.g. a typo like
+# "Isaah" for "Isaiah"). Applied to extracted readings before lookup.
+BOOK_EN_ALIAS = {
+    'Isaah': 'Isaiah',
+    # bach-cantatas.com renders the deuterocanonical "Ecclesiasticus" (Sirach)
+    # as "Ecclesiastical Letters" on BWV 248/3's Epistle line.
+    'Ecclesiastical Letters': 'Sirach',
 }
